@@ -75,7 +75,7 @@ function Signup() {
                 onChange={(e)=>setConfirmPassword(e.target.value)}
                 />
             </label>
-            <input type="submit"/>
+            <button type="submit">sign up</button>
             </form>
         </div>
     )
