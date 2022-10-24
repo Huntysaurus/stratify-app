@@ -1,5 +1,7 @@
 # Project Template: React/Rails API
 
+test for git commit change
+
 ## Description
 
 This project is scaffolded so that you can build a React frontend and Rails
