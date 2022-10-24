@@ -1,39 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Signup() {
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
+
+    console.log(name)
+
     return (
         <div>
+            <form>
             <h1>Sign Up</h1>
             <label>
                 enter name
                 <input
-                TYPE="text"
+                type="text"
+                value={name}
+                onChange={(e)=>setName(e.target.value)}
                 />
             </label>
             <label>
                 enter email
                 <input
-                TYPE="text"
+                type="text"
+                value={email}
+                onChange={(e)=>setEmail(e.target.value)}
                 />
             </label>
             <label>
                 create username
                 <input
-                TYPE="text"
+                type="text"
+                value={username}
+                onChange={(e)=>setUsername(e.target.value)}
                 />
             </label>
             <label>
                 create password
                 <input
-                TYPE="text"
+                type="text"
+                value={password}
+                onChange={(e)=>setPassword(e.target.value)}
                 />
             </label>
             <label>
                 confirm password
                 <input
-                TYPE="text"
+                type="text"
+                value={confirmPassword}
+                onChange={(e)=>setConfirmPassword(e.target.value)}
                 />
             </label>
+            </form>
         </div>
     )
 }
