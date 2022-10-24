@@ -16,10 +16,10 @@ function Signup() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                name: name,
-                username: username,
-                email: email,
-                password: password,
+                name,
+                username,
+                email,
+                password,
                 password_confirmation: confirmPassword
             }),
         }).then((r)=> {
