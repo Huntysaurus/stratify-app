@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Home from "./Home";
@@ -8,8 +8,20 @@ function App() {
   const navigate = useNavigate()
   const [user, setUser] = useState(null)
 
+  console.log(user)
+
+  useEffect(()=> {
+    fetch('/me')
+    .then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user))
+      }
+    })
+  },[])
+
   function handleLogin(user) {
     setUser(user)
+    navigate('/shop')
   }
 
   return (
