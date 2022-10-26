@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Routes, Route} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function Signup() {
+function Signup({ onSignup }) {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
@@ -25,7 +25,7 @@ function Signup() {
             }),
         }).then((r)=> {
             if (r.ok) {
-                r.json().then((user) => console.log(user))
+                r.json().then((user) => onSignup(user))
             } else {
                 r.json().then((err) => setErrors(err.errors))
             }
