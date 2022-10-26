@@ -18,7 +18,9 @@ function App() {
       {user ?
         <Shop/>
         :
-        <Home onSignup={handleLogin}/>
+        <Routes>
+          <Route exact path="/" element={ <Home onSignup={handleLogin}/> }/>
+        </Routes>
       }
     </div>
   );
