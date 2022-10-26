@@ -8,17 +8,18 @@ function App() {
   const navigate = useNavigate()
   const [user, setUser] = useState(null)
 
-  console.log(user)
-
   function handleLogin(user) {
     setUser(user)
   }
 
   return (
     <div>
-      <h1>hello this is the app</h1>
-      <Home onSignup={handleLogin}/>
-      <Shop/>
+      <h1>the app banner</h1>
+      {user ?
+        <Shop/>
+        :
+        <Home onSignup={handleLogin}/>
+      }
     </div>
   );
 }

@@ -5,7 +5,7 @@ import Signup from "./SignUp";
 function Home({ onSignup }) {
     return (
         <>
-            <h1>Home</h1>
+            <h1>Home screen banner</h1>
             <Signup onSignup={ onSignup }/>
             <Login />
         </>

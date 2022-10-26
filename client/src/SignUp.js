@@ -9,6 +9,8 @@ function Signup({ onSignup }) {
     const [confirmPassword, setConfirmPassword] = useState("")
     const [errors, setErrors] = useState("")
 
+    console.log(errors)
+
     function handleSubmit(e) {
         e.preventDefault()
         fetch("/users", {
