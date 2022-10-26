@@ -7,7 +7,7 @@ function Home({ onSignup }) {
         <>
             <h1>Home screen banner</h1>
             <Signup onSignup={ onSignup }/>
-            <Login />
+            <Login onLogin={ onSignup }/>
         </>
     )
 }

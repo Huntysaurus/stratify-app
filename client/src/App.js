@@ -16,7 +16,9 @@ function App() {
     <div>
       <h1>the app banner</h1>
       {user ?
-        <Shop/>
+        <Routes>
+          <Route exact path="/shop" element={ <Shop/> }/>
+        </Routes>
         :
         <Routes>
           <Route exact path="/" element={ <Home onSignup={handleLogin}/> }/>
