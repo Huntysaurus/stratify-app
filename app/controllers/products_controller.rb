@@ -6,10 +6,4 @@ class ProductsController < ApplicationController
         render json: products, status: :ok
     end
 
-    def show
-        product = Product.find(params[:id])
-        byebug
-        render json: product, status: :ok
-    end
-
 end
