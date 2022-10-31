@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Product from "./Product";
+import Search from "./Search";
 
 function Shop() {
     const [products, setProducts] = useState([])
@@ -19,6 +20,7 @@ function Shop() {
 
     return (
         <div>
+            <Search />
             <h1>the shop page</h1>
             <div>
                 {products.map(product => {
