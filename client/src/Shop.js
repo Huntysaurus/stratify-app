@@ -14,8 +14,8 @@ function Shop() {
             } else {
                 r.json().then(err => console.log(err.errors))
             }
-        }, [products.id])
-    })
+        })
+    }, [])
 
     return (
         <div>
