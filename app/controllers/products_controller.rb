@@ -12,4 +12,9 @@ class ProductsController < ApplicationController
         render json: product, status: :ok
     end
 
+    def empty
+        products = Product.all
+        render json: products, status: :ok
+    end
+
 end

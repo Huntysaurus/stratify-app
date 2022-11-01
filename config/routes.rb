@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "/me", to: 'users#show'
   
   get "/search/:searched", to: 'products#search'
+  get "/search", to: 'products#empty'
   
   resources :users
   resources :products
