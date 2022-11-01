@@ -18,9 +18,17 @@ function Shop() {
         })
     }, [])
 
+    function handleSearch(searched){
+        if (searched == Array) {
+            const searchedProducts = [searched]
+            setProducts(searchedProducts)
+        }
+        setProducts(searched)
+    }
+
     return (
         <div>
-            <Search />
+            <Search onSearched={handleSearch}/>
             <h1>the shop page</h1>
             <div>
                 {products.map(product => {

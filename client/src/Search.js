@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Seach() {
+function Seach({ onSearched }) {
     const [search, setSearch] = useState("")
 
 
@@ -8,7 +8,7 @@ function Seach() {
         e.preventDefault()
         fetch(`/search/${search}`)
         .then(r => r.json())
-        .then(item => console.log(item))
+        .then(item => onSearched(item))
     }
 
     return (

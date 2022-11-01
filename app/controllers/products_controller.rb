@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
 
     def search
         searched = params[:searched].downcase
-        product = Product.find_by('lower(name) LIKE ?', "%" + searched + "%")
+        product = Product.where('lower(name) LIKE ?', "%" + searched + "%" )
         render json: product, status: :ok
     end
 
