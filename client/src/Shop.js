@@ -19,11 +19,15 @@ function Shop() {
     }, [])
 
     function handleSearch(searched){
-        if (searched == Array) {
+        console.log(searched)
+        if (searched === Array) {
             const searchedProducts = [searched]
             setProducts(searchedProducts)
+        } else if (searched == 0) {
+            console.log('I found nothing')
+        } else {
+            setProducts(searched)
         }
-        setProducts(searched)
     }
 
     return (

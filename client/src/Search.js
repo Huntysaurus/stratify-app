@@ -5,13 +5,9 @@ function Seach({ onSearched }) {
 
     function handleSubmit(e){
         e.preventDefault()
-        if (search) {
-            fetch(`/search/${search}`)
-            .then(r => r.json())
-            .then(item => onSearched(item))
-        } else {
-            console.log('nope')
-        }
+        fetch(`/search/${search}`)
+        .then(r => r.json())
+        .then(item => onSearched(item))
     }
 
     return (
