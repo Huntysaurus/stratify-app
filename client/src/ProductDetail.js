@@ -6,6 +6,11 @@ function ProductDetail({ product }) {
     const [form, setForm] = useState(null)
     const [review, setReview] = useState("")
 
+    function handleSubmit(e) {
+        e.preventDefault()
+        console.log("fake submitted")
+    }
+
     return (
         <div>
             <div>
@@ -25,13 +30,14 @@ function ProductDetail({ product }) {
                 <div>
                     <h1>review</h1>
                     <button onClick={(e)=>setForm(null)}>cancel</button>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <textarea
                             type="text"
                             value={review}
                             onChange={(e)=>setReview(e.target.value)}
                         />
-                    </form> 
+                        <button type="submit" >post review</button>
+                    </form>
                 </div>
             :
                 <button onClick={()=>setForm(true)}>write a review</button>
