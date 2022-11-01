@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react"
 import { Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Home from "./Home";
+import ProductDetail from "./ProductDetail";
 import Shop from "./Shop";
  
 function App() {
   const navigate = useNavigate()
   const [user, setUser] = useState(null)
+  const [product, setProduct] = useState(null)
 
   console.log(user)
 
@@ -24,12 +26,19 @@ function App() {
     navigate('/shop')
   }
 
+  function handleProductNavigation(product) {
+    console.log(product)
+    setProduct(product)
+    navigate("/product_detail")
+  }
+
   return (
     <div>
       <h1>the app banner</h1>
       {user ?
         <Routes>
-          <Route exact path="/shop" element={ <Shop/> }/>
+          <Route exact path="/shop" element={ <Shop onProductClick={handleProductNavigation} /> }/>
+          <Route exact path="/product_detail" element={ <ProductDetail product={product}/> }/>
         </Routes>
         :
         <Routes>

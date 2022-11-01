@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Product from "./Product";
 import Search from "./Search";
 
-function Shop() {
+function Shop({ onProductClick }) {
     const [products, setProducts] = useState([])
 
     console.log(products)
@@ -21,8 +21,7 @@ function Shop() {
     function handleSearch(searched){
         console.log(searched)
         if (searched === Array) {
-            const searchedProducts = [searched]
-            setProducts(searchedProducts)
+            setProducts(searched)
         } else if (searched == 0) {
             console.log('I found nothing')
         } else {
@@ -36,7 +35,7 @@ function Shop() {
             <h1>the shop page</h1>
             <div>
                 {products.map(product => {
-                    return <Product key={product.id} product={product} />
+                    return <Product onProductClick={onProductClick} key={product.id} product={product} />
                 })}
             </div>
         </div>
