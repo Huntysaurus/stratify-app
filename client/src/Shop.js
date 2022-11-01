@@ -22,7 +22,7 @@ function Shop({ onProductClick }) {
         console.log(searched)
         if (searched === Array) {
             setProducts(searched)
-        } else if (searched == 0) {
+        } else if (searched === 0) {
             console.log('I found nothing')
         } else {
             setProducts(searched)
