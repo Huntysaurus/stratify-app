@@ -6,8 +6,6 @@ import Navbar from "./Navbar";
 function Shop({ onProductClick, onLogoutClick }) {
     const [products, setProducts] = useState([])
 
-    console.log(products)
-
     useEffect(()=> {
         fetch('/products')
         .then((r)=> {

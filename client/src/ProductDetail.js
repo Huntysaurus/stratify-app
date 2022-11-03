@@ -4,13 +4,17 @@ import { useNavigate } from "react-router-dom";
 function ProductDetail({ user, product }) {
     const navigate = useNavigate()
     const [form, setForm] = useState(null)
-    const [review, setReview] = useState("")
+    const [description, setDescription] = useState("")
+    const [reviews, setReviews] = useState([])
+
+    // console.log( user.products )
+    // undefined when trying to fetch user and product through reviews
 
     useEffect(() => {
         fetch(`/products/${product.id}/reviews`)
         .then(r => r.json())
-        .then(reviews => console.log(reviews))
-    }, [])
+        .then(reviews => setReviews(reviews))
+    }, [product.id])
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -20,14 +24,14 @@ function ProductDetail({ user, product }) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                description: review,
+                description: description,
                 stars: 1,
                 user_id: user.id,
                 product_id: product.id
             })
         }).then((r) => {
             if (r.ok) {
-                r.json().then(console.log('review posted!'))
+                r.json().then(alert('review posted!'))
                 
             } else {
                 r.json().then((err) => console.log(err))
@@ -57,8 +61,8 @@ function ProductDetail({ user, product }) {
                     <form onSubmit={handleSubmit}>
                         <textarea
                             type="text"
-                            value={review}
-                            onChange={(e)=>setReview(e.target.value)}
+                            value={description}
+                            onChange={(e)=>setDescription(e.target.value)}
                         />
                         <button type="submit" >post review</button>
                     </form>
@@ -66,6 +70,16 @@ function ProductDetail({ user, product }) {
             :
                 <button onClick={()=>setForm(true)}>write a review</button>
             }
+            <div>
+                {reviews.map(review => {
+                    return (
+                        <div key={review.id}>
+                            <li>{review.user}</li>
+                            <li>{review.description}</li>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     )
 }
