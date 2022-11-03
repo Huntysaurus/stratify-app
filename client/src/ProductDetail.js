@@ -74,7 +74,7 @@ function ProductDetail({ user, product }) {
                 {reviews.map(review => {
                     return (
                         <div key={review.id}>
-                            <li>{review.user.name}</li>
+                            <li>{review.user.username}</li>
                             <li>{review.description}</li>
                         </div>
                     )
