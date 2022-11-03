@@ -3,4 +3,6 @@ class User < ApplicationRecord
     validates :password_digest, presence: true
     validates :name, presence: true, length: { in: 2..15 }
     has_secure_password
+    
+    has_many :reviews
 end
