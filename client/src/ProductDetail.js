@@ -1,14 +1,30 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function ProductDetail({ product }) {
+function ProductDetail({ user, product }) {
     const navigate = useNavigate()
     const [form, setForm] = useState(null)
     const [review, setReview] = useState("")
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log("fake submitted")
+        fetch("/reviews", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                description: review,
+                stars: 1,
+                user_id: user.id
+            })
+        }).then((r) => {
+            if (r.ok) {
+                r.json().then(alert('review posted!'))
+            } else {
+                r.json().then((err) => console.log(err))
+            }
+        })
     }
 
     return (

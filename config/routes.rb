@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :reviews
   post "/login", to: 'sessions#create'
   delete "/logout", to: 'sessions#destroy'
   get "/me", to: 'users#show'
@@ -10,6 +9,7 @@ Rails.application.routes.draw do
   
   resources :users
   resources :products
+  resources :reviews
 
   # Routing logic: fallback requests for React Router.
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

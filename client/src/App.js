@@ -46,7 +46,7 @@ function App() {
       {user ?
         <Routes>
           <Route exact path="/shop" element={ <Shop onProductClick={handleProductNavigation} onLogoutClick={handleLogout} /> }/>
-          <Route exact path="/product_detail" element={ <ProductDetail product={product}/> }/>
+          <Route exact path="/product_detail" element={ <ProductDetail user={user} product={product}/> }/>
         </Routes>
         :
         <Routes>
