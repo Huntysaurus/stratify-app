@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   get "/search", to: 'products#empty'
   
   resources :users
-  resources :products
+
+  resources :products do
+    resources :reviews, only: [:index]
+  end
+
   resources :reviews
 
   # Routing logic: fallback requests for React Router.

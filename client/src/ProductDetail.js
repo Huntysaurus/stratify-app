@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function ProductDetail({ user, product }) {
     const navigate = useNavigate()
     const [form, setForm] = useState(null)
     const [review, setReview] = useState("")
+
+    useEffect(() => {
+        fetch(`/products/${product.id}/reviews`)
+        .then(r => r.json())
+        .then(reviews => console.log(reviews))
+    }, [])
 
     function handleSubmit(e) {
         e.preventDefault()
