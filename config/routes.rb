@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   get "/search/:searched", to: 'products#search'
   get "/search", to: 'products#empty'
+  get "/products", to: 'products#index'
   
   resources :users
 

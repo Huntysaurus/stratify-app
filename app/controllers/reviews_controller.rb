@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
             reviews = product.reviews
         elsif
             user = @current_user
-            reviews = User.reviews
+            reviews = user.reviews
         end
         render json: reviews, include: [:user, :product], status: :ok
     end

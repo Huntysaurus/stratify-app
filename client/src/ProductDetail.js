@@ -7,7 +7,7 @@ function ProductDetail({ user, product }) {
     const [description, setDescription] = useState("")
     const [reviews, setReviews] = useState([])
 
-    // console.log( user.products )
+     console.log( user.products )
     // undefined when trying to fetch user and product through reviews
 
     useEffect(() => {
@@ -74,7 +74,7 @@ function ProductDetail({ user, product }) {
                 {reviews.map(review => {
                     return (
                         <div key={review.id}>
-                            <li>{review.user}</li>
+                            <li>{review.user.name}</li>
                             <li>{review.description}</li>
                         </div>
                     )
