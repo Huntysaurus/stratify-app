@@ -16,11 +16,13 @@ function ProductDetail({ user, product }) {
             body: JSON.stringify({
                 description: review,
                 stars: 1,
-                user_id: user.id
+                user_id: user.id,
+                product_id: product.id
             })
         }).then((r) => {
             if (r.ok) {
-                r.json().then(alert('review posted!'))
+                r.json().then(console.log('review posted!'))
+                
             } else {
                 r.json().then((err) => console.log(err))
             }
