@@ -36,7 +36,6 @@ function App() {
   }
 
   function handleProductNavigation(product) {
-    console.log(product)
     setProduct(product)
     navigate("/product_detail")
   }
