@@ -26,6 +26,15 @@ function App() {
     navigate('/shop')
   }
 
+  function handleLogout() {
+    fetch('/logout', {method: "DELETE"}).then((r) => {
+      if (r.ok) {
+        setUser(null)
+      }
+      navigate('/')
+    })
+  }
+
   function handleProductNavigation(product) {
     console.log(product)
     setProduct(product)
@@ -37,7 +46,7 @@ function App() {
       <h1>the app banner</h1>
       {user ?
         <Routes>
-          <Route exact path="/shop" element={ <Shop onProductClick={handleProductNavigation} /> }/>
+          <Route exact path="/shop" element={ <Shop onProductClick={handleProductNavigation} onLogoutClick={handleLogout} /> }/>
           <Route exact path="/product_detail" element={ <ProductDetail product={product}/> }/>
         </Routes>
         :

@@ -10,9 +10,6 @@ function Product({ product, onProductClick}) {
                 alt={product.name}
                 onClick={()=>onProductClick(product)}
                 />
-            {/* <p>{product.category}</p>
-            <p>{product.price}</p>
-            <p>{product.description}</p> */}
         </div>
     )
 }

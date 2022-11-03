@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Product from "./Product";
 import Search from "./Search";
+import Navbar from "./Navbar";
 
-function Shop({ onProductClick }) {
+function Shop({ onProductClick, onLogoutClick }) {
     const [products, setProducts] = useState([])
 
     console.log(products)
@@ -20,9 +21,9 @@ function Shop({ onProductClick }) {
 
     function handleSearch(searched){
         console.log(searched)
-        if (searched === Array) {
+        if (searched === true) {
             setProducts(searched)
-        } else if (searched === 0) {
+        } else if (searched === []) {
             console.log('I found nothing')
         } else {
             setProducts(searched)
@@ -31,6 +32,7 @@ function Shop({ onProductClick }) {
 
     return (
         <div>
+            <Navbar onLogoutClick={onLogoutClick}/>
             <Search onSearched={handleSearch}/>
             <h1>the shop page</h1>
             <div>
