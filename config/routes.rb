@@ -5,10 +5,13 @@ Rails.application.routes.draw do
   get "/me", to: 'users#show'
   
   get "/search/:searched", to: 'products#search'
+  get "/user/:id/reviews", to: 'reviews#index'
   get "/search", to: 'products#empty'
   get "/products", to: 'products#index'
   
-  resources :users
+  resources :users do
+    resources :reviews
+  end
 
   resources :products do
     resources :reviews, only: [:index]

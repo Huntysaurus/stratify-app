@@ -8,9 +8,8 @@ class UsersController < ApplicationController
     end
 
     def show
-        render json: @current_user, status: :ok
+        render json: @current_user, include: [:review, :product], status: :ok
     end
-
 
     private
 
