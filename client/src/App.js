@@ -36,9 +36,15 @@ function App() {
     })
   }
 
-  function handleProductNavigation(product) {
-    setProduct(product)
+  function handleProductNavigation(user) {
+    setProduct(user)
     navigate("/product_detail")
+  }
+
+  function onEditUsername(updated) {
+    setUser(updated)
+    alert('username updated successfully!')
+    window.location.reload()
   }
 
   return (
@@ -48,7 +54,7 @@ function App() {
         <Routes>
           <Route exact path="/shop" element={ <Shop onProductClick={handleProductNavigation} onLogoutClick={handleLogout} /> }/>
           <Route exact path="/product_detail" element={ <ProductDetail user={user} product={product}/> }/>
-          <Route exact path="/profile" element={ <Profile user={user} />}/>
+          <Route exact path="/profile" element={ <Profile onEditUsername={onEditUsername} user={user} />}/>
         </Routes>
         :
         <Routes>

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Review from "./Review";
 
-function Profile({ user }) {
+function Profile({ user, onEditUsername }) {
     const [reviews, setReviews] = useState([])
     const [userForm, setUserForm] = useState(null)
     const [passwordForm, setPasswordForm] = useState(null)
+    const [username, setUsername] = useState("")
+    const [errors, setErrors] = useState("")
 
     useEffect(()=>{
         fetch(`/user/${user.id}/reviews`)
@@ -14,6 +16,32 @@ function Profile({ user }) {
 
     function onPasswordChangeClick(){
         setPasswordForm(true)
+    }
+
+    function handleErrors(err) {
+        setErrors(err.errors)
+        console.log(errors)
+        alert(errors)
+    }
+
+    function handleUsernameSubmit(e) {
+        e.preventDefault()
+        fetch(`/users/${user.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username: username
+            }),
+        }).then((r)=> {
+            if (r.ok) {
+                r.json().then(user => onEditUsername(user))
+            } else {
+                r.json().then((err) => handleErrors(err))
+
+            }
+        })
     }
 
     return (
@@ -27,7 +55,8 @@ function Profile({ user }) {
                     passwordForm ?
                     <form>
                         <button onClick={()=>setPasswordForm(null)}>cancel</button>
-                        <p>the form</p>
+                    <p>password form</p>
+
                     </form>
                     :
                     <button onClick={onPasswordChangeClick}>change password</button>
@@ -37,9 +66,18 @@ function Profile({ user }) {
             <div>
                 {
                     userForm ?
-                    <form>
+                    <form onSubmit={handleUsernameSubmit}>
                         <button onClick={()=>setUserForm(null)}>cancel</button>
-                        <p>the form</p>
+                        <label>
+                            {'New Username:'}
+                            <input
+                                placeholder={user.username}
+                                type="text"
+                                value={username}
+                                onChange={(e)=>setUsername(e.target.value)}
+                            />
+                        </label>
+                        <button type="submit" >submit</button>
                     </form>
                     :
                     <button onClick={()=>setUserForm(true)}>change username</button>

@@ -11,6 +11,11 @@ class UsersController < ApplicationController
         render json: @current_user, include: [:review, :product], status: :ok
     end
 
+    def update
+        user = @current_user.update!(user_params)
+        render json: user, status: :accepted 
+    end
+
     private
 
     def user_params
