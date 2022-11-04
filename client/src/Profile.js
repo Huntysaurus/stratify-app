@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Review from "./Review";
 
 function Profile({ user }) {
     const [reviews, setReviews] = useState([])
@@ -6,7 +7,7 @@ function Profile({ user }) {
     useEffect(()=>{
         fetch(`/user/${user.id}/reviews`)
         .then(r => r.json())
-        .then(reviews => console.log(reviews))
+        .then(reviews => setReviews(reviews))
     }, [])
 
     return (
@@ -20,7 +21,7 @@ function Profile({ user }) {
                 </div>
                 <div>
                     <h2>Your reviews</h2>
-                    {/* {reviews.map(review => )} */}
+                    {reviews.map((review) => <Review review={review}/>)}
                 </div>
             </div>
         </div>
