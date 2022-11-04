@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Review from "./Review";
 
 function Profile({ user, onEditUsername }) {
+    const navigate = useNavigate()
     const [reviews, setReviews] = useState([])
     const [userForm, setUserForm] = useState(null)
     const [passwordForm, setPasswordForm] = useState(null)
@@ -23,6 +25,8 @@ function Profile({ user, onEditUsername }) {
         console.log(errors)
         alert(errors)
     }
+
+    // need to add the password change form as well
 
     function handleUsernameSubmit(e) {
         e.preventDefault()
@@ -46,6 +50,7 @@ function Profile({ user, onEditUsername }) {
 
     return (
         <div>
+            <button onClick={()=>navigate('/shop')}>Shop</button>
             <h1>Profile</h1>
             <div>
                 <h2>{user.name}</h2>
