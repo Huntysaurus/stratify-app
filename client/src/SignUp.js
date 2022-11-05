@@ -64,7 +64,7 @@ function Signup({ onSignup }) {
             <label>
                 create password
                 <input
-                type="text"
+                type="password"
                 value={password}
                 onChange={(e)=>setPassword(e.target.value)}
                 />
@@ -72,7 +72,7 @@ function Signup({ onSignup }) {
             <label>
                 confirm password
                 <input
-                type="text"
+                type="password"
                 value={confirmPassword}
                 onChange={(e)=>setConfirmPassword(e.target.value)}
                 />
