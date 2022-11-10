@@ -3,12 +3,13 @@ class UsersController < ApplicationController
 
     def create
         user = User.create!(user_params)
+        Cart.create!(user_id: user.id)
         session[:user_id] = user.id
-        render json: user, status: :created
+        render json: user, status: :created, include: :cart
     end
 
     def show
-        render json: @current_user, include: [:review, :product], status: :ok
+        render json: @current_user, include: [:review, :product, :cart ], status: :ok
     end
 
     def update
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:name, :username, :email, :password, :password_confirmation)
+        params.permit(:name, :username, :email, :password, :password_confirmation )
     end
 
 end

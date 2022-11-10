@@ -10,14 +10,20 @@ function App() {
   const navigate = useNavigate()
   const [user, setUser] = useState(null)
   const [product, setProduct] = useState(null)
+  const [cart, setCart] = useState(null)
 
-  console.log(user)
+  console.log(cart)
+
+  function onFetchUser(user) {
+    setUser(user)
+    setCart(user.cart)
+  }
 
   useEffect(()=> {
     fetch('/me')
     .then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user))
+        r.json().then((user) => onFetchUser(user))
       }
     })
   },[])
