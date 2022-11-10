@@ -5,6 +5,7 @@ import Home from "./Home";
 import ProductDetail from "./ProductDetail";
 import Shop from "./Shop";
 import Profile from "./Profile";
+import ShoppingCart from "./ShoppingCart";
  
 function App() {
   const navigate = useNavigate()
@@ -58,6 +59,7 @@ function App() {
       <h1>the app banner</h1>
       {user ?
         <Routes>
+          <Route exact path="/cart" element={ <ShoppingCart />}/>
           <Route exact path="/shop" element={ <Shop onProductClick={handleProductNavigation} onLogoutClick={handleLogout} /> }/>
           <Route exact path="/product_detail" element={ <ProductDetail user={user} product={product}/> }/>
           <Route exact path="/profile" element={ <Profile onEditUser={handleEditUser} user={user} />}/>
