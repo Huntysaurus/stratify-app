@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_08_033656) do
+ActiveRecord::Schema.define(version: 2022_11_10_013147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer "session_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "cart_id"
+    t.integer "product_id"
   end
 
   create_table "carts", force: :cascade do |t|
@@ -35,7 +36,6 @@ ActiveRecord::Schema.define(version: 2022_11_08_033656) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "cart_item_id"
   end
 
   create_table "reviews", force: :cascade do |t|

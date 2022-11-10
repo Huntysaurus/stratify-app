@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
             cart = Cart.create
             session[:user_id] = user.id
             session[:cart_id] = cart.id
-            byebug
             render json: user, status: :created
         else
             render json: { errors: user.errors.full_messages }, status: :not_found

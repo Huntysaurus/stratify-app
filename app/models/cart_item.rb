@@ -1,5 +1,4 @@
 class CartItem < ApplicationRecord
     belongs_to :cart
-    has_many :products
-    
+    belongs_to :product
 end

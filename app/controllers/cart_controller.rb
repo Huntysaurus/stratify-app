@@ -1,8 +1,8 @@
 class CartController < ApplicationController
-    before_action :initialize_session
+    # before_action :initialize_session
 
-    def initialize_session
-        session[:cart] ||= []
-    end
+    # def initialize_session
+    #     session[:cart] ||= []
+    # end
 
 end

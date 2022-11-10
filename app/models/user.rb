@@ -4,7 +4,8 @@ class User < ApplicationRecord
     validates :name, presence: true, length: { in: 2..15 }
     has_secure_password
     
-    has_many :carts
+    has_one :cart
+    has_many :cart_items, through: :cart
     has_many :reviews
     has_many :products, through: :reviews
 end
