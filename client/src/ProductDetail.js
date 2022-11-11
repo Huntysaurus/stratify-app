@@ -88,7 +88,7 @@ function ProductDetail({ user, product, cart, onCartItemCreated }) {
                 <button onClick={()=>setForm(true)}>write a review</button>
             }
             <div>
-                {reviews.map(review => {
+                {reviews?.map(review => {
                     return (
                         <div key={review.id}>
                             <li>{review.user.username}</li>

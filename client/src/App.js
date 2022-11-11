@@ -13,6 +13,8 @@ function App() {
   const [product, setProduct] = useState([])
   const [cart, setCart] = useState([])
 
+  console.log(cart)
+
   function onFetchUser(user) {
     setUser(user)
     fetch(`/carts/${user.id}`)
@@ -56,6 +58,9 @@ function App() {
 
   function handleCreatedCartItem(cartItem) {
     console.log(cartItem)
+    const newItems = [...cart.cart_items, cartItem]
+
+    // need to add the new cart item to the cart state variable
   }
 
   return (
