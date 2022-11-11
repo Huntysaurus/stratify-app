@@ -5,11 +5,11 @@ class UsersController < ApplicationController
         user = User.create!(user_params)
         Cart.create!(user_id: user.id)
         session[:user_id] = user.id
-        render json: user, status: :created, include: :cart
+        render json: user, status: :created, include: [ :review, :product, :cart, :cart_item ]
     end
 
     def show
-        render json: @current_user, include: [:review, :product, :cart ], status: :ok
+        render json: @current_user, status: :created, include: [:review, :product, :cart, :cart_item ]
     end
 
     def update

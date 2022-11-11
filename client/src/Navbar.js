@@ -13,9 +13,9 @@ function Navbar({ onLogoutClick }) {
                 <NavLink to="/profile">
                     profile
                 </NavLink>
-                <NavLink to="/cart">
+                {/* <NavLink to="/cart">
                     cart
-                </NavLink>
+                </NavLink> */}
             </div>
         </div>
     )

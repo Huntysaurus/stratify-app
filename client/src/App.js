@@ -13,8 +13,6 @@ function App() {
   const [product, setProduct] = useState(null)
   const [cart, setCart] = useState(null)
 
-  console.log(cart)
-
   function onFetchUser(user) {
     setUser(user)
     setCart(user.cart)
@@ -54,16 +52,22 @@ function App() {
     window.location.reload()
   }
 
+  function handleCreatedCartItem(cartItem) {
+    console.log(cartItem)
+  }
+
   return (
     <div>
       <h1>the app banner</h1>
       {user ?
+      <div>
+        <ShoppingCart cart={cart} />
         <Routes>
-          <Route exact path="/cart" element={ <ShoppingCart cart={cart}/>}/>
           <Route exact path="/shop" element={ <Shop onProductClick={handleProductNavigation} onLogoutClick={handleLogout} /> }/>
-          <Route exact path="/product_detail" element={ <ProductDetail user={user} product={product} cart={cart}/> }/>
+          <Route exact path="/product_detail" element={ <ProductDetail onCartItemCreated={handleCreatedCartItem} user={user} product={product} cart={cart}/> }/>
           <Route exact path="/profile" element={ <Profile onEditUser={handleEditUser} user={user} />}/>
         </Routes>
+      </div>
         :
         <Routes>
           <Route exact path="/" element={ <Home onSignup={handleLogin}/> }/>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import CartItem from "./CartItem";
 
 function ShoppingCart({ cart }) {
     const navigate = useNavigate()
@@ -8,8 +9,8 @@ function ShoppingCart({ cart }) {
 
     return (
         <div>
-            <button onClick={()=>navigate('/shop')}>Shop</button>
-            <p>shopping cart</p>
+            <p>the shopping cart component</p>
+            {/* <button onClick={()=>navigate('/shop')}>Shop</button> */}
         </div>
     )
 }

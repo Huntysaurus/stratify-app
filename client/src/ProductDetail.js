@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function ProductDetail({ user, product, cart }) {
+function ProductDetail({ user, product, cart, onCartItemCreated }) {
     const navigate = useNavigate()
     const [form, setForm] = useState(null)
     const [description, setDescription] = useState("")
     const [reviews, setReviews] = useState([])
-
-    console.log(cart)
 
     useEffect(() => {
         fetch(`/products/${product.id}/reviews`)
@@ -38,7 +36,7 @@ function ProductDetail({ user, product, cart }) {
         })
     }
 
-    function handleOnAddToCart() {
+    function handleAddToCart() {
         fetch(`/cart_items`, {
             method: "POST",
             headers: {
@@ -50,7 +48,7 @@ function ProductDetail({ user, product, cart }) {
             })
         }).then((r) => {
             if (r.ok) {
-                r.json().then(alert('item added to cart'))
+                r.json().then(cartItem => onCartItemCreated(cartItem))
                 
             } else {
                 r.json().then((err) => console.log(err))
@@ -70,7 +68,7 @@ function ProductDetail({ user, product, cart }) {
                 <p>{product.category}</p>
                 <p>{product.price}</p>
                 <p>{product.description}</p>
-                <button onClick={handleOnAddToCart}>add to cart</button>
+                <button onClick={handleAddToCart}>add to cart</button>
             </div>
 
             { form ?

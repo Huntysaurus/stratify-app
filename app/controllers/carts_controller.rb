@@ -2,7 +2,7 @@ class CartsController < ApplicationController
 
     def show
         cart = @current_user.cart
-        render json: cart, status: :ok
+        render json: cart, status: :ok, include: [:cart_items, :products]
     end
 
     def index
