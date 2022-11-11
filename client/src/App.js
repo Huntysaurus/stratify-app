@@ -15,7 +15,9 @@ function App() {
 
   function onFetchUser(user) {
     setUser(user)
-    setCart(user.cart)
+    fetch(`/carts/${user.id}`)
+    .then(r => r.json())
+    .then(cart => setCart(cart))
   }
 
   useEffect(()=> {
