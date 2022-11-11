@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function ProductDetail({ user, product }) {
+function ProductDetail({ user, product, cart }) {
     const navigate = useNavigate()
     const [form, setForm] = useState(null)
     const [description, setDescription] = useState("")
     const [reviews, setReviews] = useState([])
 
-     console.log( user.products )
-    // undefined when trying to fetch user and product through reviews
+    console.log(cart)
 
     useEffect(() => {
         fetch(`/products/${product.id}/reviews`)
@@ -39,6 +38,26 @@ function ProductDetail({ user, product }) {
         })
     }
 
+    function handleOnAddToCart() {
+        fetch(`/cart_items`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                cart_id: cart.id,
+                product_id: product.id
+            })
+        }).then((r) => {
+            if (r.ok) {
+                r.json().then(alert('item added to cart'))
+                
+            } else {
+                r.json().then((err) => console.log(err))
+            }
+        })
+    }
+
     return (
         <div>
             <div>
@@ -51,13 +70,13 @@ function ProductDetail({ user, product }) {
                 <p>{product.category}</p>
                 <p>{product.price}</p>
                 <p>{product.description}</p>
-                <button onClick={()=>console.log("needs add to cart functionality")}>add to cart</button>
+                <button onClick={handleOnAddToCart}>add to cart</button>
             </div>
 
             { form ?
                 <div>
                     <h1>review</h1>
-                    <button onClick={(e)=>setForm(null)}>cancel</button>
+                    <button onClick={()=>setForm(null)}>cancel</button>
                     <form onSubmit={handleSubmit}>
                         <textarea
                             type="text"

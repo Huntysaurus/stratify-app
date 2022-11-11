@@ -1,8 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-function ShoppingCart() {
+function ShoppingCart({ cart }) {
+    const navigate = useNavigate()
+
+    console.log(cart)
+
     return (
-        <p>shopping cart</p>
+        <div>
+            <button onClick={()=>navigate('/shop')}>Shop</button>
+            <p>shopping cart</p>
+        </div>
     )
 }
 

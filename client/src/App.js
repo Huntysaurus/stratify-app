@@ -59,9 +59,9 @@ function App() {
       <h1>the app banner</h1>
       {user ?
         <Routes>
-          <Route exact path="/cart" element={ <ShoppingCart />}/>
+          <Route exact path="/cart" element={ <ShoppingCart cart={cart}/>}/>
           <Route exact path="/shop" element={ <Shop onProductClick={handleProductNavigation} onLogoutClick={handleLogout} /> }/>
-          <Route exact path="/product_detail" element={ <ProductDetail user={user} product={product}/> }/>
+          <Route exact path="/product_detail" element={ <ProductDetail user={user} product={product} cart={cart}/> }/>
           <Route exact path="/profile" element={ <Profile onEditUser={handleEditUser} user={user} />}/>
         </Routes>
         :
