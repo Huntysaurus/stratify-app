@@ -10,8 +10,8 @@ import ShoppingCart from "./ShoppingCart";
 function App() {
   const navigate = useNavigate()
   const [user, setUser] = useState(null)
-  const [product, setProduct] = useState(null)
-  const [cart, setCart] = useState(null)
+  const [product, setProduct] = useState([])
+  const [cart, setCart] = useState([])
 
   function onFetchUser(user) {
     setUser(user)

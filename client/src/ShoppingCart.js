@@ -4,13 +4,17 @@ import CartItem from "./CartItem";
 
 function ShoppingCart({ cart }) {
     const navigate = useNavigate()
-
-    console.log(cart)
+    // const items = cart.cart_items
+    const products = cart.products
+    console.log(products)
 
     return (
         <div>
             <p>the shopping cart component</p>
             {/* <button onClick={()=>navigate('/shop')}>Shop</button> */}
+            {products?.map(product => {
+                return <CartItem product={product}/>
+            })}
         </div>
     )
 }
