@@ -4,7 +4,6 @@ import CartItem from "./CartItem";
 
 function ShoppingCart({ cart }) {
     const navigate = useNavigate()
-    // const items = cart.cart_items
     const products = cart.products
     console.log(products)
 
@@ -13,7 +12,7 @@ function ShoppingCart({ cart }) {
             <p>the shopping cart component</p>
             {/* <button onClick={()=>navigate('/shop')}>Shop</button> */}
             {products?.map(product => {
-                return <CartItem product={product}/>
+                return <CartItem key={product.id} product={product}/>
             })}
         </div>
     )

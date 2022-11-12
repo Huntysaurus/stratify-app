@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/user/:id/reviews", to: 'reviews#index'
   get "/search", to: 'products#empty'
   get "/products", to: 'products#index'
-  
+
   resources :users do
     resources :reviews
   end
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   resources :carts, only: [:show, :index]
 
-  resources :cart_items, only: [:create]
+  resources :cart_items, only: [:create, :destroy]
 
   # Routing logic: fallback requests for React Router.
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

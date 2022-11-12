@@ -29,6 +29,7 @@ function ProductDetail({ user, product, cart, onCartItemCreated }) {
         }).then((r) => {
             if (r.ok) {
                 r.json().then(alert('review posted!'))
+                // window.location.reload()
                 
             } else {
                 r.json().then((err) => console.log(err))

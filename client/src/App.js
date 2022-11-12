@@ -13,8 +13,6 @@ function App() {
   const [product, setProduct] = useState([])
   const [cart, setCart] = useState([])
 
-  console.log(cart)
-
   function onFetchUser(user) {
     setUser(user)
     fetch(`/carts/${user.id}`)

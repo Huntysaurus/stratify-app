@@ -5,9 +5,15 @@ class CartItemsController < ApplicationController
         render json: cart_item, status: :created
     end
 
+    def destroy
+        product = Product.find_by(id: params[:id])
+        cart_item = @current_user.cart_items.find_by(product_id: product.id)
+        cart_item.destroy
+    end
+
     private
 
     def cart_item_params
-        params.permit(:cart_id, :product_id)
+        params.permit(:cart_id, :product_id, :id)
     end
 end
