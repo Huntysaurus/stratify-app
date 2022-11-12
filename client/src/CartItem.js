@@ -3,7 +3,7 @@ import React from "react";
 function CartItem({ product }) {
 
     function onRemoveClick() {
-        console.log(product)
+        console.log(product.id)
         fetch(`/cart_items/${product.id}`, {
             method: "DELETE",
         })
