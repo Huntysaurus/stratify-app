@@ -33,13 +33,16 @@ function App() {
 
   function handleLogin(user) {
     setUser(user)
+    setCart(user.cart)
     navigate('/shop')
+    window.location.reload()
   }
 
   function handleLogout() {
     fetch('/logout', {method: "DELETE"}).then((r) => {
       if (r.ok) {
         setUser(null)
+        setCart([])
       }
       navigate('/')
     })
@@ -58,9 +61,9 @@ function App() {
 
   function handleCreatedCartItem(cartItem) {
     console.log(cartItem)
-    const newItems = [...cart.cart_items, cartItem]
-
-    // need to add the new cart item to the cart state variable
+    fetch(`/carts/${user.id}`)
+    .then(r => r.json())
+    .then(cart => setCart(cart))
   }
 
   return (

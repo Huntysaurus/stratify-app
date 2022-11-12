@@ -1,7 +1,7 @@
 class CartItemsController < ApplicationController
 
     def create
-        cart_item = CartItem.create(cart_item_params)
+        cart_item = CartItem.create!(cart_item_params)
         render json: cart_item, status: :created
     end
 
