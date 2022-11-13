@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function ProductDetail({ user, product, cart, onCartItemCreated }) {
+function ProductDetail({ user, product, cartProducts, onCartItemCreated }) {
     const navigate = useNavigate()
     const [form, setForm] = useState(null)
     const [description, setDescription] = useState("")
     const [reviews, setReviews] = useState([])
-
-    useEffect(() => {
-        fetch(`/products/${product.id}/reviews`)
-        .then(r => r.json())
-        .then(reviews => setReviews(reviews))
-    }, [product.id])
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -44,7 +38,7 @@ function ProductDetail({ user, product, cart, onCartItemCreated }) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                cart_id: cart.id,
+                cart_id: user.cart.id,
                 product_id: product.id
             })
         }).then((r) => {

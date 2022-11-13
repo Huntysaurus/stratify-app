@@ -2,17 +2,14 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import CartItem from "./CartItem";
 
-function ShoppingCart({ cart }) {
+function ShoppingCart({ cartProducts, onRemoveClick }) {
     const navigate = useNavigate()
-    const products = cart.products
-    console.log(products)
 
     return (
         <div>
-            <p>the shopping cart component</p>
-            {/* <button onClick={()=>navigate('/shop')}>Shop</button> */}
-            {products?.map(product => {
-                return <CartItem key={product.id} product={product}/>
+            <h3>the shopping cart component</h3>
+            {cartProducts?.map(product => {
+                return <CartItem key={product.id} onRemoveClick={onRemoveClick} product={product}/>
             })}
         </div>
     )

@@ -1,18 +1,12 @@
 import React from "react";
 
-function CartItem({ product }) {
-
-    function onRemoveClick() {
-        console.log(product.id)
-        fetch(`/cart_items/${product.id}`, {
-            method: "DELETE",
-        })
-    }
+function CartItem({ product, onRemoveClick }) {
 
     return (
         <div>
             <p>{product.name}</p>
-            <button onClick={(e)=>onRemoveClick(e.target.value)}>remove</button>
+            <p>{product.price}</p>
+            <button onClick={()=>onRemoveClick(product)}>remove</button>
         </div>
     )
 }

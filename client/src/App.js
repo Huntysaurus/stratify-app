@@ -11,13 +11,18 @@ function App() {
   const navigate = useNavigate()
   const [user, setUser] = useState(null)
   const [product, setProduct] = useState([])
-  const [cart, setCart] = useState([])
+  const [cartProducts, setCartProducts] = useState([])
 
+  function onFetchCart(cart) {
+    setCartProducts(cart.products)
+  }
+  
+  
   function onFetchUser(user) {
     setUser(user)
     fetch(`/carts/${user.id}`)
     .then(r => r.json())
-    .then(cart => setCart(cart))
+    .then(cart => onFetchCart(cart))
   }
 
   useEffect(()=> {
@@ -31,7 +36,7 @@ function App() {
 
   function handleLogin(user) {
     setUser(user)
-    setCart(user.cart)
+    setCartProducts(user.cart.products)
     navigate('/shop')
     window.location.reload()
   }
@@ -40,14 +45,15 @@ function App() {
     fetch('/logout', {method: "DELETE"}).then((r) => {
       if (r.ok) {
         setUser(null)
-        setCart([])
+        setCartProducts([])
       }
       navigate('/')
     })
   }
 
-  function handleProductNavigation(user) {
-    setProduct(user)
+  function handleProductNavigation(product) {
+    console.log(product)
+    setProduct(product)
     navigate("/product_detail")
   }
 
@@ -59,20 +65,28 @@ function App() {
 
   function handleCreatedCartItem(cartItem) {
     console.log(cartItem)
-    fetch(`/carts/${user.id}`)
-    .then(r => r.json())
-    .then(cart => setCart(cart))
+    setCartProducts([...cartProducts, cartItem.product ])
+    console.log(cartProducts)
   }
+
+  function handleRemoveFromCart(product) {
+      fetch(`/cart_items/${product.id}`, {
+        method: "DELETE",
+    })
+    const newProducts = cartProducts.filter(item => item.id =! product.id)
+    console.log(product)
+    setCartProducts(newProducts)
+}
 
   return (
     <div>
       <h1>the app banner</h1>
       {user ?
       <div>
-        <ShoppingCart cart={cart} />
+        <ShoppingCart onRemoveClick={handleRemoveFromCart} cartProducts={cartProducts}/>
         <Routes>
           <Route exact path="/shop" element={ <Shop onProductClick={handleProductNavigation} onLogoutClick={handleLogout} /> }/>
-          <Route exact path="/product_detail" element={ <ProductDetail onCartItemCreated={handleCreatedCartItem} user={user} product={product} cart={cart}/> }/>
+          <Route exact path="/product_detail" element={ <ProductDetail onCartItemCreated={handleCreatedCartItem} user={user} product={product} cartProducts={cartProducts} /> }/>
           <Route exact path="/profile" element={ <Profile onEditUser={handleEditUser} user={user} />}/>
         </Routes>
       </div>
