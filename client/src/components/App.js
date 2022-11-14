@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import styles from '../appStyles.module.css';
 import Home from "./Home";
 import ProductDetail from "./ProductDetail";
 import Shop from "./Shop";
@@ -82,7 +83,7 @@ function App() {
 
   return (
     <div>
-      <h1>the app banner</h1>
+      <h1 className={styles.header}>the app banner</h1>
       {user ?
       <div>
         <ShoppingCart onRemoveClick={handleRemoveFromCart} cartProducts={cartProducts}/>

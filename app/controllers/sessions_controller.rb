@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             render json: user, status: :created, include: [:cart, :cart_items, :products]
         else
-            render json: { error user.errors.full_messages }, status: :not_found
+            render json: { errors: user.errors.full_messages }, status: :not_found
         end
     end
 
