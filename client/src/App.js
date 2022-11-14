@@ -14,11 +14,13 @@ function App() {
   const [cartProducts, setCartProducts] = useState([])
 
   function onFetchCart(cart) {
+    console.log(cart)
     setCartProducts(cart.products)
   }
   
   
   function onFetchUser(user) {
+    console.log(user)
     setUser(user)
     fetch(`/carts/${user.id}`)
     .then(r => r.json())
@@ -52,7 +54,6 @@ function App() {
   }
 
   function handleProductNavigation(product) {
-    console.log(product)
     setProduct(product)
     navigate("/product_detail")
   }
@@ -64,18 +65,19 @@ function App() {
   }
 
   function handleCreatedCartItem(cartItem) {
-    console.log(cartItem)
+    console.log(cartItem.product)
     setCartProducts([...cartProducts, cartItem.product ])
     console.log(cartProducts)
   }
 
   function handleRemoveFromCart(product) {
+      console.log(product)
+      const newProducts = cartProducts.filter(item => item.id !== product.id)
+      console.log(newProducts)
+      setCartProducts(newProducts)
       fetch(`/cart_items/${product.id}`, {
         method: "DELETE",
     })
-    const newProducts = cartProducts.filter(item => item.id =! product.id)
-    console.log(product)
-    setCartProducts(newProducts)
 }
 
   return (
@@ -86,7 +88,7 @@ function App() {
         <ShoppingCart onRemoveClick={handleRemoveFromCart} cartProducts={cartProducts}/>
         <Routes>
           <Route exact path="/shop" element={ <Shop onProductClick={handleProductNavigation} onLogoutClick={handleLogout} /> }/>
-          <Route exact path="/product_detail" element={ <ProductDetail onCartItemCreated={handleCreatedCartItem} user={user} product={product} cartProducts={cartProducts} /> }/>
+          <Route exact path="/product_detail" element={ <ProductDetail onCartItemCreated={handleCreatedCartItem} user={user} product={product} /> }/>
           <Route exact path="/profile" element={ <Profile onEditUser={handleEditUser} user={user} />}/>
         </Routes>
       </div>

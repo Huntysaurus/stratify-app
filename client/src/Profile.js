@@ -16,7 +16,7 @@ function Profile({ user, onEditUser }) {
         fetch(`/user/${user.id}/reviews`)
         .then(r => r.json())
         .then(reviews => setReviews(reviews))
-    }, [])
+    }, [user.id])
 
     function onPasswordChangeClick(){
         setPasswordForm(true)

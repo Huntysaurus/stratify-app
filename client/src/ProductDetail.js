@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function ProductDetail({ user, product, cartProducts, onCartItemCreated }) {
+function ProductDetail({ user, product, onCartItemCreated }) {
     const navigate = useNavigate()
     const [form, setForm] = useState(null)
     const [description, setDescription] = useState("")

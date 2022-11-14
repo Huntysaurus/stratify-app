@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import CartItem from "./CartItem";
 
 function ShoppingCart({ cartProducts, onRemoveClick }) {
-    const navigate = useNavigate()
+
+    console.log(cartProducts)
 
     let prices = []
 
     cartProducts?.map(product => {
-        prices.push(parseFloat(product.price))
+        return prices.push(parseFloat(product.price))
     })
 
     const addTotal = (prices) => {
@@ -20,11 +20,7 @@ function ShoppingCart({ cartProducts, onRemoveClick }) {
         )
     }
 
-    const total = addTotal(prices)
-
-    console.log(total)
-
-
+    const total = addTotal(prices).toFixed(2)
 
     return (
         <div>
