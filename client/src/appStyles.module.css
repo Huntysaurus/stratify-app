@@ -1,3 +1,79 @@
-.header {
-    color:lightpink;
+.sub_header {
+    color:rgb(92, 164, 176);
+    font-style: italic;
+}
+
+.header_logged_out {
+    margin-left: 50px;
+    margin-top: 5px;
+    margin-bottom: -25px;
+    color:rgb(92, 164, 176);
+    font-style: italic;
+    font-size: 6rem;
+}
+
+.text_under_header {
+    color:rgb(242, 253, 255);
+    font-size: 30px;
+    font-style: oblique;
+    font-weight: 700;
+    position: relative;
+    margin-left: 15px;
+}
+
+.homeContainer {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    background-color:rgb(191, 236, 255);
+    width: 100%;
+}
+
+.form_holder {
+    margin: auto;
+    margin-top: 50px;
+    width: 50%;
+}
+
+.login_form {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    background-color: #d9edff;
+    box-shadow: 3px 3px 5px rgb(137, 170, 185);
+}
+
+input {
+    margin-bottom: 20px;
+    border: 0ch;
+    background-color: rgb(255, 255, 255);
+    margin-left: 10px;
+    box-shadow: 3px 3px 5px rgb(137, 170, 185) inset;
+    border: 3px solid #d9edff;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input:focus {
+    border: 3px solid rgb(92, 164, 176);
+}
+
+.login_button {
+    border-radius: 15px;
+    padding: 6px;
+    letter-spacing: 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 20px;
+    border: 0ch;
+    background-color: rgb(92, 164, 176);
+    color: aliceblue;
+}
+
+.subtext {
+    text-align: center;
+    margin: auto;
+    width: 30%;
+    cursor: pointer;
 }

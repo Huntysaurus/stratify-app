@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from '../appStyles.module.css';
 
 function Login({ onLogin }) {
     const [username, setUsername] = useState("")
@@ -23,11 +24,11 @@ function Login({ onLogin }) {
     }
 
     return (
-        <div>
-            <h1>login</h1>
+        <div className={styles.login_form}>
+            <h1 className={styles.sub_header}>login</h1>
             <form onSubmit={handleSubmit}>
                 <label>
-                    username
+                    <i>username</i>
                     <input
                         placeholder='username'
                         type="text"
@@ -35,8 +36,9 @@ function Login({ onLogin }) {
                         onChange={(e)=>setUsername(e.target.value)}
                     />
                 </label>
+                <br/>
                 <label>
-                    password
+                    <i>password</i>
                     <input
                         placeholder='password'
                         type="password"
@@ -44,7 +46,8 @@ function Login({ onLogin }) {
                         onChange={(e)=>setPassword(e.target.value)}
                     />
                 </label>
-                <button type='submit'>Login</button>
+                <br/>
+                <button className={styles.login_button} type='submit'>Login</button>
             </form>
         </div>
     )

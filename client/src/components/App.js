@@ -82,10 +82,10 @@ function App() {
 }
 
   return (
-    <div>
-      <h1 className={styles.header}>the app banner</h1>
+    <div className={styles.homeContainer}>
       {user ?
       <div>
+        <h1 className={styles.sub_header}>stratify</h1>
         <ShoppingCart onRemoveClick={handleRemoveFromCart} cartProducts={cartProducts}/>
         <Routes>
           <Route exact path="/shop" element={ <Shop onProductClick={handleProductNavigation} onLogoutClick={handleLogout} /> }/>
