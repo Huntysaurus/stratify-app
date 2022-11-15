@@ -24,7 +24,7 @@ function Login({ onLogin }) {
     }
 
     return (
-        <div className={styles.login_form}>
+        <div className={styles.form}>
             <h1 className={styles.sub_header}>login</h1>
             <form onSubmit={handleSubmit}>
                 <label>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from '../appStyles.module.css';
 
 function Signup({ onSignup }) {
     const [name, setName] = useState("")
@@ -34,50 +35,60 @@ function Signup({ onSignup }) {
     }
 
     return (
-        <div>
+        <div className={styles.form}>
             <form onSubmit={handleSubmit}>
-            <h1>Sign Up</h1>
+            <h1 className={styles.sub_header}>Sign Up</h1>
             <label>
-                enter name
+                <i>enter name</i>
                 <input
+                placeholder="is 2 to 15 characters long"
                 type="text"
                 value={name}
                 onChange={(e)=>setName(e.target.value)}
                 />
             </label>
+            <br/>
             <label>
-                enter email
+                <i>enter email</i>
                 <input
+                placeholder="is optional"
                 type="text"
                 value={email}
                 onChange={(e)=>setEmail(e.target.value)}
                 />
             </label>
+            <br/>
             <label>
-                create username
+                <i>create username</i>
                 <input
+                placeholder="is 6 to 15 characters long"
                 type="text"
                 value={username}
                 onChange={(e)=>setUsername(e.target.value)}
                 />
             </label>
+            <br/>
             <label>
-                create password
+                <i>create password</i>
                 <input
+                placeholder="is 6 to 15 characters long"
                 type="password"
                 value={password}
                 onChange={(e)=>setPassword(e.target.value)}
                 />
             </label>
+            <br/>
             <label>
-                confirm password
+                <i>confirm password</i>
                 <input
+                placeholder="confirm password"
                 type="password"
                 value={confirmPassword}
                 onChange={(e)=>setConfirmPassword(e.target.value)}
                 />
             </label>
-            <button type="submit">sign up</button>
+            <br/>
+            <button className={styles.login_button} type="submit">sign up</button>
             </form>
         </div>
     )

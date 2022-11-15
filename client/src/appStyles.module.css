@@ -1,16 +1,37 @@
+h1, p {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+::placeholder {
+    color: rgb(99, 132, 137);
+}
+
+label {
+    color: #818181;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+}
+
 .sub_header {
     color:rgb(92, 164, 176);
     font-style: italic;
 }
 
 .header_logged_out {
-    margin-left: 50px;
-    margin-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin-top: 0%;
     margin-bottom: -25px;
     color:rgb(92, 164, 176);
     font-style: italic;
     font-size: 6rem;
-}
+    background-color: rgb(255, 255, 255);
+    background-image: url("https://thumbs.gfycat.com/AblePassionateAnemoneshrimp-size_restricted.gif");
+    background-repeat: no-repeat;
+    background-position-y: -150px;
+    background-position-x: 0px;
+    background-size:750px;
+}   
 
 .text_under_header {
     color:rgb(242, 253, 255);
@@ -18,24 +39,25 @@
     font-style: oblique;
     font-weight: 700;
     position: relative;
-    margin-left: 15px;
+    margin-left: 30px;
 }
 
 .homeContainer {
     position: absolute;
     top: 0px;
     bottom: 0px;
-    background-color:rgb(191, 236, 255);
+    background-color:rgb(176, 231, 255);
     width: 100%;
+    margin-left: -.4%;
 }
 
 .form_holder {
     margin: auto;
-    margin-top: 50px;
+    margin-top: 5%;
     width: 50%;
 }
 
-.login_form {
+.form {
     margin: auto;
     width: 50%;
     text-align: center;
@@ -71,9 +93,45 @@ input:focus {
     color: aliceblue;
 }
 
+.login_button:active{
+    border: 3px solid rgb(0, 0, 0);
+}
+
 .subtext {
     text-align: center;
     margin: auto;
     width: 30%;
     cursor: pointer;
+}
+
+.products_holder {
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    height:40rem;width:70%;
+    border:20px solid rgb(0, 0, 0);
+    overflow:auto;
+    background-color: #818181;
+}
+
+.product_card {
+    width: 95%;
+    height: 95%;
+    margin: auto;
+    font-size: 15px;
+    text-align: center;
+    background-color: #818181;
+}
+
+.product_c_image {
+    max-width: 80%;
+    max-height:80%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 3px 3px 5px rgb(137, 170, 185) inset;
+    cursor: pointer;
+}
+
+.shop_background {
+    background-color: rgb(240, 240, 240);
 }

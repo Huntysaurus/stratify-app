@@ -12,10 +12,11 @@ function Home({ onSignup }) {
             <h1 className={styles.header_logged_out}>stratify</h1>
             <p className={styles.text_under_header}>shopping made simple!</p>
                 { formSwitch ?
-                    <div>
+                    <div className={styles.form_holder} >
                         <Signup onSignup={ onSignup }/>
-                        <p>have an account?</p>
-                        <p onClick={()=>setFormSwitch(false)}>login here</p>
+                        <div className={styles.subtext}>
+                            <p onClick={()=>setFormSwitch(false)}>have an account? Click here to Login!</p>
+                        </div>
                     </div>
                     :
                     <div className={styles.form_holder}>
