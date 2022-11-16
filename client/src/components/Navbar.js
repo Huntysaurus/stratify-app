@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from '../appStyles.module.css';
 
 function Navbar({ onLogoutClick }) {
@@ -15,7 +15,7 @@ function Navbar({ onLogoutClick }) {
 
     return(
             <div className={styles.navbar}>
-                <select onChange={(e)=>handleNavigation(e.target.value)}>
+                <select className={styles.menu} onChange={(e)=>handleNavigation(e.target.value)}>
                     <option value={"/shop"}>
                         menu
                     </option>

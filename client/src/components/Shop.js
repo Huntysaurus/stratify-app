@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Product from "./Product";
 import Search from "./Search";
-import Navbar from "./Navbar";
 import styles from '../appStyles.module.css';
 
-function Shop({ onProductClick, onLogoutClick }) {
+function Shop({ onProductClick }) {
     const [products, setProducts] = useState([])
 
     useEffect(()=> {
@@ -31,7 +30,6 @@ function Shop({ onProductClick, onLogoutClick }) {
 
     return (
         <div className={styles.shop_background}>
-            <Navbar onLogoutClick={onLogoutClick}/>
             <Search onSearched={handleSearch}/>
             <div className={styles.products_holder} >
                 {products.map(product => {
