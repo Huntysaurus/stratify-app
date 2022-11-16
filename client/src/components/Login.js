@@ -28,7 +28,6 @@ function Login({ onLogin }) {
             <h1 className={styles.sub_header}>login</h1>
             <form onSubmit={handleSubmit}>
                 <label>
-                    <i>username</i>
                     <input
                         placeholder='username'
                         type="text"
@@ -38,7 +37,6 @@ function Login({ onLogin }) {
                 </label>
                 <br/>
                 <label>
-                    <i>password</i>
                     <input
                         placeholder='password'
                         type="password"

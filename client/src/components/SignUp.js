@@ -7,7 +7,7 @@ function Signup({ onSignup }) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
-    const [errors, setErrors] = useState("")
+    const [errors, setErrors] = useState([])
 
     console.log(errors)
 
@@ -35,62 +35,71 @@ function Signup({ onSignup }) {
     }
 
     return (
-        <div className={styles.form}>
-            <form onSubmit={handleSubmit}>
-            <h1 className={styles.sub_header}>Sign Up</h1>
-            <label>
-                <i>enter name</i>
-                <input
-                placeholder="is 2 to 15 characters long"
-                type="text"
-                value={name}
-                onChange={(e)=>setName(e.target.value)}
-                />
-            </label>
-            <br/>
-            <label>
-                <i>enter email</i>
-                <input
-                placeholder="is optional"
-                type="text"
-                value={email}
-                onChange={(e)=>setEmail(e.target.value)}
-                />
-            </label>
-            <br/>
-            <label>
-                <i>create username</i>
-                <input
-                placeholder="is 6 to 15 characters long"
-                type="text"
-                value={username}
-                onChange={(e)=>setUsername(e.target.value)}
-                />
-            </label>
-            <br/>
-            <label>
-                <i>create password</i>
-                <input
-                placeholder="is 6 to 15 characters long"
-                type="password"
-                value={password}
-                onChange={(e)=>setPassword(e.target.value)}
-                />
-            </label>
-            <br/>
-            <label>
-                <i>confirm password</i>
-                <input
-                placeholder="confirm password"
-                type="password"
-                value={confirmPassword}
-                onChange={(e)=>setConfirmPassword(e.target.value)}
-                />
-            </label>
-            <br/>
-            <button className={styles.login_button} type="submit">sign up</button>
-            </form>
-        </div>
+        <>
+            <div className={styles.form}>
+                <form onSubmit={handleSubmit}>
+                <h1 className={styles.sub_header}>Sign Up</h1>
+                <label>
+                    enter name
+                    <input
+                    placeholder="is 2 to 15 characters long"
+                    type="text"
+                    value={name}
+                    onChange={(e)=>setName(e.target.value)}
+                    />
+                </label>
+                <br/>
+                <label>
+                    enter email
+                    <input
+                    placeholder="optional"
+                    type="text"
+                    value={email}
+                    onChange={(e)=>setEmail(e.target.value)}
+                    />
+                </label>
+                <br/>
+                <label>
+                    create username
+                    <input
+                    placeholder="6 to 15 characters long"
+                    type="text"
+                    value={username}
+                    onChange={(e)=>setUsername(e.target.value)}
+                    />
+                </label>
+                <br/>
+                <div className={styles.password_backdrop}>
+                    <label>
+                        create password
+                        <input
+                        placeholder="6 to 15 characters long"
+                        type="password"
+                        value={password}
+                        onChange={(e)=>setPassword(e.target.value)}
+                        />
+                    </label>
+                    <br/>
+                    <label>
+                        confirm password
+                        <input
+                        placeholder="confirm password"
+                        type="password"
+                        value={confirmPassword}
+                        onChange={(e)=>setConfirmPassword(e.target.value)}
+                        />
+                    </label>
+                </div>
+                <br/>
+                <button className={styles.login_button} type="submit">sign up</button>
+                </form>
+            </div>
+            <div className={styles.error_messages}>
+                {errors?.map(error => {
+                    return <p>{error}</p>
+                })}
+            </div>
+        </>
     )
 }
 
