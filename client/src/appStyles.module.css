@@ -75,51 +75,86 @@ option {
     font-size: 5em;
 }
 
+.profile_holder {
+    background-color: #3b4b5a;
+    width: 70%;   
+    margin: auto;
+    height:100ch;
+}
+
+.profile_info {
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
 .profile_info_backing {
     background-color: #bdcfdf;
     margin-right: 50%;
     margin-bottom: 20px;
+    margin-left: 4.5%;
 }
 
-.profile_holder {
-    background-color: #3b4b5a;
-    width: 70%;
-    margin: auto;
+.reviews_heading {
+    margin-left: 67%;
+    margin-top: -32.5%;
+    font-size: 2em;
+    color:rgb(92, 164, 176);
+    font-style: italic;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .reviews_holder {
     position: absolute;
-    top: 12%;
-    left: 50%;
-    background-color: #ff5e00;
+    top: 13%;
+    left: 62%;
     margin: auto;
     display: grid;
     row-gap: 30px;
     grid-template-columns: auto;
-    height:50%;
-    width:34%;
+    height:79%;
+    width:20%;
     overflow:auto;
     background-color: rgb(220, 220, 220);
+    box-shadow: 3px 3px 15px #232323;
 }
 
 .review_card {
     margin: auto;
-    width: 80%;
-    background-color: #ff5e00;
-    text-align: center;
+    width: 100%;
+    background-color:#84919c;
+}
+
+.review_text {
+    margin-left: 5px;
 }
 
 .review_image {
-    width:70%;
+    width:100%
 }
 
-.reviews_heading {
-    margin-left: 50%;
-    margin-top: -35.5%;
-    font-size: 2.5em;
+.orders_heading {
+    margin-left:4.5%;
+    margin-top:-1.5%;
+    font-size: 2em;
     color:rgb(92, 164, 176);
     font-style: italic;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.orders_holder {
+    position: absolute;
+    top: 52%;
+    left: 18%;
+    height:40%;
+    width:42%;
+    overflow:auto;
+    margin: auto;
+    display: grid;
+    row-gap: 30px;
+    grid-template-columns: auto;
+    background-color: rgb(220, 220, 220);
+    box-shadow: 3px 3px 15px #232323;
 }
 
 .corner_logo {

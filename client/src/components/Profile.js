@@ -74,9 +74,11 @@ function Profile({ user, onEditUser }) {
         <div className={styles.profile_holder}>
             <h1 className={styles.profile_header}>Profile</h1>
             <div className={styles.profile_info_backing}>
-                <h2>{user.name}</h2>
-                <p>username: {user.username}</p>
-            <div>
+                <div className={styles.profile_info}>
+                    <h2>{user.name}</h2>
+                    <p>username: {user.username}</p>
+                </div>
+            <div >
                 {
                     passwordForm ?
                     <div className={styles.form}>
@@ -132,8 +134,8 @@ function Profile({ user, onEditUser }) {
             </div>
 
             <div>
-                <div>
-                    <h2>Your orders</h2>
+                <h2 className={styles.orders_heading}>Your orders</h2>
+                <div className={styles.orders_holder}>
                     <p>future order invoices go here</p>
                 </div>
                 <h2 className={styles.reviews_heading}>Your reviews</h2>
