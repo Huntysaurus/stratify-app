@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from '../appStyles.module.css';
 
 function Seach({ onSearched }) {
     const [search, setSearch] = useState("")
@@ -11,14 +12,13 @@ function Seach({ onSearched }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className={styles.search_form} onSubmit={handleSubmit}>
             <input
+                className={styles.search_bar}
+                size="50"
                 type="text"
                 placeholder="search products"
                 onChange={(e)=>setSearch(e.target.value)}
-            />
-            <input
-                type="Submit"
             />
         </form>
     )

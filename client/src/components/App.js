@@ -86,8 +86,8 @@ function App() {
       {user ?
       <div>
         <h1 className={styles.sub_header}>stratify</h1>
-        <ShoppingCart onRemoveClick={handleRemoveFromCart} cartProducts={cartProducts}/>
         <Routes>
+          <Route exact path="/cart" element={ <ShoppingCart onRemoveClick={handleRemoveFromCart} cartProducts={cartProducts}/> }/>
           <Route exact path="/shop" element={ <Shop onProductClick={handleProductNavigation} onLogoutClick={handleLogout} /> }/>
           <Route exact path="/product_detail" element={ <ProductDetail onCartItemCreated={handleCreatedCartItem} user={user} product={product} /> }/>
           <Route exact path="/profile" element={ <Profile onEditUser={handleEditUser} user={user} />}/>

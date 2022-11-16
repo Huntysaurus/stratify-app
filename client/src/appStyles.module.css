@@ -6,6 +6,10 @@ h1, p {
     color: rgb(99, 132, 137);
 }
 
+::-webkit-input-placeholder {
+    text-align: center;
+  }
+
 label {
     color: #818181;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -15,6 +19,8 @@ label {
 .sub_header {
     color:rgb(92, 164, 176);
     font-style: italic;
+    margin-top: 5px;
+    margin-left: 10px;
 }
 
 .header_logged_out {
@@ -49,6 +55,7 @@ label {
     background-color:rgb(176, 231, 255);
     width: 100%;
     margin-left: -.4%;
+    overflow: hidden;
 }
 
 .form_holder {
@@ -62,7 +69,6 @@ label {
     width: 50%;
     text-align: center;
     background-color: #d9edff;
-    box-shadow: 3px 3px 5px rgb(137, 170, 185);
 }
 
 input {
@@ -84,7 +90,7 @@ input:focus {
 .login_button {
     border-radius: 15px;
     padding: 6px;
-    letter-spacing: 2px;
+    letter-spacing: .5px;
     padding-left: 15px;
     padding-right: 15px;
     margin-bottom: 20px;
@@ -107,11 +113,12 @@ input:focus {
 .products_holder {
     margin: auto;
     display: grid;
+    row-gap: 30px;
     grid-template-columns: auto auto auto auto;
-    height:40rem;width:70%;
-    border:20px solid rgb(0, 0, 0);
+    height:53rem;
+    width:70%;
     overflow:auto;
-    background-color: #818181;
+    background-color: rgb(220, 220, 220);
 }
 
 .product_card {
@@ -120,18 +127,39 @@ input:focus {
     margin: auto;
     font-size: 15px;
     text-align: center;
-    background-color: #818181;
+    background-color: rgb(255, 255, 255);
+    font-size: 18px;
 }
 
 .product_c_image {
-    max-width: 80%;
-    max-height:80%;
+    display: inline-block;
+    max-width: 200px;
     object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 3px 3px 5px rgb(137, 170, 185) inset;
     cursor: pointer;
+    margin-top: -10px;
+    margin-bottom: -20px;
 }
 
 .shop_background {
     background-color: rgb(240, 240, 240);
+}
+
+.search_form {
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+
+.search_bar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -200%);
+    height: 30px;
+    font-size: large;
+}
+
+.navbar {
+    background-color: aquamarine;
+    word-spacing: 50px;
 }
