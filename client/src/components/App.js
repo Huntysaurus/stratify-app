@@ -85,7 +85,7 @@ function App() {
     <div className={styles.homeContainer}>
       {user ?
       <div>
-        <h1 className={styles.sub_header}>stratify</h1>
+        <h1 className={styles.corner_logo} onClick={()=>navigate('/shop')}>stratify</h1>
         <Routes>
           <Route exact path="/cart" element={ <ShoppingCart onRemoveClick={handleRemoveFromCart} cartProducts={cartProducts}/> }/>
           <Route exact path="/shop" element={ <Shop onProductClick={handleProductNavigation} onLogoutClick={handleLogout} /> }/>

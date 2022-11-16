@@ -42,7 +42,7 @@ function Signup({ onSignup }) {
                 <label>
                     enter name
                     <input
-                    placeholder="is 2 to 15 characters long"
+                    placeholder="2 to 15 characters long"
                     type="text"
                     value={name}
                     onChange={(e)=>setName(e.target.value)}
