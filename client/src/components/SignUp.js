@@ -91,7 +91,7 @@ function Signup({ onSignup }) {
                     </label>
                 </div>
                 <br/>
-                <button className={styles.login_button} type="submit">sign up</button>
+                <button className={styles.button} type="submit">sign up</button>
                 </form>
             </div>
             <div className={styles.error_messages}>

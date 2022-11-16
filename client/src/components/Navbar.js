@@ -16,8 +16,8 @@ function Navbar({ onLogoutClick }) {
     return(
             <div className={styles.navbar}>
                 <select className={styles.menu} onChange={(e)=>handleNavigation(e.target.value)}>
-                    <option value={"/shop"}>
-                        menu
+                    <option className={styles.option} value={"/shop"}>
+                        shop
                     </option>
                     <option value={"/profile"} >
                         profile

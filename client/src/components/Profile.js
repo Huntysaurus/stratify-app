@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Review from "./Review";
+import styles from '../appStyles.module.css';
 
 function Profile({ user, onEditUser }) {
     const navigate = useNavigate()
@@ -70,19 +71,17 @@ function Profile({ user, onEditUser }) {
     }
 
     return (
-        <div>
-            <button onClick={()=>navigate('/shop')}>Shop</button>
-            <h1>Profile</h1>
-            <div>
+        <div className={styles.profile_holder}>
+            <h1 className={styles.profile_header}>Profile</h1>
+            <div className={styles.profile_info_backing}>
                 <h2>{user.name}</h2>
                 <p>username: {user.username}</p>
-
-                {/* password form */}
             <div>
                 {
                     passwordForm ?
-                    <form onSubmit={handlePasswordChange}>
-                        <button onClick={()=>setPasswordForm(null)}>cancel</button>
+                    <div className={styles.form}>
+                        <form onSubmit={handlePasswordChange}>
+                        <button className={styles.button} onClick={()=>setPasswordForm(null)}>cancel</button>
                         <label>
                             {'enter new password'}
                         <input
@@ -101,34 +100,35 @@ function Profile({ user, onEditUser }) {
                                 onChange={(e)=>setPasswordConfirmation(e.target.value)}
                             />
                         </label>
-                        <button type='submit'>submit</button>
-                    </form>
+                        <button className={styles.button} type='submit'>submit</button>
+                        </form>
+                    </div>
                     :
-                    <button onClick={onPasswordChangeClick}>change password</button>
+                    <button className={styles.button} onClick={onPasswordChangeClick}>change password</button>
                 }
             </div>
-            </div>
-
-            {/* username form */}
             <div>
                 {
                     userForm ?
-                    <form onSubmit={handleUpdateUsername}>
-                        <button onClick={()=>setUserForm(null)}>cancel</button>
-                        <label>
-                            {'New Username:'}
-                            <input
-                                placeholder={user.username}
-                                type="text"
-                                value={username}
-                                onChange={(e)=>setUsername(e.target.value)}
-                            />
-                        </label>
-                        <button type="submit" >submit</button>
-                    </form>
+                    <div className={styles.form}>
+                        <form onSubmit={handleUpdateUsername}>
+                            <button className={styles.button} onClick={()=>setUserForm(null)}>cancel</button>
+                            <label>
+                                {'New Username:'}
+                                <input
+                                    placeholder={user.username}
+                                    type="text"
+                                    value={username}
+                                    onChange={(e)=>setUsername(e.target.value)}
+                                />
+                            </label>
+                            <button className={styles.button} type="submit" >submit</button>
+                        </form>
+                    </div>
                     :
-                    <button onClick={()=>setUserForm(true)}>change username</button>
+                    <button className={styles.button} onClick={()=>setUserForm(true)}>change username</button>
                 }
+                </div>
             </div>
 
             <div>
@@ -136,8 +136,8 @@ function Profile({ user, onEditUser }) {
                     <h2>Your orders</h2>
                     <p>future order invoices go here</p>
                 </div>
-                <div>
-                    <h2>Your reviews</h2>
+                <h2 className={styles.reviews_heading}>Your reviews</h2>
+                <div className={styles.reviews_holder}>
                     {reviews.map((review) => <Review review={review}/>)}
                 </div>
             </div>

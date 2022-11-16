@@ -45,7 +45,7 @@ function Login({ onLogin }) {
                     />
                 </label>
                 <br/>
-                <button className={styles.login_button} type='submit'>Login</button>
+                <button className={styles.button} type='submit'>Login</button>
             </form>
         </div>
     )

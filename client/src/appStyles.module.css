@@ -33,11 +33,93 @@ input:focus {
     border: 3px solid rgb(255, 232, 80);
 }
 
+option {
+    font-size: 20px;
+}
+
+.navbar {
+    background-color:rgb(255, 232, 80);
+}
+
+.menu {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    transform: translate(-50%, -240%);
+    padding:.5em .5em;
+    margin-left:20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width:7%;
+    text-align: center;
+    font-size: 100%;
+    font-weight: 600;
+    color: #84919c;
+    background-color: #3b4b5a;
+    border: none;
+    box-shadow: 3px 5px 15px;
+}
+
 .sub_header {
     color:rgb(92, 164, 176);
     font-style: italic;
     margin-top: 5px;
     margin-left: 10px;
+}
+
+.profile_header {
+    color:rgb(92, 164, 176);
+    font-style: italic;
+    margin-top: 3px;
+    margin-left: 3%;
+    font-size: 5em;
+}
+
+.profile_info_backing {
+    background-color: #bdcfdf;
+    margin-right: 50%;
+    margin-bottom: 20px;
+}
+
+.profile_holder {
+    background-color: #3b4b5a;
+    width: 70%;
+    margin: auto;
+}
+
+.reviews_holder {
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    background-color: #ff5e00;
+    margin: auto;
+    display: grid;
+    row-gap: 30px;
+    grid-template-columns: auto;
+    height:50%;
+    width:34%;
+    overflow:auto;
+    background-color: rgb(220, 220, 220);
+}
+
+.review_card {
+    margin: auto;
+    width: 80%;
+    background-color: #ff5e00;
+    text-align: center;
+}
+
+.review_image {
+    width:70%;
+}
+
+.reviews_heading {
+    margin-left: 50%;
+    margin-top: -35.5%;
+    font-size: 2.5em;
+    color:rgb(92, 164, 176);
+    font-style: italic;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .corner_logo {
@@ -105,13 +187,14 @@ input:focus {
     border: solid rgb(59, 99, 106);
 }
 
-.login_button {
+.button {
     border-radius: 15px;
     padding: 6px;
     letter-spacing: .5px;
     padding-left: 15px;
     padding-right: 15px;
     margin-bottom: 20px;
+    margin-top: 15px;
     border: 0ch;
     background-color: rgb(92, 164, 176);
     color: aliceblue;
@@ -169,28 +252,9 @@ input:focus {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -200%);
-    height: 30px;
+    transform: translate(-50%, -140%);
+    height: 35px;
     font-size: large;
-}
-
-.navbar {
-    background-color: aquamarine;
-    word-spacing: 50px;
-}
-
-.menu {
-    padding:.5em .5em;
-    margin-left:20px;
-    width:5%;
-    text-align: center;
-    font-size: 100%;
-    font-weight: 600;
-    color: #84919c;
-    background-color: #3b4b5a;
-    border: none;
-    box-shadow: 3px 5px 15px;
-    appearance: none;
 }
 
 .error_messages {
