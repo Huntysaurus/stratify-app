@@ -67,11 +67,15 @@ option {
     margin-left: 10px;
 }
 
+.profile_page {
+    background-color: rgb(240, 240, 240);
+}
+
 .profile_header {
     color:rgb(92, 164, 176);
     font-style: italic;
     margin-top: 3px;
-    margin-left: 3%;
+    margin-left: 12%;
     font-size: 5em;
 }
 
@@ -79,7 +83,7 @@ option {
     background-color: #3b4b5a;
     width: 70%;   
     margin: auto;
-    height:100ch;
+    height:110ch;
 }
 
 .profile_info {
@@ -90,14 +94,34 @@ option {
 
 .profile_info_backing {
     background-color: #bdcfdf;
-    margin-right: 50%;
-    margin-bottom: 20px;
+    margin-right: 60%;
+    margin-top: -40px;
     margin-left: 4.5%;
+    height: 85px;
+}
+
+.profile_forms_holder {
+    position:absolute;
+    left: 49%;
+    top:18%;
+    z-index: 99 !important;
+}
+
+.prof_change_form {
+    position:absolute;
+    left: -54%;
+    top:-140%;
+    margin: auto;
+    width: 200%;
+    height: 380%;
+    text-align: center;
+    background-color: #d9edff;
+    z-index: 99 !important;
 }
 
 .reviews_heading {
     margin-left: 67%;
-    margin-top: -32.5%;
+    margin-top: -20%;
     font-size: 2em;
     color:rgb(92, 164, 176);
     font-style: italic;
@@ -122,6 +146,7 @@ option {
 .review_card {
     margin: auto;
     width: 100%;
+    color: #ffffff;
     background-color:#84919c;
 }
 
@@ -135,7 +160,7 @@ option {
 
 .orders_heading {
     margin-left:4.5%;
-    margin-top:-1.5%;
+    margin-top:0%;
     font-size: 2em;
     color:rgb(92, 164, 176);
     font-style: italic;
@@ -144,9 +169,9 @@ option {
 
 .orders_holder {
     position: absolute;
-    top: 52%;
+    top: 35%;
     left: 18%;
-    height:40%;
+    height:57%;
     width:42%;
     overflow:auto;
     margin: auto;

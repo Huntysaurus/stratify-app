@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import styles from '../appStyles.module.css';
 
 function Review({ review }) {
@@ -10,7 +10,7 @@ function Review({ review }) {
                 <h3>price: ${review.product.price}</h3>
             </div>
             <img className={styles.review_image} src={review.product.image} alt={review.product.name}/>
-            <h3>review: {review.description}</h3>
+            <h3>@{review.user.username}: {review.description}</h3>
         </div>
     )
 }
