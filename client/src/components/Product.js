@@ -5,13 +5,13 @@ function Product({ product, onProductClick}) {
 
     return (
         <div className={styles.product_card} onClick={()=>onProductClick(product)}>
-            <p>{product.category}</p>
+            <p><b>{product.name}</b></p>
             <img
                 className={styles.product_c_image}
                 src={product.image}
                 alt={product.name}
                 />
-            <p style={{marginBottom: "-20px"}}><b>{product.name}</b></p>
+                <p>{product.category}</p>
             <p style={{marginBottom: "30px"}}>${product.price}</p>
         </div>
     )

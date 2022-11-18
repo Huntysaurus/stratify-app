@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :username, :email, :password
+  attributes :name, :username, :email, :password, :password_confirmation
   has_many :reviews, dependent: :destroy
   has_many :products, Through: :reviews
   has_one :cart, dependent: :destroy

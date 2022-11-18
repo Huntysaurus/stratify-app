@@ -16,13 +16,11 @@ function App() {
   const [cartProducts, setCartProducts] = useState([])
 
   function onFetchCart(cart) {
-    console.log(cart)
     setCartProducts(cart.products)
   }
   
   
   function onFetchUser(user) {
-    console.log(user)
     setUser(user)
     fetch(`/carts/${user.id}`)
     .then(r => r.json())
@@ -61,8 +59,9 @@ function App() {
   }
 
   function handleEditUser(updated) {
+    console.log(user)
     setUser(updated)
-    alert('updated successfully!')
+    alert(`username updated to ${updated} successfully!`)
     window.location.reload()
   }
 

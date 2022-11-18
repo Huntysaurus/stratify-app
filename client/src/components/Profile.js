@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Review from "./Review";
 import styles from '../appStyles.module.css';
 
 function Profile({ user, onEditUser }) {
-    const navigate = useNavigate()
     const [reviews, setReviews] = useState([])
     const [userForm, setUserForm] = useState(null)
     const [passwordForm, setPasswordForm] = useState(null)
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
     const [username, setUsername] = useState("")
-    const [errors, setErrors] = useState("")
 
     useEffect(()=>{
         fetch(`/user/${user.id}/reviews`)
@@ -24,9 +21,8 @@ function Profile({ user, onEditUser }) {
     }
 
     function handleErrors(err) {
-        setErrors(err.errors)
-        console.log(errors)
-        alert(errors)
+        console.log(err)
+        alert('passwords must match')
     }
 
     function handlePasswordChange(e) {
@@ -52,6 +48,7 @@ function Profile({ user, onEditUser }) {
 
     function handleUpdateUsername(e) {
         e.preventDefault()
+        console.log(username)
         fetch(`/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -143,7 +140,7 @@ function Profile({ user, onEditUser }) {
                 </div>
                 <h2 className={styles.reviews_heading}>Your reviews</h2>
                 <div className={styles.reviews_holder}>
-                    {reviews.map((review) => <Review review={review}/>)}
+                    {reviews.map((review) => <Review key={review.id} review={review}/>)}
                 </div>
             </div>
 

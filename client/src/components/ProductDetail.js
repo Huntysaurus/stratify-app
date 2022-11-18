@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styles from '../appStyles.module.css';
 
 function ProductDetail({ user, product, onCartItemCreated }) {
     const navigate = useNavigate()
     const [form, setForm] = useState(null)
     const [description, setDescription] = useState("")
     const [reviews, setReviews] = useState([])
+
+    useEffect(() => {
+        fetch(`/product/${product.id}/reviews`)
+        .then(r => r.json())
+        .then(reviews => setReviews(reviews))
+    }, [])
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -52,42 +59,43 @@ function ProductDetail({ user, product, onCartItemCreated }) {
     }
 
     return (
-        <div>
-            <div>
-                <h3>{product.name}</h3>
+        <div className={styles.product_detail_background}>
+            <div className={styles.product_detail}>
+                <h3 className={styles.product_detail_h}>{product.name}</h3>
                 <img
                     src={product.image}
                     alt={product.name}
                     onClick={()=>navigate("/shop")}
                     />
                 <p>{product.category}</p>
-                <p>{product.price}</p>
+                <p className={styles.product_price}>${product.price}</p>
                 <p>{product.description}</p>
-                <button onClick={handleAddToCart}>add to cart</button>
+                <button className={styles.button_add_cart_detail} onClick={handleAddToCart}>add to cart</button>
             </div>
 
             { form ?
-                <div>
-                    <h1>review</h1>
-                    <button onClick={()=>setForm(null)}>cancel</button>
+                <div className={styles.detail_review_holder}>
+                    <h1 className={styles.product_review_h} >review</h1>
+                    <button className={styles.button} onClick={()=>setForm(null)}>cancel</button>
                     <form onSubmit={handleSubmit}>
                         <textarea
                             type="text"
                             value={description}
                             onChange={(e)=>setDescription(e.target.value)}
                         />
-                        <button type="submit" >post review</button>
+                        <br/>
+                        <button className={styles.button} type="submit" >post review</button>
                     </form>
                 </div>
             :
-                <button onClick={()=>setForm(true)}>write a review</button>
+                <button className={styles.button_review_detail} onClick={()=>setForm(true)}>write a review</button>
             }
-            <div>
+            <div className={styles.detail_reviews_list}>
                 {reviews?.map(review => {
                     return (
-                        <div key={review.id}>
-                            <li>{review.user.username}</li>
-                            <li>{review.description}</li>
+                        <div className={styles.user_reviews} key={review.id}>
+                            <p>@{review.user.username}</p>
+                            <p>{review.description}</p>
                         </div>
                     )
                 })}

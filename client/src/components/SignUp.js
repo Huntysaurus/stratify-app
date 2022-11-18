@@ -13,6 +13,7 @@ function Signup({ onSignup }) {
 
     function handleSubmit(e) {
         e.preventDefault()
+        console.log(name, username, email, password, confirmPassword)
         fetch("/users", {
             method: "POST",
             headers: {

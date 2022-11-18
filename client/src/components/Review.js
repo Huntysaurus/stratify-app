@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React from "react";
 import styles from '../appStyles.module.css';
 
 function Review({ review }) {
