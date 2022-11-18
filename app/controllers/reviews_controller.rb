@@ -3,9 +3,8 @@ class ReviewsController < ApplicationController
     def index
         if params[:product_id]
             product = Product.find(params[:product_id])
-            byebug
             reviews = product.reviews
-        elsif
+        elsif params[:user_id]
             user = @current_user
             reviews = user.reviews
         end

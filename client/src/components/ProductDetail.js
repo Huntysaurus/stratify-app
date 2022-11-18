@@ -29,13 +29,16 @@ function ProductDetail({ user, product, onCartItemCreated }) {
             })
         }).then((r) => {
             if (r.ok) {
-                r.json().then(alert('review posted!'))
-                // window.location.reload()
-                
+                r.json().then(review => onReviewSubmit(review))
             } else {
                 r.json().then((err) => console.log(err))
             }
         })
+    }
+
+    function onReviewSubmit(review) {
+        const newReviews = [...reviews, review]
+        setReviews(newReviews)
     }
 
     function handleAddToCart() {
@@ -94,7 +97,7 @@ function ProductDetail({ user, product, onCartItemCreated }) {
                 {reviews?.map(review => {
                     return (
                         <div className={styles.user_reviews} key={review.id}>
-                            <p>@{review.user.username}</p>
+                            <p style={{color: "blue"}}>@{review.user.username}</p>
                             <p>{review.description}</p>
                         </div>
                     )

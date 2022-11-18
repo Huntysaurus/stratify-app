@@ -307,11 +307,14 @@ textarea:focus {
 }
 
 .user_reviews {
+    display: inline-block;
+    line-height: 10px;
     margin: auto;
+    height:70%;
     font-size: 23px;
     color:#3b4b5a;
-    background-color:#84919c;
-    padding: 10px;
+    background-color:#c0c0c0;
+    padding: 10px 10px;
 }
 
 .shop_background {
