@@ -157,6 +157,16 @@ textarea:focus {
     box-shadow: 3px 5px 15px;
 }
 
+.cart_icon {
+    background-color: #232323;
+    position:absolute;
+    left: 87%;
+    top:.3%;
+    width:3%;
+    border: solid 3px rgb(255, 255, 255);
+    border-radius: 30px;
+}
+
 .sub_header {
     color:rgb(92, 164, 176);
     font-style: italic;
@@ -299,7 +309,7 @@ textarea:focus {
     top:38%;
     margin: auto;
     display: grid;
-    row-gap: 30px;
+    row-gap: 20px;
     grid-template-columns: auto;
     overflow:auto;
     background-color:rgb(220, 220, 220);
@@ -310,7 +320,6 @@ textarea:focus {
     display: inline-block;
     line-height: 10px;
     margin: auto;
-    height:70%;
     font-size: 23px;
     color:#3b4b5a;
     background-color:#c0c0c0;

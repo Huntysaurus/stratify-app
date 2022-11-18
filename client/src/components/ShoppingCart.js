@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import CartItem from "./CartItem";
+import styles from '../appStyles.module.css';
 
 function ShoppingCart({ cartProducts, onRemoveClick }) {
+    const [cartVisible, setCartVisible] = useState(false)
 
     console.log(cartProducts)
 
@@ -24,11 +26,22 @@ function ShoppingCart({ cartProducts, onRemoveClick }) {
 
     return (
         <div>
+            {cartVisible ?
+            <div>
+                <button onClick={()=>setCartVisible(false)}>close</button>
             <h2>the shopping cart component</h2>
             {cartProducts?.map(product => {
                 return <CartItem key={product.id} onRemoveClick={onRemoveClick} product={product}/>
             })}
             <h3>Total: ${total}</h3>
+        </div>
+        :
+      <img className={styles.cart_icon}
+        src="https://static.vecteezy.com/system/resources/previews/008/134/220/original/shopping-cart-icon-shopping-cart-icon-in-trendy-design-style-free-vector.jpg"
+        alt="cart"
+        onClick={()=>setCartVisible(true)}
+      />
+        }
         </div>
     )
 }

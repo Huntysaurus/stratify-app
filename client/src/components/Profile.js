@@ -140,7 +140,7 @@ function Profile({ user, onEditUser }) {
                 </div>
                 <h2 className={styles.reviews_heading}>Your reviews</h2>
                 <div className={styles.reviews_holder}>
-                    {reviews.map((review) => <Review key={review.id} review={review}/>)}
+                    {reviews?.map((review) => <Review key={review.id} review={review}/>)}
                 </div>
             </div>
 

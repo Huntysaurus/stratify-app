@@ -95,7 +95,7 @@ function ProductDetail({ user, product, onCartItemCreated }) {
             }
             <div className={styles.detail_reviews_list}>
                 {reviews?.map(review => {
-                    return (
+                    return ( 
                         <div className={styles.user_reviews} key={review.id}>
                             <p style={{color: "blue"}}>@{review.user.username}</p>
                             <p>{review.description}</p>
