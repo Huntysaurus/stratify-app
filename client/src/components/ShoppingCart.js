@@ -27,13 +27,12 @@ function ShoppingCart({ cartProducts, onRemoveClick }) {
     return (
         <div>
             {cartVisible ?
-            <div>
-                <button onClick={()=>setCartVisible(false)}>close</button>
-            <h2>the shopping cart component</h2>
+            <div className={styles.cart_drop_menu}>
+                <button className={styles.button_cart_close} onClick={()=>setCartVisible(false)}>close</button>
             {cartProducts?.map(product => {
                 return <CartItem key={product.id} onRemoveClick={onRemoveClick} product={product}/>
             })}
-            <h3>Total: ${total}</h3>
+            <h3 className={styles.total}>Total: ${total}</h3>
         </div>
         :
       <img className={styles.cart_icon}

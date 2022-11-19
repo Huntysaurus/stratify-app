@@ -74,7 +74,7 @@ function Signup({ onSignup }) {
                     <label>
                         create password
                         <input
-                        placeholder="6 to 15 characters long"
+                        placeholder="make it unique!"
                         type="password"
                         value={password}
                         onChange={(e)=>setPassword(e.target.value)}

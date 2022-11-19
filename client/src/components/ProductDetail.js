@@ -16,6 +16,7 @@ function ProductDetail({ user, product, onCartItemCreated }) {
 
     function handleSubmit(e) {
         e.preventDefault()
+        setDescription("")
         fetch("/reviews", {
             method: "POST",
             headers: {
@@ -39,6 +40,7 @@ function ProductDetail({ user, product, onCartItemCreated }) {
     function onReviewSubmit(review) {
         const newReviews = [...reviews, review]
         setReviews(newReviews)
+        alert("Review posted!")
     }
 
     function handleAddToCart() {
@@ -78,8 +80,8 @@ function ProductDetail({ user, product, onCartItemCreated }) {
 
             { form ?
                 <div className={styles.detail_review_holder}>
-                    <h1 className={styles.product_review_h} >review</h1>
                     <button className={styles.button} onClick={()=>setForm(null)}>cancel</button>
+                    <h1 className={styles.product_review_h} >review</h1>
                     <form onSubmit={handleSubmit}>
                         <textarea
                             type="text"
