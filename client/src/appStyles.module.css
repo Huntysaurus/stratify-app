@@ -173,7 +173,6 @@ textarea:focus {
 .cart_drop_menu {
     position: absolute;
     z-index: 99 !important;
-    opacity: 85%;
     background-color:#c0c0c0;
     height: 33%;
     width:15%;
@@ -224,6 +223,19 @@ textarea:focus {
     padding-top: 2px;
     padding-left: 3px;
     border: solid #232323;
+}
+
+.checkout {
+    top: 37.5%;
+    left: 91.5%;
+    z-index: 99;
+    position: fixed;
+    background-color: #232323;
+    color: #ffe100;
+    border: solid #ffffff;
+    font-size: 20px;
+    padding: 12px;
+    border-radius: 30px;
 }
 
 .sub_header {

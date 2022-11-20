@@ -71,6 +71,8 @@ function ProductDetail({ user, product, onCartItemCreated }) {
                     src={product.image}
                     alt={product.name}
                     onClick={()=>navigate("/shop")}
+                    style={{cursor:"pointer"}}
+                    title="back to shop"
                     />
                 <p>{product.category}</p>
                 <p className={styles.product_price}>${product.price}</p>

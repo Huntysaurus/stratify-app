@@ -10,6 +10,8 @@ function Profile({ user, onEditUser }) {
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
     const [username, setUsername] = useState("")
 
+    console.log(user)
+
     useEffect(()=>{
         fetch(`/user/${user.id}/reviews`)
         .then(r => r.json())

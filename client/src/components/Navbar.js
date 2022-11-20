@@ -27,9 +27,6 @@ function Navbar({ onLogoutClick }) {
                     <option value={"/profile"} >
                         profile
                     </option>
-                    <option value={"/cart"}>
-                        cart
-                    </option>
                     <option value={"/logout"}>
                         logout
                     </option>

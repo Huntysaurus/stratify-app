@@ -33,6 +33,7 @@ function ShoppingCart({ cartProducts, onRemoveClick }) {
                 return <CartItem key={product.id} onRemoveClick={onRemoveClick} product={product}/>
             })}
             <h3 className={styles.total}>Total: ${total}</h3>
+            <button className={styles.checkout} >checkout</button>
         </div>
         :
       <img className={styles.cart_icon}

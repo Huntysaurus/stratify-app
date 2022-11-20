@@ -61,7 +61,7 @@ function App() {
   function handleEditUser(updated) {
     console.log(user)
     setUser(updated)
-    alert(`username updated to ${updated} successfully!`)
+    alert(`username updated successfully!`)
     window.location.reload()
   }
 
