@@ -515,6 +515,17 @@ textarea:focus {
     box-shadow: 3px 3px 15px #232323;
 }
 
+.order_card {
+    margin: auto;
+    width: 90%;
+    color: #ffffff;
+    background-color:#84919c;
+}
+
+.order_details {
+    background-color: #c0c0c0;
+}
+
 .error_messages {
     position: absolute;
     top: 53%;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Review from "./Review";
+import Order from "./Order";
 import styles from '../appStyles.module.css';
 
 function Profile({ user, onEditUser }) {
@@ -9,13 +10,20 @@ function Profile({ user, onEditUser }) {
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
     const [username, setUsername] = useState("")
+    const [orders, setOrders] = useState([])
 
     console.log(user)
 
     useEffect(()=>{
-        fetch(`/user/${user.id}/reviews`)
+        fetch(`/users/${user.id}/reviews`)
         .then(r => r.json())
         .then(reviews => setReviews(reviews))
+    }, [user.id])
+
+    useEffect(()=> {
+        fetch(`/users/${user.id}/orders`)
+        .then(r => r.json())
+        .then(orders => setOrders(orders))
     }, [user.id])
 
     function onPasswordChangeClick(){
@@ -138,7 +146,7 @@ function Profile({ user, onEditUser }) {
             <div>
                 <h2 className={styles.orders_heading}>Your orders</h2>
                 <div className={styles.orders_holder}>
-                    <p>future order invoices go here</p>
+                    {orders?.map((order) => <Order key={order.id} order={order}/> )}
                 </div>
                 <h2 className={styles.reviews_heading}>Your reviews</h2>
                 <div className={styles.reviews_holder}>

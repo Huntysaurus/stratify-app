@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
 
+  resources :order_items
   resources :orders
   post "/login", to: 'sessions#create'
   delete "/logout", to: 'sessions#destroy'
   get "/me", to: 'users#show'
   
   get "/search/:searched", to: 'products#search'
-  get "/user/:user_id/reviews", to: 'reviews#index'
+  get "/users/:user_id/reviews", to: 'reviews#index'
+  get "/users/:user_id/orders", to: 'orders#index'
   get "/product/:product_id/reviews", to: 'reviews#index'
   get "/search", to: 'products#empty'
   get "/products", to: 'products#index'
-
+  get "/orders/:id", to: 'orders#index'
+  
   resources :users do
     resources :reviews
   end

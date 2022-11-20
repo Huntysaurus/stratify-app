@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import CartItem from "./CartItem";
 import styles from '../appStyles.module.css';
 
-function ShoppingCart({ cartProducts, onRemoveClick }) {
+function ShoppingCart({ user, cartProducts, onRemoveClick }) {
     const [cartVisible, setCartVisible] = useState(false)
-
-    console.log(cartProducts)
 
     let prices = []
 
@@ -22,6 +20,33 @@ function ShoppingCart({ cartProducts, onRemoveClick }) {
         )
     }
 
+    function onCheckoutClick() {
+        console.log(cartProducts)
+        console.log(user)
+        fetch("/orders", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                user_id: user.id,
+                total: total,
+            }),
+        }).then((r)=> {
+            if (r.ok) {
+                r.json().then((order) => console.log(order))
+            } else {
+                r.json().then((err) => console.log(err.errors))
+            }
+        })
+        // const response = window.confirm('want to checkout?')
+        // if (response) {
+        //     alert('you responed yes')
+        //  } else {
+        //     alert('you responed no')
+        //  }
+    }
+
     const total = addTotal(prices).toFixed(2)
 
     return (
@@ -33,7 +58,7 @@ function ShoppingCart({ cartProducts, onRemoveClick }) {
                 return <CartItem key={product.id} onRemoveClick={onRemoveClick} product={product}/>
             })}
             <h3 className={styles.total}>Total: ${total}</h3>
-            <button className={styles.checkout} >checkout</button>
+            <button onClick={()=>onCheckoutClick()} className={styles.checkout} >checkout</button>
         </div>
         :
       <img className={styles.cart_icon}

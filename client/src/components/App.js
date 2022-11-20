@@ -87,7 +87,7 @@ function App() {
       <div>
         <h1 className={styles.corner_logo} onClick={()=>navigate('/shop')}>stratify</h1>
         <Navbar onLogoutClick={handleLogout}/>
-        <ShoppingCart onRemoveClick={handleRemoveFromCart} cartProducts={cartProducts}/>
+        <ShoppingCart onRemoveClick={handleRemoveFromCart} user={user} cartProducts={cartProducts}/>
         <Routes>
           <Route exact path="/cart" element={ <ShoppingCart onRemoveClick={handleRemoveFromCart} cartProducts={cartProducts}/> }/>
           <Route exact path="/shop" element={ <Shop onProductClick={handleProductNavigation} /> }/>
