@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CartItem from "./CartItem";
 import styles from '../appStyles.module.css';
 
-function ShoppingCart({ user, cartProducts, onRemoveClick }) {
+function ShoppingCart({ user, cartProducts, onRemoveClick, afterCheckout }) {
     const [cartVisible, setCartVisible] = useState(false)
 
     let prices = []
@@ -22,30 +22,32 @@ function ShoppingCart({ user, cartProducts, onRemoveClick }) {
 
     function onCheckoutClick() {
         console.log(cartProducts)
-        console.log(user)
-        fetch("/orders", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                user_id: user.id,
-                total: total,
-            }),
-        }).then((r)=> {
-            if (r.ok) {
-                r.json().then((order) => console.log(order))
-            } else {
-                r.json().then((err) => console.log(err.errors))
+        if (cartProducts.length === 0) {
+            alert('no items in cart')
+        } else {
+            const response = window.confirm('Are you sure you want to checkout?')
+            if (response) {
+                fetch("/orders", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        user_id: user.id,
+                        total: total,
+                    }),
+                }).then((r)=> {
+                    if (r.ok) {
+                        r.json().then(() => afterCheckout())
+                    } else {
+                        r.json().then((err) => console.log(err.errors))
+                    }
+                })
+                } else {
+                    return
+                }
             }
-        })
-        // const response = window.confirm('want to checkout?')
-        // if (response) {
-        //     alert('you responed yes')
-        //  } else {
-        //     alert('you responed no')
-        //  }
-    }
+        }
 
     const total = addTotal(prices).toFixed(2)
 
@@ -61,11 +63,14 @@ function ShoppingCart({ user, cartProducts, onRemoveClick }) {
             <button onClick={()=>onCheckoutClick()} className={styles.checkout} >checkout</button>
         </div>
         :
-      <img className={styles.cart_icon}
-        src="https://static.vecteezy.com/system/resources/previews/008/134/220/original/shopping-cart-icon-shopping-cart-icon-in-trendy-design-style-free-vector.jpg"
-        alt="cart"
-        onClick={()=>setCartVisible(true)}
-      />
+        <>
+            <img className={styles.cart_icon}
+            src="https://static.vecteezy.com/system/resources/previews/008/134/220/original/shopping-cart-icon-shopping-cart-icon-in-trendy-design-style-free-vector.jpg"
+            alt="cart"
+            onClick={()=>setCartVisible(true)}
+            />
+            <p className={styles.cart_count}>{cartProducts?.length}</p>
+        </>
         }
         </div>
     )

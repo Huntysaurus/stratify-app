@@ -65,10 +65,29 @@ function App() {
     window.location.reload()
   }
 
+  function handleAddToCart(product) {
+    fetch(`/cart_items`, {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+          cart_id: user.cart.id,
+          product_id: product.id
+      })
+    }).then((r) => {
+      if (r.ok) {
+          r.json().then(cartItem => handleCreatedCartItem(cartItem))
+          
+      } else {
+          r.json().then((err) => console.log(err))
+      }
+    })
+  }
+
   function handleCreatedCartItem(cartItem) {
-    console.log(cartItem.product)
+    console.log(cartItem)
     setCartProducts([...cartProducts, cartItem.product ])
-    console.log(cartProducts)
   }
 
   function handleRemoveFromCart(product) {
@@ -79,7 +98,12 @@ function App() {
       fetch(`/cart_items/${product.id}`, {
         method: "DELETE",
     })
-}
+  }
+
+  function handleAfterCheckout() {
+    setCartProducts([])
+    alert('Thanks for your purchase. An order has been created!')
+  }
 
   return (
     <div className={styles.homeContainer}>
@@ -87,11 +111,11 @@ function App() {
       <div>
         <h1 className={styles.corner_logo} onClick={()=>navigate('/shop')}>stratify</h1>
         <Navbar onLogoutClick={handleLogout}/>
-        <ShoppingCart onRemoveClick={handleRemoveFromCart} user={user} cartProducts={cartProducts}/>
+        <ShoppingCart onRemoveClick={handleRemoveFromCart} user={user} cartProducts={cartProducts} afterCheckout={()=>handleAfterCheckout()}/>
         <Routes>
           <Route exact path="/cart" element={ <ShoppingCart onRemoveClick={handleRemoveFromCart} cartProducts={cartProducts}/> }/>
-          <Route exact path="/shop" element={ <Shop onProductClick={handleProductNavigation} /> }/>
-          <Route exact path="/product_detail" element={ <ProductDetail onCartItemCreated={handleCreatedCartItem} user={user} product={product} /> }/>
+          <Route exact path="/shop" element={ <Shop cartProducts={cartProducts} onProductClick={handleProductNavigation} onShopAdd={handleAddToCart} onShopRemove={handleRemoveFromCart}/> }/>
+          <Route exact path="/product_detail" element={ <ProductDetail onAddToCart={handleAddToCart} onCartItemCreated={handleCreatedCartItem} user={user} product={product} /> }/>
           <Route exact path="/profile" element={ <Profile onEditUser={handleEditUser} user={user} />}/>
         </Routes>
       </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from '../appStyles.module.css';
 
-function ProductDetail({ user, product, onCartItemCreated }) {
+function ProductDetail({ user, product, onAddToCart, onCartItemCreated }) {
     const navigate = useNavigate()
     const [form, setForm] = useState(null)
     const [description, setDescription] = useState("")
@@ -43,26 +43,6 @@ function ProductDetail({ user, product, onCartItemCreated }) {
         alert("Review posted!")
     }
 
-    function handleAddToCart() {
-        fetch(`/cart_items`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                cart_id: user.cart.id,
-                product_id: product.id
-            })
-        }).then((r) => {
-            if (r.ok) {
-                r.json().then(cartItem => onCartItemCreated(cartItem))
-                
-            } else {
-                r.json().then((err) => console.log(err))
-            }
-        })
-    }
-
     return (
         <div className={styles.product_detail_background}>
             <div className={styles.product_detail}>
@@ -77,7 +57,7 @@ function ProductDetail({ user, product, onCartItemCreated }) {
                 <p>{product.category}</p>
                 <p className={styles.product_price}>${product.price}</p>
                 <p>{product.description}</p>
-                <button className={styles.button_add_cart_detail} onClick={handleAddToCart}>add to cart</button>
+                <button className={styles.button_add_cart_detail} onClick={()=>onAddToCart(product)}>add to cart</button>
             </div>
 
             { form ?

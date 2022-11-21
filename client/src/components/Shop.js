@@ -3,8 +3,9 @@ import Product from "./Product";
 import Search from "./Search";
 import styles from '../appStyles.module.css';
 
-function Shop({ onProductClick }) {
+function Shop({ cartProducts, onProductClick, onShopAdd, onShopRemove }) {
     const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(()=> {
         fetch('/products')
@@ -33,7 +34,7 @@ function Shop({ onProductClick }) {
             <Search onSearched={handleSearch}/>
             <div className={styles.products_holder} >
                 {products.map(product => {
-                    return <Product onProductClick={onProductClick} key={product.id} product={product} />
+                    return <Product cartProducts={cartProducts} onProductClick={onProductClick} key={product.id} product={product} onShopAdd={onShopAdd} onShopRemove={onShopRemove} loading={loading}/>
                 })}
             </div>
         </div>
