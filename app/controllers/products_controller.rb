@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
     def index
         products = Product.all
-        render json: products, include: :reviews, status: :ok
+        render json: products, include: [:cart_items, :reviews], status: :ok
     end
 
     def search

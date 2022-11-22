@@ -7,13 +7,19 @@ import ProductDetail from "./ProductDetail";
 import Shop from "./Shop";
 import Profile from "./Profile";
 import ShoppingCart from "./ShoppingCart";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar"
  
 function App() {
   const navigate = useNavigate()
   const [user, setUser] = useState(null)
   const [product, setProduct] = useState([])
   const [cartProducts, setCartProducts] = useState([])
+
+  let productIds = []
+
+    cartProducts?.forEach(product => 
+        productIds = [...productIds, product.id]
+    )
 
   function onFetchCart(cart) {
     setCartProducts(cart.products)
@@ -61,7 +67,7 @@ function App() {
   function handleEditUser(updated) {
     console.log(user)
     setUser(updated)
-    alert(`username updated successfully!`)
+    alert(`Updated successfully!`)
     window.location.reload()
   }
 
@@ -103,6 +109,7 @@ function App() {
   function handleAfterCheckout() {
     setCartProducts([])
     alert('Thanks for your purchase. An order has been created!')
+    window.location.reload()
   }
 
   return (
@@ -114,8 +121,8 @@ function App() {
         <ShoppingCart onRemoveClick={handleRemoveFromCart} user={user} cartProducts={cartProducts} afterCheckout={()=>handleAfterCheckout()}/>
         <Routes>
           <Route exact path="/cart" element={ <ShoppingCart onRemoveClick={handleRemoveFromCart} cartProducts={cartProducts}/> }/>
-          <Route exact path="/shop" element={ <Shop cartProducts={cartProducts} onProductClick={handleProductNavigation} onShopAdd={handleAddToCart} onShopRemove={handleRemoveFromCart}/> }/>
-          <Route exact path="/product_detail" element={ <ProductDetail onAddToCart={handleAddToCart} onCartItemCreated={handleCreatedCartItem} user={user} product={product} /> }/>
+          <Route exact path="/shop" element={ <Shop cartProducts={cartProducts} productIds={productIds} onProductClick={handleProductNavigation} onShopAdd={handleAddToCart} onShopRemove={handleRemoveFromCart}/> }/>
+          <Route exact path="/product_detail" element={ <ProductDetail onAddToCart={handleAddToCart} onRemoveFromCart={handleRemoveFromCart} onCartItemCreated={handleCreatedCartItem} user={user} product={product} productIds={productIds} /> }/>
           <Route exact path="/profile" element={ <Profile onEditUser={handleEditUser} user={user} />}/>
         </Routes>
       </div>

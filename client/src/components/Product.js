@@ -1,15 +1,9 @@
 import React from "react";
 import styles from '../appStyles.module.css';
 
-function Product({ cartProducts, product, loading, onProductClick, onShopAdd, onShopRemove}) {
+function Product({ productIds, product, loading, onProductClick, onShopAdd, onShopRemove}) {
 
     // add loading functionality
-
-    let productIds = []
-
-    cartProducts.forEach(product => 
-        productIds = [...productIds, product.id]
-    )
 
     return (
         <>
@@ -25,7 +19,7 @@ function Product({ cartProducts, product, loading, onProductClick, onShopAdd, on
                         alt={product.name}
                         title='in cart'
                     />
-                    <p className={styles.in_cart}>IN CART</p>
+                    <p onClick={()=>onProductClick(product)} className={styles.in_cart}>IN CART</p>
                     <p style={{marginBottom: "30px"}}>${product.price}</p>
                     <button className={styles.product_remove} onClick={(e)=>onShopRemove(product)}>-</button>
                 </div>

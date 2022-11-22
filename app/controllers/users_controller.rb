@@ -17,6 +17,14 @@ class UsersController < ApplicationController
         render json: user, status: :accepted 
     end
 
+    def destroy
+        user = @current_user
+        user.destroy!
+        head :no_content
+    rescue ActiveRecord::RecordNotDestroyed => error
+        puts "errors that prevented destruction: #{error.record.errors.full_messages}"
+    end
+
     private
 
     def user_params

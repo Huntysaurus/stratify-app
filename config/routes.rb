@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-
-  resources :order_items
-  resources :orders
+  
   post "/login", to: 'sessions#create'
   delete "/logout", to: 'sessions#destroy'
   get "/me", to: 'users#show'
@@ -21,8 +19,6 @@ Rails.application.routes.draw do
   resources :products do
     resources :reviews, only: [:index]
   end
-
-  resources :reviews
 
   resources :carts, only: [:show, :index]
 

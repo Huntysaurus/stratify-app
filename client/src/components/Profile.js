@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Review from "./Review";
 import Order from "./Order";
 import styles from '../appStyles.module.css';
+import { useNavigate } from "react-router-dom";
 
 function Profile({ user, onEditUser }) {
     const [reviews, setReviews] = useState([])
@@ -11,6 +12,7 @@ function Profile({ user, onEditUser }) {
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
     const [username, setUsername] = useState("")
     const [orders, setOrders] = useState([])
+    const navigate = useNavigate()
 
     console.log(user)
 
@@ -77,10 +79,26 @@ function Profile({ user, onEditUser }) {
         })
     }
 
+    function handleDeleteUser(user) {
+        console.log(user)
+        const response = window.confirm('Are you sure you want to delete your account? All order history and reviews will be deleted as well.')
+        if (response) {
+            fetch(`users/${user.id}`, {
+                method: "DELETE"
+            })
+            alert("Your account has been deleted.")
+            navigate("/")
+            window.location.reload()
+        } else {
+            return
+        }
+    }
+
     return (
         <div className={styles.profile_page}>
             <div className={styles.profile_holder}>
             <h1 className={styles.profile_header}>Profile</h1>
+            <button className={styles.prof_delete_acc} onClick={()=>handleDeleteUser(user)}>delete account</button>
             <div className={styles.profile_info_backing}>
                 <div className={styles.profile_info}>
                     <h2>name: {user.name}</h2>
@@ -146,11 +164,25 @@ function Profile({ user, onEditUser }) {
             <div>
                 <h2 className={styles.orders_heading}>Your orders</h2>
                 <div className={styles.orders_holder}>
-                    {orders?.map((order) => <Order key={order.id} order={order}/> )}
+                {
+                    orders.length > 0 ?
+                    <>
+                        {orders?.map((order) => <Order key={order.id} order={order}/> )}
+                    </>
+                    :
+                    <p className={styles.no_history_text}>no order history yet</p>  
+                }
                 </div>
                 <h2 className={styles.reviews_heading}>Your reviews</h2>
                 <div className={styles.reviews_holder}>
-                    {reviews?.map((review) => <Review key={review.id} review={review}/>)}
+                    {
+                        reviews.length > 0 ?
+                        <>
+                            {reviews?.map((review) => <Review key={review.id} review={review}/>)}
+                        </>
+                        :
+                        <p className={styles.no_history_text}>no reviews yet</p>
+                    }
                 </div>
             </div>
 
