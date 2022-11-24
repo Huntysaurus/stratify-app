@@ -1,0 +1,14 @@
+.review_card {
+    margin: auto;
+    width: 100%;
+    color: #ffffff;
+    background-color:#84919c;
+}
+
+.review_text {
+    margin-left: 5px;
+}
+
+.review_image {
+    width:100%
+}

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react"
 import { Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import styles from '../appStyles.module.css';
-import Home from "./Home";
-import ProductDetail from "./ProductDetail";
-import Shop from "./Shop";
-import Profile from "./Profile";
-import ShoppingCart from "./ShoppingCart";
-import Navbar from "./Navbar"
+import styles from '../src/appStyles.module.css';
+import Home from "./features/home/Home";
+import ProductDetail from "./features/product/ProductDetail";
+import Shop from "./features/shop/Shop";
+import Profile from "./features/user/Profile";
+import ShoppingCart from "./features/cart/ShoppingCart";
+import Navbar from "./features/navbar/Navbar"
  
 function App() {
   const navigate = useNavigate()
@@ -17,14 +17,13 @@ function App() {
 
   let productIds = []
 
-    cartProducts?.forEach(product => 
-        productIds = [...productIds, product.id]
-    )
+  cartProducts?.forEach(product => 
+      productIds = [...productIds, product.id]
+  )
 
   function onFetchCart(cart) {
     setCartProducts(cart.products)
   }
-  
   
   function onFetchUser(user) {
     setUser(user)

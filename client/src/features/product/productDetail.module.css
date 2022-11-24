@@ -1,0 +1,164 @@
+.product_detail_background {
+    background-color: rgb(240, 240, 240);
+    height: 120ch;
+}
+
+.product_detail_remove {
+    margin-left: 10%;
+    width: 50%;
+    text-align: center;
+    font-size: larger;
+    font-weight: 600;
+    background-color:rgb(112, 112, 112);
+    box-shadow: 0px 2px 10px rgb(168, 168, 168)
+}
+
+.in_cart_detail {
+    position: absolute;
+    left: 26%;
+    top:27%;
+    color: #ffe100;
+    background-color: #000000;
+    padding:1%;
+    font-size: 400%;
+    cursor: pointer;
+}
+
+.product_price {
+    font-size: 175%;
+    background-color: #84919c;
+    width:30%;
+    margin: auto;
+}
+
+.button_remove_cart_detail {
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 6px;
+    letter-spacing: .5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    border: 0ch;
+    background-color: rgb(0, 0, 0);
+    color: #ffe100;
+    cursor: pointer;
+}
+
+.product_detail {
+    margin-left: 10%;
+    width: 50%;
+    text-align: center;
+    font-size: larger;
+    font-weight: 600;
+    background-color:rgb(220, 220, 220);
+    box-shadow: 0px 2px 10px rgb(168, 168, 168)
+}
+
+.product_detail_h {
+    color:#3b4b5a;
+    font-size: 2em;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.button_add_cart_detail {
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 6px;
+    letter-spacing: .5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    border: 0ch;
+    background-color: rgb(92, 164, 176);
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.detail_review_holder {
+    position: absolute;
+    z-index: 89;
+    text-align: center;
+    width:30%;
+    left: 61%;
+    top:8%
+}
+
+.button {
+    border-radius: 15px;
+    padding: 6px;
+    letter-spacing: .5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    border: 0ch;
+    background-color: rgb(92, 164, 176);
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.product_review_h {
+    color:#3b4b5a;
+    font-size: 2em;
+    margin-bottom: 1px;
+    margin-top:-25px;
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.button_review_detail {
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 6px;
+    letter-spacing: .5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    border: 0ch;
+    background-color: rgb(92, 164, 176);
+    color: aliceblue;
+    position: absolute;
+    width:25%;
+    left: 63.5%;
+    top:8%
+}
+
+.detail_reviews_list {
+    position: absolute;
+    height:53%;
+    width:30%;
+    left: 61%;
+    top:38%;
+    margin: auto;
+    display: grid;
+    row-gap: 20px;
+    grid-template-columns: auto;
+    overflow:auto;
+    background-color:rgb(220, 220, 220);
+    box-shadow: 0px 2px 10px rgb(168, 168, 168)
+}
+
+.user_reviews {
+    display: inline-block;
+    line-height: 10px;
+    margin: auto;
+    font-size: 23px;
+    color:#3b4b5a;
+    background-color:#c0c0c0;
+    padding: 10px 10px;
+}
+
+.no_history_text {
+    color:rgb(123, 123, 123);
+    font-size: 30px;
+    font-weight: 700;
+    position: relative;
+    margin-left: 29%;
+}

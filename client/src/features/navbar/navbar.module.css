@@ -1,0 +1,23 @@
+.navbar {
+    background-color:rgb(255, 232, 80);
+}
+
+.menu {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    transform: translate(-50%, -240%);
+    padding:.5em .5em;
+    margin-left:20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width:7%;
+    text-align: center;
+    font-size: 100%;
+    font-weight: 600;
+    color: #84919c;
+    background-color: #3b4b5a;
+    border: none;
+    box-shadow: 3px 5px 15px;
+    cursor: pointer;
+}

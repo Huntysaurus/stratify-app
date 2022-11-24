@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import styles from '../appStyles.module.css';
+import styles from './navbar.module.css';
 
 function Navbar({ onLogoutClick }) {
     const navigate = useNavigate()

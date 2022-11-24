@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from '../appStyles.module.css';
+import styles from './productDetail.module.css';
 
 function ProductDetail({ user, product, productIds, onAddToCart, onRemoveFromCart }) {
     const navigate = useNavigate()

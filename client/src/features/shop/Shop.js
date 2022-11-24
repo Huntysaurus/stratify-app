@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Product from "./Product";
-import Search from "./Search";
-import styles from '../appStyles.module.css';
+import Product from "../product/Product";
+import Search from "../search/Search";
+import styles from './shop.module.css';
 
 function Shop({ productIds, cartProducts, onProductClick, onShopAdd, onShopRemove }) {
     const [products, setProducts] = useState([])

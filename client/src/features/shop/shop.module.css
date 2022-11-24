@@ -1,0 +1,14 @@
+.shop_background {
+    background-color: rgb(240, 240, 240);
+}
+
+.products_holder {
+    margin: auto;
+    display: grid;
+    row-gap: 30px;
+    grid-template-columns: 25% 25% 25% 25%;
+    height:53rem;
+    width:70%;
+    overflow:auto;
+    background-color: rgb(220, 220, 220);
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from '../appStyles.module.css';
+import styles from './order.module.css';
 
 function Order({ order }) {
     const orderProducts = order.products

@@ -1,0 +1,27 @@
+.form {
+    margin: auto;
+    width: 45%;
+    text-align: center;
+    background-color: #d9edff;
+}
+
+.sub_header {
+    color:rgb(92, 164, 176);
+    font-style: italic;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.button {
+    border-radius: 15px;
+    padding: 6px;
+    letter-spacing: .5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    border: 0ch;
+    background-color: rgb(92, 164, 176);
+    color: aliceblue;
+    cursor: pointer;
+}

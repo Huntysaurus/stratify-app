@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CartItem from "./CartItem";
-import styles from '../appStyles.module.css';
+import styles from './shoppingCart.module.css';
 
 function ShoppingCart({ user, cartProducts, onRemoveClick, afterCheckout }) {
     const [cartVisible, setCartVisible] = useState(false)

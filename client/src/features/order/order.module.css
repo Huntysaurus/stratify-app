@@ -1,0 +1,14 @@
+.order_card {
+    margin: auto;
+    width: 90%;
+    color: #ffffff;
+    background-color:#576068;
+}
+
+.order_details {
+    background-color: #6c7780;
+    width: 90%;
+    margin: auto;
+    padding-left: 1%;
+    padding-bottom: 1%;
+}

@@ -1,0 +1,14 @@
+.search_form {
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+
+.search_bar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -140%);
+    height: 35px;
+    font-size: large;
+}

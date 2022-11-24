@@ -1,0 +1,138 @@
+.profile_page {
+    background-color: rgb(240, 240, 240);
+}
+
+.profile_holder {
+    background-color: #3b4b5a;
+    width: 70%;   
+    margin: auto;
+    height:110ch;
+}
+
+.profile_header {
+    color:rgb(92, 164, 176);
+    font-style: italic;
+    margin-top: 3px;
+    margin-left: 12%;
+    font-size: 5em;
+}
+
+.prof_delete_acc {
+    position: absolute;
+    left:49.5%;
+    top:11%;
+    border-radius: 15px;
+    padding: 6px;
+    letter-spacing: .5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    border: 0ch;
+    background-color: rgb(92, 164, 176);
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.profile_info_backing {
+    background-color: #bdcfdf;
+    margin-right: 60%;
+    margin-top: -40px;
+    margin-left: 4.5%;
+    height: 85px;
+}
+
+.profile_info {
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.profile_forms_holder {
+    position:absolute;
+    left: 49%;
+    top:18%;
+    z-index: 99 !important;
+}
+
+.prof_change_form {
+    position:absolute;
+    left: -54%;
+    top:-140%;
+    margin: auto;
+    width: 200%;
+    height: 380%;
+    text-align: center;
+    background-color: #d9edff;
+    z-index: 99 !important;
+}
+
+.button {
+    border-radius: 15px;
+    padding: 6px;
+    letter-spacing: .5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    border: 0ch;
+    background-color: rgb(92, 164, 176);
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.orders_heading {
+    margin-left:4.5%;
+    margin-top:0%;
+    font-size: 2em;
+    color:rgb(92, 164, 176);
+    font-style: italic;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.orders_holder {
+    position: absolute;
+    top: 35%;
+    left: 18%;
+    height:57%;
+    width:42%;
+    overflow:auto;
+    margin: auto;
+    display: grid;
+    row-gap: 30px;
+    grid-template-columns: auto;
+    background-color: rgb(220, 220, 220);
+    box-shadow: 3px 3px 15px #232323;
+}
+
+.no_history_text {
+    color:rgb(123, 123, 123);
+    font-size: 30px;
+    font-weight: 700;
+    position: relative;
+    margin-left: 29%;
+}
+
+.reviews_heading {
+    margin-left: 67%;
+    margin-top: -20%;
+    font-size: 2em;
+    color:rgb(92, 164, 176);
+    font-style: italic;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.reviews_holder {
+    position: absolute;
+    top: 13%;
+    left: 62%;
+    margin: auto;
+    display: grid;
+    row-gap: 30px;
+    grid-template-columns: auto;
+    height:79%;
+    width:20%;
+    overflow:auto;
+    background-color: rgb(220, 220, 220);
+    box-shadow: 3px 3px 15px #232323;
+}

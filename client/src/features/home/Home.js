@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Login from "./Login";
-import Signup from "./SignUp";
-import styles from '../appStyles.module.css';
+import Login from "../user/Login";
+import Signup from "../user/SignUp";
+import styles from './home.module.css';
 
 function Home({ onSignup }) {
 

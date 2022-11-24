@@ -5,20 +5,26 @@ Rails.application.routes.draw do
   get "/me", to: 'users#show'
   
   get "/search/:searched", to: 'products#search'
-  get "/users/:user_id/reviews", to: 'reviews#index'
-  get "/users/:user_id/orders", to: 'orders#index'
-  get "/product/:product_id/reviews", to: 'reviews#index'
   get "/search", to: 'products#empty'
   get "/products", to: 'products#index'
+
+  get "/users/:user_id/reviews", to: 'reviews#index'
+  get "/product/:product_id/reviews", to: 'reviews#index'
+
+  get "/users/:user_id/orders", to: 'orders#index'
   get "/orders/:id", to: 'orders#index'
+
+  post "/reviews", to: 'reviews#create'
   
   resources :users do
     resources :reviews
   end
 
   resources :products do
-    resources :reviews, only: [:index]
+    resources :reviews, only: [:index ]
   end
+
+  resources :orders, only: [:create]
 
   resources :carts, only: [:show, :index]
 

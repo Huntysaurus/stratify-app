@@ -1,5 +1,5 @@
 import React from "react";
-import styles from '../appStyles.module.css';
+import styles from './review.module.css';
 
 function Review({ review }) {
     return (

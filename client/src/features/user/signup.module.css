@@ -1,0 +1,45 @@
+.form {
+    margin: auto;
+    width: 45%;
+    text-align: center;
+    background-color: #d9edff;
+}
+
+.sub_header {
+    color:rgb(92, 164, 176);
+    font-style: italic;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.password_backdrop {
+    background-color: rgb(160, 208, 228);
+    width: 400px;
+    padding: 3px;
+    margin: auto;
+    border: solid rgb(59, 99, 106);
+}
+
+.button {
+    border-radius: 15px;
+    padding: 6px;
+    letter-spacing: .5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    border: 0ch;
+    background-color: rgb(92, 164, 176);
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.error_messages {
+    position: absolute;
+    top: 53%;
+    left: 76%;
+    transform: translate(-50%, -50%);
+    color: #ff5e00;
+    font-size: large;
+    font-weight: 600;
+}

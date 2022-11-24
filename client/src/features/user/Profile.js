@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Review from "./Review";
-import Order from "./Order";
-import styles from '../appStyles.module.css';
+import Review from "../review/Review";
+import Order from "../order/Order";
+import styles from './profile.module.css';
 import { useNavigate } from "react-router-dom";
 
 function Profile({ user, onEditUser }) {
