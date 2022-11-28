@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import CartItem from "./CartItem";
 import styles from './shoppingCart.module.css';
+import { useSelector } from "react-redux";
 
 function ShoppingCart({ user, cartProducts, onRemoveClick, afterCheckout }) {
+
+    const cartItems = useSelector(state => state.cartItems)
+    console.log(cartItems)
+    
     const [cartVisible, setCartVisible] = useState(false)
 
     let prices = []

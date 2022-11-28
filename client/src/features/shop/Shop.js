@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../product/productsSlice"
 import Product from "../product/Product";
 import Search from "../search/Search";
 import styles from './shop.module.css';
@@ -6,18 +8,13 @@ import styles from './shop.module.css';
 function Shop({ productIds, cartProducts, onProductClick, onShopAdd, onShopRemove }) {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
+    const dispatch = useDispatch()
+    const productItems = useSelector((state) => state.products.entities)
 
-    console.log(products.length)
+    console.log(productItems)
     
     useEffect(()=> {
-        fetch('/products')
-        .then((r)=> {
-            if (r.ok) {
-                r.json().then((products) => setProducts(products))
-            } else {
-                r.json().then(err => console.log(err.errors))
-            }
-        })
+        dispatch(fetchProducts())
     }, [])
 
     function handleSearch(searched){
@@ -35,7 +32,7 @@ function Shop({ productIds, cartProducts, onProductClick, onShopAdd, onShopRemov
         <div className={styles.shop_background}>
             <Search onSearched={handleSearch}/>
             <div className={styles.products_holder} >
-                {products.map(product => {
+                {productItems.map(product => {
                     return <Product cartProducts={cartProducts} productIds={productIds} onProductClick={onProductClick} key={product.id} product={product} onShopAdd={onShopAdd} onShopRemove={onShopRemove} loading={loading}/>
                 })}
             </div>

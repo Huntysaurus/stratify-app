@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react"
 import { Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { addCartItem } from "./features/cart/cartItemsSlice";
 import styles from '../src/appStyles.module.css';
 import Home from "./features/home/Home";
 import ProductDetail from "./features/product/ProductDetail";
@@ -15,21 +18,27 @@ function App() {
   const [product, setProduct] = useState([])
   const [cartProducts, setCartProducts] = useState([])
 
+  const dispatch = useDispatch()
+  const cartItems = useSelector(state => state.cartItems)
+  const state = useSelector(state => state)
+  console.log(cartItems)
+
   let productIds = []
 
   cartProducts?.forEach(product => 
       productIds = [...productIds, product.id]
   )
 
-  function onFetchCart(cart) {
-    setCartProducts(cart.products)
+  function onFetchCart(products) {
+    console.log(products)
+    products.forEach(product => dispatch(addCartItem(product)))
   }
   
   function onFetchUser(user) {
     setUser(user)
     fetch(`/carts/${user.id}`)
     .then(r => r.json())
-    .then(cart => onFetchCart(cart))
+    .then(cart => onFetchCart(cart.products))
   }
 
   useEffect(()=> {
