@@ -1,13 +1,21 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { logoutUser } from "../user/usersSlice";
 import styles from './navbar.module.css';
 
-function Navbar({ onLogoutClick }) {
+function Navbar() {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    function handleLogout() {
+        dispatch(logoutUser())
+        navigate('/')
+    }
 
     function handleNavigation(e) {
         if (e === "/logout") {
-            onLogoutClick();
+            handleLogout();
         } else if (e === "") {
             return
         } else {

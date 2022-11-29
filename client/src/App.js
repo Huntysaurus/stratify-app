@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addCartItem } from "./features/cart/cartItemsSlice";
 import styles from '../src/appStyles.module.css';
 import Home from "./features/home/Home";
 import ProductDetail from "./features/product/ProductDetail";
@@ -16,13 +15,9 @@ function App() {
   const [user, setUser] = useState(null)
   const [product, setProduct] = useState([])
   const [cartProducts, setCartProducts] = useState([])
-
   const dispatch = useDispatch()
 
   const currentUser = useSelector(state => state.user)
-
-  console.log(currentUser)
-  console.log(currentUser)
 
   let productIds = []
 
@@ -30,25 +25,9 @@ function App() {
       productIds = [...productIds, product.id]
   )
 
-  function onFetchCart(products) {
-    products.forEach(product => dispatch(addCartItem(product)))
-  }
-  
-  function onFetchUser(user) {
-    setUser(user)
-    fetch(`/carts/${user.id}`)
-    .then(r => r.json())
-    .then(cart => onFetchCart(cart.products))
-  }
-
   useEffect(()=> {
     dispatch(userSession())
   }, [dispatch])
-
-  function handleLogout() {
-      dispatch(logoutUser())
-      navigate('/')
-  }
 
   function handleProductNavigation(product) {
     setProduct(product)
@@ -108,7 +87,7 @@ function App() {
       {currentUser ?
       <div>
         <h1 className={styles.corner_logo} onClick={()=>navigate('/shop')}>stratify</h1>
-        <Navbar onLogoutClick={handleLogout}/>
+        <Navbar/>
         <ShoppingCart onRemoveClick={handleRemoveFromCart} user={user} cartProducts={cartProducts} afterCheckout={()=>handleAfterCheckout()}/>
         <Routes>
           <Route exact path="/cart" element={ <ShoppingCart onRemoveClick={handleRemoveFromCart} cartProducts={cartProducts}/> }/>

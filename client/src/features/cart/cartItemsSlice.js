@@ -1,5 +1,15 @@
-
-const initialState = [];
+export function fetchCart(user) {
+    return function (dispatch) {
+        fetch(`/carts/${user.id}`)
+        .then(r => r.json())
+        .then((cart) => {
+            dispatch({
+                type: "cartItems/fetchCartItems",
+                payload: cart
+            })}
+        )
+    }
+}
 
 export const addCartItem = (cartItem) => {
     return {
@@ -15,16 +25,10 @@ export const removeCartItem = (id) => {
     }
 }
 
-export function fetchCartItems() {
-    return function (dispatch) {
-        dispatch({ type: "cartItems/itemsLoading"})
-
-        // unfinished, start with usersSlice
-    }
-}
+const initialState = [];
 
 export default function cartItemsReducer(state = initialState, action) {
-    switch (action.payload) {
+    switch (action.type) {
         case "cartItems/add":
             console.log(state)
             return [...state, action.payload];
@@ -34,6 +38,9 @@ export default function cartItemsReducer(state = initialState, action) {
 
         case "cartItems/itemsLoading":
             console.log('loading cart items')
+
+        case "cartItems/fetchCartItems":
+            return state = action.payload
 
         default:
             return state;

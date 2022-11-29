@@ -10,7 +10,20 @@ function Shop({ productIds, cartProducts, onProductClick, onShopAdd, onShopRemov
     const dispatch = useDispatch()
     const productItems = useSelector((state) => state.products.entities)
 
-    // console.log(productItems)
+    const currentUser = useSelector(state => state.user)
+    console.log(currentUser)
+
+    function onFetchUser(user) {
+        // setUser(user)
+        fetch(`/carts/${user.id}`)
+        .then(r => r.json())
+        .then(cart => onFetchCart(cart.products))
+    }
+
+    function onFetchCart(products) {
+        // import { addCartItem } from "./features/cart/cartItemsSlice";
+    // products.forEach(product => dispatch(addCartItem(product)))
+    }
     
     useEffect(()=> {
         dispatch(fetchProducts())

@@ -1,11 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CartItem from "./CartItem";
 import styles from './shoppingCart.module.css';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCart } from "./cartItemsSlice";
 
-function ShoppingCart({ user, cartProducts, onRemoveClick, afterCheckout }) {
+function ShoppingCart({ user, onRemoveClick, afterCheckout }) {
 
-    // const cartItems = useSelector(state => state.cartItems.entities)
+    const cartProducts = useSelector(state => state.cartItems.products)
+    const currentUser = useSelector(state => state.user)
+    const dispatch = useDispatch()
+    console.log(cartProducts)
+    console.log(currentUser)
+
+    useEffect(() => {
+        dispatch(fetchCart(currentUser))
+    },[])
     
     const [cartVisible, setCartVisible] = useState(false)
 

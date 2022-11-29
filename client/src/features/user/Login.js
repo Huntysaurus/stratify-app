@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styles from './login.module.css';
 import { loginUser } from './usersSlice';
-import { useDispatch } from "react-redux";
+import { fetchCart } from '../cart/cartItemsSlice';
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -9,6 +10,8 @@ function Login() {
     const [password, setPassword] = useState("")
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const user = useSelector(state => state.user)
+    const cart = useSelector(state => state.cartItems)
 
     function handleSubmit(e){
         e.preventDefault()
