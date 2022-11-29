@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './product.module.css';
 
-function Product({ productIds, product, loading, onProductClick, onShopAdd, onShopRemove}) {
+function Product({ productIds, product, onProductClick, onShopAdd, onShopRemove}) {
 
     // add loading functionality
 

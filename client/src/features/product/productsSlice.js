@@ -14,14 +14,15 @@ export function fetchProducts() {
             }
         })
     }
+
 }
 
-export const productNavigate = (product) => {
-    return {
-        type: "products/navigate",
-        payload: product,
-    }
-}
+// export const productNavigate = (product) => {
+//     return {
+//         type: "products/navigate",
+//         payload: product,
+//     }
+// }
 
 const initialState = [];
 

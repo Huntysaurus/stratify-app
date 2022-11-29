@@ -7,11 +7,10 @@ import styles from './shop.module.css';
 
 function Shop({ productIds, cartProducts, onProductClick, onShopAdd, onShopRemove }) {
     const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
     const dispatch = useDispatch()
     const productItems = useSelector((state) => state.products.entities)
 
-    console.log(productItems)
+    // console.log(productItems)
     
     useEffect(()=> {
         dispatch(fetchProducts())
@@ -32,8 +31,8 @@ function Shop({ productIds, cartProducts, onProductClick, onShopAdd, onShopRemov
         <div className={styles.shop_background}>
             <Search onSearched={handleSearch}/>
             <div className={styles.products_holder} >
-                {productItems.map(product => {
-                    return <Product cartProducts={cartProducts} productIds={productIds} onProductClick={onProductClick} key={product.id} product={product} onShopAdd={onShopAdd} onShopRemove={onShopRemove} loading={loading}/>
+                {productItems?.map(product => {
+                    return <Product productIds={productIds} onProductClick={onProductClick} key={product.id} product={product} onShopAdd={onShopAdd} onShopRemove={onShopRemove} />
                 })}
             </div>
         </div>

@@ -2,7 +2,6 @@
 const initialState = [];
 
 export const addCartItem = (cartItem) => {
-    console.log(cartItem)
     return {
         type: "cartItems/add",
         payload: cartItem,

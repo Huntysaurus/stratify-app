@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { Routes, Route } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useNavigate, Routes, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { addCartItem } from "./features/cart/cartItemsSlice";
 import styles from '../src/appStyles.module.css';
 import Home from "./features/home/Home";
@@ -11,6 +9,7 @@ import Shop from "./features/shop/Shop";
 import Profile from "./features/user/Profile";
 import ShoppingCart from "./features/cart/ShoppingCart";
 import Navbar from "./features/navbar/Navbar"
+import { userSession } from "./features/user/usersSlice";
  
 function App() {
   const navigate = useNavigate()
@@ -19,9 +18,13 @@ function App() {
   const [cartProducts, setCartProducts] = useState([])
 
   const dispatch = useDispatch()
-  const cartItems = useSelector(state => state.cartItems)
-  const state = useSelector(state => state)
-  console.log(cartItems)
+
+  // const cartItems = useSelector(state => state.cartItems.entities)
+  // console.log(cartItems)
+
+  const userPerson = useSelector(state => state.user.entities)
+
+  console.log(userPerson)
 
   let productIds = []
 
@@ -30,7 +33,6 @@ function App() {
   )
 
   function onFetchCart(products) {
-    console.log(products)
     products.forEach(product => dispatch(addCartItem(product)))
   }
   
@@ -42,20 +44,25 @@ function App() {
   }
 
   useEffect(()=> {
-    fetch('/me')
-    .then((r) => {
-      if (r.ok) {
-        r.json().then((user) => onFetchUser(user))
-      }
-    })
-  },[])
+    dispatch(userSession())
+  }, [])
 
-  function handleLogin(user) {
-    setUser(user)
-    setCartProducts(user.cart.products)
-    navigate('/shop')
-    window.location.reload()
-  }
+  // useEffect(()=> {
+  //   fetch('/me')
+  //   .then((r) => {
+  //     if (r.ok) {
+  //       r.json().then((user) => onFetchUser(user))
+  //     }
+  //   })
+  // },[])
+
+  // function handleLogin(user) {
+  //   setUser(user)
+  //   dispatch(loginUser(user))
+  //   setCartProducts(user.cart.products)
+  //   navigate('/shop')
+  //   window.location.reload()
+  // }
 
   function handleLogout() {
     fetch('/logout', {method: "DELETE"}).then((r) => {
@@ -136,7 +143,8 @@ function App() {
       </div>
         :
         <Routes>
-          <Route exact path="/" element={ <Home onSignup={handleLogin}/> }/>
+          {/* <Route exact path="/" element={ <Home onSignup={handleLogin}/> }/> */}
+          <Route exact path="/" element={ <Home /> }/>
         </Routes>
       }
     </div>

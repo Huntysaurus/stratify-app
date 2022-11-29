@@ -5,8 +5,7 @@ import { useSelector } from "react-redux";
 
 function ShoppingCart({ user, cartProducts, onRemoveClick, afterCheckout }) {
 
-    const cartItems = useSelector(state => state.cartItems)
-    console.log(cartItems)
+    // const cartItems = useSelector(state => state.cartItems.entities)
     
     const [cartVisible, setCartVisible] = useState(false)
 
