@@ -9,7 +9,7 @@ import Shop from "./features/shop/Shop";
 import Profile from "./features/user/Profile";
 import ShoppingCart from "./features/cart/ShoppingCart";
 import Navbar from "./features/navbar/Navbar"
-import { userSession } from "./features/user/usersSlice";
+import { userSession, logoutUser } from "./features/user/usersSlice";
  
 function App() {
   const navigate = useNavigate()
@@ -19,12 +19,10 @@ function App() {
 
   const dispatch = useDispatch()
 
-  // const cartItems = useSelector(state => state.cartItems.entities)
-  // console.log(cartItems)
+  const currentUser = useSelector(state => state.user)
 
-  const userPerson = useSelector(state => state.user.entities)
-
-  console.log(userPerson)
+  console.log(currentUser)
+  console.log(currentUser)
 
   let productIds = []
 
@@ -45,33 +43,11 @@ function App() {
 
   useEffect(()=> {
     dispatch(userSession())
-  }, [])
-
-  // useEffect(()=> {
-  //   fetch('/me')
-  //   .then((r) => {
-  //     if (r.ok) {
-  //       r.json().then((user) => onFetchUser(user))
-  //     }
-  //   })
-  // },[])
-
-  // function handleLogin(user) {
-  //   setUser(user)
-  //   dispatch(loginUser(user))
-  //   setCartProducts(user.cart.products)
-  //   navigate('/shop')
-  //   window.location.reload()
-  // }
+  }, [dispatch])
 
   function handleLogout() {
-    fetch('/logout', {method: "DELETE"}).then((r) => {
-      if (r.ok) {
-        setUser(null)
-        setCartProducts([])
-      }
+      dispatch(logoutUser())
       navigate('/')
-    })
   }
 
   function handleProductNavigation(product) {
@@ -129,7 +105,7 @@ function App() {
 
   return (
     <div className={styles.homeContainer}>
-      {user ?
+      {currentUser ?
       <div>
         <h1 className={styles.corner_logo} onClick={()=>navigate('/shop')}>stratify</h1>
         <Navbar onLogoutClick={handleLogout}/>

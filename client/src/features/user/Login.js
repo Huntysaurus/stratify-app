@@ -1,32 +1,19 @@
 import React, { useState } from "react";
 import styles from './login.module.css';
 import { loginUser } from './usersSlice';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-function Login({ onLogin }) {
+function Login() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const dispatch = useDispatch()
-    const user = useSelector(state => state.user)
-    console.log(user)
+    const navigate = useNavigate()
 
     function handleSubmit(e){
         e.preventDefault()
         dispatch(loginUser({username, password}))
-        // fetch("/login", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify({ username, password }),
-        // }).then((r)=> {
-        //     if (r.ok) {
-        //         r.json().then((user) => onLogin(user))
-        //     } else {
-        //         r.json().then((err) => console.log(err.errors))
-        //         alert('The username and/or password you have entered is incorrect. Please try again.')
-        //     }
-        // })
+        navigate("/shop")
     }
 
     return (
