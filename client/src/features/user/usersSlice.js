@@ -98,15 +98,63 @@ export function updateUsername(user, username) {
         }).then((r)=> {
             if (r.ok) {
                 r.json().then(user => {
+                    debugger
                     dispatch({
                         type: "user/userEdit",
                         payload: user
                     })})
+                    alert(`Updated successfully!`)
+                    window.location.reload()
             } else {
                 r.json().then((err) => console.log(err))
-
+                alert('an unexpected error has occured')
             }
         })
+    }
+}
+
+export function updatePassword(user, userObj) {
+    return function (dispatch) {
+        fetch(`/users/${user.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                password: userObj.password,
+                password_confirmation: userObj.passwordConfirmation
+            }),
+        }).then((r)=> {
+            if (r.ok) {
+                r.json().then(user => {
+                    dispatch({
+                        type: "user/userEdit",
+                        payload: user
+                    })
+                    alert('Updated successfully!')
+                    window.location.reload()
+                })
+            } else {
+                r.json().then((err) => console.log(err))
+                alert('passwords do not match.')
+            }
+        })
+    }
+}
+
+export function deleteUser(user) {
+    return function (dispatch) {
+        dispatch("user/userDelete")
+        const response = window.confirm('Are you sure you want to delete your account? All order history and reviews will be deleted as well.')
+        if (response) {
+            fetch(`users/${user.id}`, {
+                method: "DELETE"
+            })
+            alert("Your account has been deleted.")
+            window.location.reload()
+        } else {
+            return
+        }
     }
 }
 
@@ -129,6 +177,9 @@ export default function usersReducer(state = initialState, action) {
                 ...state,
                 entities: action.payload
             }
+        
+        case "user/userDelete":
+            state = null
         
         default:
             return state;

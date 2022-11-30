@@ -6,86 +6,46 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchReviews } from "../review/reviewsSlice";
 import { fetchOrders } from "../order/ordersSlice";
-import { updateUsername, userSession } from "../user/usersSlice";
+import { deleteUser, updatePassword, updateUsername } from "../user/usersSlice";
 
 function Profile() {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const user = useSelector(state => state.user)
     const reviews = useSelector(state => state.reviews.entities)
     const orders = useSelector(state => state.orders.entities)
+
     const [userForm, setUserForm] = useState(null)
     const [passwordForm, setPasswordForm] = useState(null)
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
     const [username, setUsername] = useState("")
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
 
     console.log(user)
-
-    useEffect(()=>{
-      dispatch(fetchReviews(user))
-      dispatch(fetchOrders(user))
-    }, [user.username, user.password])
-
-    // function handleEditUser(updated) {
-    //     console.log(user)
-    //     setUser(updated)
-    //     alert(`Updated successfully!`)
-    //     window.location.reload()
-    //   }
 
     function onPasswordChangeClick(){
         setPasswordForm(true)
     }
 
-    function handleErrors(err) {
-        console.log(err)
-        alert('passwords must match')
-    }
+    useEffect(()=>{
+      dispatch(fetchReviews(user))
+      dispatch(fetchOrders(user))
+    }, [])
 
     function handlePasswordChange(e) {
-        // e.preventDefault()
-        // fetch(`/users/${user.id}`, {
-        //     method: "PATCH",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify({
-        //         password: password,
-        //         password_confirmation: passwordConfirmation
-        //     }),
-        // }).then((r)=> {
-        //     if (r.ok) {
-        //         r.json().then(user => onEditUser(user))
-        //     } else {
-        //         r.json().then((err) => handleErrors(err))
-        //     }
-        // })
+        e.preventDefault()
+        dispatch(updatePassword(user, {password, passwordConfirmation}))
     }
 
     function handleUpdateUsername(e) {
         e.preventDefault()
-        console.log(user)
         dispatch(updateUsername(user, username))
-        dispatch(userSession)
-        alert(`Updated successfully!`)
-        window.location.reload()
     }
 
     function handleDeleteUser(user) {
         console.log(user)
-        const response = window.confirm('Are you sure you want to delete your account? All order history and reviews will be deleted as well.')
-        if (response) {
-            fetch(`users/${user.id}`, {
-                method: "DELETE"
-            })
-            alert("Your account has been deleted.")
-            navigate("/")
-            window.location.reload()
-        } else {
-            return
-        }
+        dispatch(deleteUser(user))
     }
 
     return (
