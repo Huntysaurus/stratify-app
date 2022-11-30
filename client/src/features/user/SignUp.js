@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { createUser } from "./usersSlice";
 import { clearErrors } from "../errorsSlice"; 
 import styles from './signup.module.css';
@@ -12,7 +11,6 @@ function Signup() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
-    const navigate = useNavigate()
     const errors = useSelector(state => state.errors)
 
     const newUser = {name, email, username, password, confirmPassword}

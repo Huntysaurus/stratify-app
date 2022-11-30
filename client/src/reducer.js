@@ -5,6 +5,8 @@ import usersReducer from "./features/user/usersSlice.js"
 import errorsReducer from "./features/errorsSlice.js"
 import accessReducer from "./features/user/accessSlice"
 import productDetailReducer from "./features/product/productDetailSlice.js";
+import reviewsReducer from "./features/review/reviewsSlice.js";
+import ordersReducer from "./features/order/ordersSlice.js";
 
 const rootReducer = combineReducers({
     cartItems: cartItemsReducer,
@@ -12,7 +14,9 @@ const rootReducer = combineReducers({
     user: usersReducer,
     errors: errorsReducer,
     access: accessReducer,
-    productDetail: productDetailReducer
+    productDetail: productDetailReducer,
+    reviews: reviewsReducer,
+    orders: ordersReducer
 })
 
 export default rootReducer;

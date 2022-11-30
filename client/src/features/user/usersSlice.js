@@ -19,7 +19,6 @@ export function createUser(userObj) {
         }).then((r)=> {
             if (r.ok) {
                 r.json().then((user) => {
-                    debugger
                     dispatch(allowAccess())
                     dispatch({
                         type: "user/userCreate",
@@ -28,6 +27,21 @@ export function createUser(userObj) {
                 })
             } else {
                 r.json().then((err) => dispatch(setErrors(err.errors)))
+            }
+        })
+    }
+}
+
+export function userSession() {
+    return function (dispatch) {
+        fetch('/me')
+        .then((r) => {
+            if (r.ok) {
+            r.json().then((user) => {
+                dispatch({
+                    type: "user/userLogin",
+                    payload: user
+                })})
             }
         })
     }
@@ -71,16 +85,26 @@ export function logoutUser() {
     }
 }
 
-export function userSession() {
+export function updateUsername(user, username) {
     return function (dispatch) {
-        fetch('/me')
-        .then((r) => {
+        fetch(`/users/${user.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+                body: JSON.stringify({
+                username: username
+                }),
+        }).then((r)=> {
             if (r.ok) {
-            r.json().then((user) => {
-                dispatch({
-                    type: "user/userLogin",
-                    payload: user
-                })})
+                r.json().then(user => {
+                    dispatch({
+                        type: "user/userEdit",
+                        payload: user
+                    })})
+            } else {
+                r.json().then((err) => console.log(err))
+
             }
         })
     }
@@ -99,6 +123,12 @@ export default function usersReducer(state = initialState, action) {
 
         case "user/userCreate":
             return state = action.payload
+
+        case "user/userEdit":
+            return {
+                ...state,
+                entities: action.payload
+            }
         
         default:
             return state;

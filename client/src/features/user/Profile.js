@@ -3,33 +3,37 @@ import Review from "../review/Review";
 import Order from "../order/Order";
 import styles from './profile.module.css';
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchReviews } from "../review/reviewsSlice";
+import { fetchOrders } from "../order/ordersSlice";
+import { updateUsername, userSession } from "../user/usersSlice";
 
-function Profile({ onEditUser }) {
-    
+function Profile() {
+
     const user = useSelector(state => state.user)
-    const [reviews, setReviews] = useState([])
+    const reviews = useSelector(state => state.reviews.entities)
+    const orders = useSelector(state => state.orders.entities)
     const [userForm, setUserForm] = useState(null)
     const [passwordForm, setPasswordForm] = useState(null)
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
     const [username, setUsername] = useState("")
-    const [orders, setOrders] = useState([])
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     console.log(user)
 
     useEffect(()=>{
-        fetch(`/users/${user.id}/reviews`)
-        .then(r => r.json())
-        .then(reviews => setReviews(reviews))
-    }, [user.id])
+      dispatch(fetchReviews(user))
+      dispatch(fetchOrders(user))
+    }, [user.username, user.password])
 
-    useEffect(()=> {
-        fetch(`/users/${user.id}/orders`)
-        .then(r => r.json())
-        .then(orders => setOrders(orders))
-    }, [user.id])
+    // function handleEditUser(updated) {
+    //     console.log(user)
+    //     setUser(updated)
+    //     alert(`Updated successfully!`)
+    //     window.location.reload()
+    //   }
 
     function onPasswordChangeClick(){
         setPasswordForm(true)
@@ -41,45 +45,32 @@ function Profile({ onEditUser }) {
     }
 
     function handlePasswordChange(e) {
-        e.preventDefault()
-        fetch(`/users/${user.id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                password: password,
-                password_confirmation: passwordConfirmation
-            }),
-        }).then((r)=> {
-            if (r.ok) {
-                r.json().then(user => onEditUser(user))
-            } else {
-                r.json().then((err) => handleErrors(err))
-
-            }
-        })
+        // e.preventDefault()
+        // fetch(`/users/${user.id}`, {
+        //     method: "PATCH",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify({
+        //         password: password,
+        //         password_confirmation: passwordConfirmation
+        //     }),
+        // }).then((r)=> {
+        //     if (r.ok) {
+        //         r.json().then(user => onEditUser(user))
+        //     } else {
+        //         r.json().then((err) => handleErrors(err))
+        //     }
+        // })
     }
 
     function handleUpdateUsername(e) {
         e.preventDefault()
-        console.log(username)
-        fetch(`/users/${user.id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                username: username
-            }),
-        }).then((r)=> {
-            if (r.ok) {
-                r.json().then(user => onEditUser(user))
-            } else {
-                r.json().then((err) => handleErrors(err))
-
-            }
-        })
+        console.log(user)
+        dispatch(updateUsername(user, username))
+        dispatch(userSession)
+        alert(`Updated successfully!`)
+        window.location.reload()
     }
 
     function handleDeleteUser(user) {
@@ -168,9 +159,9 @@ function Profile({ onEditUser }) {
                 <h2 className={styles.orders_heading}>Your orders</h2>
                 <div className={styles.orders_holder}>
                 {
-                    orders.length > 0 ?
+                    orders?.length > 0 ?
                     <>
-                        {orders?.map((order) => <Order key={order.id} order={order}/> )}
+                        {orders.map((order) => <Order key={order.id} order={order}/> )}
                     </>
                     :
                     <p className={styles.no_history_text}>no order history yet</p>  
@@ -179,9 +170,9 @@ function Profile({ onEditUser }) {
                 <h2 className={styles.reviews_heading}>Your reviews</h2>
                 <div className={styles.reviews_holder}>
                     {
-                        reviews.length > 0 ?
+                        reviews?.length > 0 ?
                         <>
-                            {reviews?.map((review) => <Review key={review.id} review={review}/>)}
+                            {reviews.map((review) => <Review key={review.id} review={review}/>)}
                         </>
                         :
                         <p className={styles.no_history_text}>no reviews yet</p>
