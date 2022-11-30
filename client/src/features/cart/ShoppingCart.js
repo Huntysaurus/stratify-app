@@ -4,7 +4,7 @@ import styles from './shoppingCart.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCart } from "./cartItemsSlice";
 
-function ShoppingCart({ user, onRemoveClick, afterCheckout }) {
+function ShoppingCart({ onRemoveClick, afterCheckout }) {
 
     const cartProducts = useSelector(state => state.cartItems.products)
     const currentUser = useSelector(state => state.user)
@@ -46,7 +46,7 @@ function ShoppingCart({ user, onRemoveClick, afterCheckout }) {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        user_id: user.id,
+                        user_id: currentUser.id,
                         total: total,
                     }),
                 }).then((r)=> {

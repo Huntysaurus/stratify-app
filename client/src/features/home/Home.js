@@ -3,7 +3,7 @@ import Login from "../user/Login";
 import Signup from "../user/SignUp";
 import styles from './home.module.css';
 
-function Home({ onSignup }) {
+function Home() {
 
     const [formSwitch, setFormSwitch] = useState(false)
 
@@ -13,14 +13,14 @@ function Home({ onSignup }) {
             <p className={styles.text_under_header}>shopping made simple!</p>
                 { formSwitch ?
                     <div className={styles.form_holder} >
-                        <Signup onSignup={ onSignup }/>
+                        <Signup />
                         <div className={styles.subtext}>
                             <p onClick={()=>setFormSwitch(false)}>have an account? Click here to Login!</p>
                         </div>
                     </div>
                     :
                     <div className={styles.form_holder}>
-                        <Login onLogin={ onSignup }/>
+                        <Login />
                         <div className={styles.subtext}>
                             <p onClick={()=>setFormSwitch(true)}>no account? Click here to sign up.</p>
                         </div>

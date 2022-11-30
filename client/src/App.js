@@ -9,6 +9,7 @@ import Profile from "./features/user/Profile";
 import ShoppingCart from "./features/cart/ShoppingCart";
 import Navbar from "./features/navbar/Navbar"
 import { userSession, logoutUser } from "./features/user/usersSlice";
+import { allowAccess } from "./features/user/accessSlice";
  
 function App() {
   const navigate = useNavigate()
@@ -18,6 +19,17 @@ function App() {
   const dispatch = useDispatch()
 
   const currentUser = useSelector(state => state.user)
+  const errors = useSelector(state => state.errors)
+  const access = useSelector(state => state.access)
+
+  console.log(access)
+
+  useEffect(()=> {
+      if (access) {
+          return navigate("/shop")
+      }
+          return navigate("/")
+  },[access])
 
   let productIds = []
 
@@ -98,7 +110,6 @@ function App() {
       </div>
         :
         <Routes>
-          {/* <Route exact path="/" element={ <Home onSignup={handleLogin}/> }/> */}
           <Route exact path="/" element={ <Home /> }/>
         </Routes>
       }

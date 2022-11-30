@@ -1,36 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { createUser } from "./usersSlice";
+import { clearErrors } from "../errorsSlice"; 
 import styles from './signup.module.css';
 
-function Signup({ onSignup }) {
+
+function Signup() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
-    const [errors, setErrors] = useState([])
+    const navigate = useNavigate()
+    const errors = useSelector(state => state.errors)
+
+    const newUser = {name, email, username, password, confirmPassword}
+
+    const dispatch = useDispatch()
+
+    useEffect(()=> {
+        dispatch(clearErrors())
+    }, [])
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(name, username, email, password, confirmPassword)
-        fetch("/users", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                name,
-                username,
-                email,
-                password,
-                password_confirmation: confirmPassword
-            }),
-        }).then((r)=> {
-            if (r.ok) {
-                r.json().then((user) => onSignup(user))
-            } else {
-                r.json().then((err) => setErrors(err.errors))
-            }
-        })
+        dispatch(createUser(newUser))
     }
 
     return (
