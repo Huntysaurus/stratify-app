@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styles from './productDetail.module.css';
 
-function ProductDetail({ user, product, productIds, onAddToCart, onRemoveFromCart }) {
+function ProductDetail({ user, productIds, onAddToCart, onRemoveFromCart }) {
     const navigate = useNavigate()
     const [form, setForm] = useState(null)
     const [description, setDescription] = useState("")
     const [reviews, setReviews] = useState([])
+    const productDetail = useSelector(state => state.productDetail)
 
     useEffect(() => {
-        fetch(`/product/${product.id}/reviews`)
+        fetch(`/product/${productDetail?.id}/reviews`)
         .then(r => r.json())
         .then(reviews => setReviews(reviews))
     }, [])
+
+    console.log(productDetail)
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -26,7 +30,7 @@ function ProductDetail({ user, product, productIds, onAddToCart, onRemoveFromCar
                 description: description,
                 stars: 1,
                 user_id: user.id,
-                product_id: product.id
+                product_id: productDetail.id
             })
         }).then((r) => {
             if (r.ok) {
@@ -51,39 +55,39 @@ function ProductDetail({ user, product, productIds, onAddToCart, onRemoveFromCar
     return (
         <div className={styles.product_detail_background}>
             {
-                productIds.includes(product.id) ?
+                productIds.includes(productDetail) ?
 
                 <div className={styles.product_detail_remove}>
-                    <h3 className={styles.product_detail_h}>{product.name}</h3>
+                    <h3 className={styles.product_detail_h}>{productDetail.name}</h3>
                     <h1 onClick={()=>navigate("/shop")} className={styles.in_cart_detail}>IN CART</h1>
                     <img
-                        src={product.image}
-                        alt={product.name}
+                        src={productDetail.image}
+                        alt={productDetail.name}
                         onClick={()=>navigate("/shop")}
                         style={{cursor:"pointer"}}
                         title="back to shop"
                         />
-                    <p>{product.category}</p>
-                    <p className={styles.product_price}>${product.price}</p>
-                    <p>{product.description}</p>
-                    <button className={styles.button_remove_cart_detail} onClick={()=>onRemoveFromCart(product)}>remove from cart</button>
+                    <p>{productDetail.category}</p>
+                    <p className={styles.product_price}>${productDetail.price}</p>
+                    <p>{productDetail.description}</p>
+                    <button className={styles.button_remove_cart_detail} onClick={()=>onRemoveFromCart(productDetail)}>remove from cart</button>
                 </div>
 
             :
 
                 <div className={styles.product_detail}>
-                    <h3 className={styles.product_detail_h}>{product.name}</h3>
+                    <h3 className={styles.product_detail_h}>{productDetail?.name}</h3>
                     <img
-                        src={product.image}
-                        alt={product.name}
+                        src={productDetail?.image}
+                        alt={productDetail?.name}
                         onClick={()=>navigate("/shop")}
                         style={{cursor:"pointer"}}
                         title="back to shop"
                         />
-                    <p>{product.category}</p>
-                    <p className={styles.product_price}>${product.price}</p>
-                    <p>{product.description}</p>
-                <button className={styles.button_add_cart_detail} onClick={()=>onAddToCart(product)}>add to cart</button>
+                    <p>{productDetail?.category}</p>
+                    <p className={styles.product_price}>${productDetail?.price}</p>
+                    <p>{productDetail?.description}</p>
+                <button className={styles.button_add_cart_detail} onClick={()=>onAddToCart(productDetail)}>add to cart</button>
             </div>
 
             }

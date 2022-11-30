@@ -1,9 +1,20 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styles from './product.module.css';
+import { setProductDetail } from "./productDetailSlice";
 
 function Product({ productIds, product, onProductClick, onShopAdd, onShopRemove}) {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     // add loading functionality
+
+    function handleProductNavigation(product) {
+        dispatch(setProductDetail(product))
+        console.log(product)
+        navigate("/product_detail")
+      }
 
     return (
         <>
@@ -13,13 +24,13 @@ function Product({ productIds, product, onProductClick, onShopAdd, onShopRemove}
                 <div className={styles.product_card_remove}>
                     <p><b>{product.name}</b></p>
                     <img
-                        onClick={()=>onProductClick(product)}
+                        onClick={()=>handleProductNavigation(product)}
                         className={styles.product_c_image_remove}
                         src={product.image}
                         alt={product.name}
                         title='in cart'
                     />
-                    <p onClick={()=>onProductClick(product)} className={styles.in_cart}>IN CART</p>
+                    <p onClick={()=>handleProductNavigation(product)} className={styles.in_cart}>IN CART</p>
                     <p style={{marginBottom: "30px"}}>${product.price}</p>
                     <button className={styles.product_remove} onClick={(e)=>onShopRemove(product)}>-</button>
                 </div>
@@ -29,7 +40,7 @@ function Product({ productIds, product, onProductClick, onShopAdd, onShopRemove}
                 <div className={styles.product_card}>
                     <p><b>{product.name}</b></p>
                     <img
-                        onClick={()=>onProductClick(product)}
+                        onClick={()=>handleProductNavigation(product)}
                         className={styles.product_c_image}
                         src={product.image}
                         alt={product.name}
