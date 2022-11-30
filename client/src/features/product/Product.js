@@ -1,14 +1,20 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { addToCart } from "../cart/cartSlice";
 import styles from './product.module.css';
 import { setProductDetail } from "./productDetailSlice";
 
-function Product({ productIds, product, onShopAdd, onShopRemove}) {
+function Product({ productIds, product, onShopRemove}) {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    const currentUser = useSelector(state => state.user)
+
     // add loading functionality
+    function handleAddToCart(product) {
+        dispatch(addToCart(currentUser, product))
+    }
 
     function handleProductNavigation(product) {
         dispatch(setProductDetail(product))
@@ -32,7 +38,7 @@ function Product({ productIds, product, onShopAdd, onShopRemove}) {
                     />
                     <p onClick={()=>handleProductNavigation(product)} className={styles.in_cart}>IN CART</p>
                     <p style={{marginBottom: "30px"}}>${product.price}</p>
-                    <button className={styles.product_remove} onClick={(e)=>onShopRemove(product)}>-</button>
+                    <button className={styles.product_remove} onClick={()=>onShopRemove(product)}>-</button>
                 </div>
 
                 :
@@ -48,7 +54,7 @@ function Product({ productIds, product, onShopAdd, onShopRemove}) {
                     />
                     <p>{product.category}</p>
                     <p style={{marginBottom: "30px"}}>${product.price}</p>
-                    <button className={styles.product_add} onClick={(e)=>onShopAdd(product)}>+</button>
+                    <button className={styles.product_add} onClick={()=>handleAddToCart(product)}>+</button>
                 </div>
             }
         </>

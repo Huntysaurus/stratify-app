@@ -17,6 +17,34 @@ export function fetchOrders(user) {
 
 }
 
+export function createOrder(currentUser, total) {
+    return function (dispatch) {
+        fetch("/orders", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                user_id: currentUser.id,
+                total: total,
+            }),
+        }).then((r)=> {
+            if (r.ok) {
+                r.json().then((order) => {
+                    dispatch({
+                        type: "orders/create",
+                        payload: order
+                    })
+                })
+                alert('Thanks for your purchase. An order has been created!')
+                window.location.reload()
+            } else {
+                r.json().then((err) => console.log(err.errors))
+            }
+        })
+    }
+}
+
 const initialState = [];
 
 export default function ordersReducer(state = initialState, action) {

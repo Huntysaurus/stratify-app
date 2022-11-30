@@ -42,19 +42,19 @@ function App() {
   }
 
   function handleRemoveFromCart(product) {
-      console.log(product)
-      const newProducts = cartProducts.filter(item => item.id !== product.id)
-      console.log(newProducts)
-      setCartProducts(newProducts)
-      fetch(`/cart_items/${product.id}`, {
-        method: "DELETE",
-    })
+    //   console.log(product)
+    //   const newProducts = cartProducts.filter(item => item.id !== product.id)
+    //   console.log(newProducts)
+    //   setCartProducts(newProducts)
+    //   fetch(`/cart_items/${product.id}`, {
+    //     method: "DELETE",
+    // })
   }
 
   function handleAfterCheckout() {
-    setCartProducts([])
-    alert('Thanks for your purchase. An order has been created!')
-    window.location.reload()
+    // setCartProducts([])
+    // alert('Thanks for your purchase. An order has been created!')
+    // window.location.reload()
   }
 
   return (

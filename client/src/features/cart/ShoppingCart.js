@@ -4,8 +4,9 @@ import styles from './shoppingCart.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCart } from "./cartSlice";
 import { useNavigate } from "react-router-dom";
+import { createOrder } from "../order/ordersSlice";
 
-function ShoppingCart({ onRemoveClick, afterCheckout }) {
+function ShoppingCart({ afterCheckout }) {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -39,33 +40,23 @@ function ShoppingCart({ onRemoveClick, afterCheckout }) {
     }
 
     function onCheckoutClick() {
-        console.log(cartProducts)
         if (cartProducts.length === 0) {
             alert('no items in cart')
         } else {
             const response = window.confirm('Are you sure you want to checkout?')
             if (response) {
-                fetch("/orders", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        user_id: currentUser.id,
-                        total: total,
-                    }),
-                }).then((r)=> {
-                    if (r.ok) {
-                        r.json().then(() => afterCheckout())
-                    } else {
-                        r.json().then((err) => console.log(err.errors))
-                    }
-                })
+                dispatch(createOrder(currentUser, total))
                 } else {
                     return
                 }
             }
         }
+
+        // function handleAfterCheckout() {
+        //     setCartProducts([])
+        //     alert('Thanks for your purchase. An order has been created!')
+        //     window.location.reload()
+        //   }
 
     const total = addTotal(prices).toFixed(2)
 
@@ -75,7 +66,7 @@ function ShoppingCart({ onRemoveClick, afterCheckout }) {
             <div className={styles.cart_drop_menu}>
                 <button className={styles.button_cart_close} onClick={()=>setCartVisible(false)}>close</button>
             {cartProducts?.map(product => {
-                return <CartItem key={product.id} onRemoveClick={onRemoveClick} product={product}/>
+                return <CartItem key={product.id} product={product}/>
             })}
             <h3 className={styles.total}>Total: ${total}</h3>
             <button onClick={()=>onCheckoutClick()} className={styles.checkout} >checkout</button>

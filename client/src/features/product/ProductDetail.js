@@ -48,7 +48,7 @@ function ProductDetail({ user, productIds, onAddToCart, onRemoveFromCart }) {
 
     function handleAddToCart() {
         dispatch(addToCart(currentUser, productDetail))
-      }
+    }
 
     function onReviewSubmit(review) {
         const newReviews = [...reviews, review]
