@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useDebugValue, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { addToCart } from "../cart/cartSlice";
 import styles from './productDetail.module.css';
 
 function ProductDetail({ user, productIds, onAddToCart, onRemoveFromCart }) {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+
     const [form, setForm] = useState(null)
     const [description, setDescription] = useState("")
     const [reviews, setReviews] = useState([])
+
     const productDetail = useSelector(state => state.productDetail)
+    const currentUser = useSelector(state => state.user)
 
     useEffect(() => {
         fetch(`/product/${productDetail?.id}/reviews`)
@@ -40,6 +45,10 @@ function ProductDetail({ user, productIds, onAddToCart, onRemoveFromCart }) {
             }
         })
     }
+
+    function handleAddToCart() {
+        dispatch(addToCart(currentUser, productDetail))
+      }
 
     function onReviewSubmit(review) {
         const newReviews = [...reviews, review]
@@ -87,7 +96,7 @@ function ProductDetail({ user, productIds, onAddToCart, onRemoveFromCart }) {
                     <p>{productDetail?.category}</p>
                     <p className={styles.product_price}>${productDetail?.price}</p>
                     <p>{productDetail?.description}</p>
-                <button className={styles.button_add_cart_detail} onClick={()=>onAddToCart(productDetail)}>add to cart</button>
+                <button className={styles.button_add_cart_detail} onClick={handleAddToCart}>add to cart</button>
             </div>
 
             }

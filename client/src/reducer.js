@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import cartItemsReducer from "./features/cart/cartItemsSlice.js"
+import cartReducer from "./features/cart/cartSlice.js"
 import productsReducer from "./features/product/productsSlice.js"
 import usersReducer from "./features/user/usersSlice.js"
 import errorsReducer from "./features/errorsSlice.js"
@@ -9,7 +9,7 @@ import reviewsReducer from "./features/review/reviewsSlice.js";
 import ordersReducer from "./features/order/ordersSlice.js";
 
 const rootReducer = combineReducers({
-    cartItems: cartItemsReducer,
+    cart: cartReducer,
     products: productsReducer,
     user: usersReducer,
     errors: errorsReducer,

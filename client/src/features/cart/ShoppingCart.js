@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import CartItem from "./CartItem";
 import styles from './shoppingCart.module.css';
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCart } from "./cartItemsSlice";
+import { fetchCart } from "./cartSlice";
 import { useNavigate } from "react-router-dom";
 
 function ShoppingCart({ onRemoveClick, afterCheckout }) {
 
-    // const cartProducts = useSelector(state => state.cartItems.products)
-    const cartProducts = []
-    const currentUser = useSelector(state => state.user)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    const cartProducts = useSelector(state => state.cart.products)
+    const currentUser = useSelector(state => state.user)
 
     useEffect(()=> {
         navigate("/profile")
@@ -19,7 +19,7 @@ function ShoppingCart({ onRemoveClick, afterCheckout }) {
 
     useEffect(() => {
         dispatch(fetchCart(currentUser))
-    },[])
+    },[cartProducts])
     
     const [cartVisible, setCartVisible] = useState(false)
 

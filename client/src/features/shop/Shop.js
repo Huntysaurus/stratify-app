@@ -5,7 +5,7 @@ import Product from "../product/Product";
 import Search from "../search/Search";
 import styles from './shop.module.css';
 
-function Shop({ productIds, cartProducts, onProductClick, onShopAdd, onShopRemove }) {
+function Shop({ productIds, cartProducts, onShopAdd, onShopRemove }) {
     const [products, setProducts] = useState([])
     const dispatch = useDispatch()
     const productItems = useSelector((state) => state.products.entities)
@@ -38,7 +38,7 @@ function Shop({ productIds, cartProducts, onProductClick, onShopAdd, onShopRemov
             <Search onSearched={handleSearch}/>
             <div className={styles.products_holder} >
                 {productItems?.map(product => {
-                    return <Product productIds={productIds} onProductClick={onProductClick} key={product.id} product={product} onShopAdd={onShopAdd} onShopRemove={onShopRemove} />
+                    return <Product productIds={productIds} key={product.id} product={product} onShopAdd={onShopAdd} onShopRemove={onShopRemove} />
                 })}
             </div>
         </div>

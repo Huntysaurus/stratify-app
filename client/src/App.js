@@ -12,19 +12,16 @@ import { userSession } from "./features/user/usersSlice";
  
 function App() {
   const navigate = useNavigate()
-  const [user, setUser] = useState(null)
-  const [product, setProduct] = useState([])
-  const [cartProducts, setCartProducts] = useState([])
   const dispatch = useDispatch()
-
-  const currentUser = useSelector(state => state.user)
-  const errors = useSelector(state => state.errors)
+  
+  const [cartProducts, setCartProducts] = useState([])
   const access = useSelector(state => state.access)
-
+  const currentUser = useSelector(state => state.user)
   const productDetail = useSelector(state => state.productDetail)
-  console.log(productDetail)
 
-  console.log(access)
+  useEffect(()=> {
+    dispatch(userSession())
+  }, [dispatch])
 
   useEffect(()=> {
       if (access) {
@@ -38,35 +35,6 @@ function App() {
   cartProducts?.forEach(product => 
       productIds = [...productIds, product.id]
   )
-
-  useEffect(()=> {
-    dispatch(userSession())
-  }, [dispatch])
-
-  function handleProductNavigation(product) {
-    setProduct(product)
-    navigate("/product_detail")
-  }
-
-  function handleAddToCart(product) {
-    fetch(`/cart_items`, {
-      method: "POST",
-      headers: {
-          "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-          cart_id: user.cart.id,
-          product_id: product.id
-      })
-    }).then((r) => {
-      if (r.ok) {
-          r.json().then(cartItem => handleCreatedCartItem(cartItem))
-          
-      } else {
-          r.json().then((err) => console.log(err))
-      }
-    })
-  }
 
   function handleCreatedCartItem(cartItem) {
     console.log(cartItem)
@@ -95,11 +63,11 @@ function App() {
       <div>
         <h1 className={styles.corner_logo} onClick={()=>navigate('/shop')}>stratify</h1>
         <Navbar/>
-        <ShoppingCart onRemoveClick={handleRemoveFromCart} user={user} cartProducts={cartProducts} afterCheckout={()=>handleAfterCheckout()}/>
+        <ShoppingCart onRemoveClick={handleRemoveFromCart} cartProducts={cartProducts} afterCheckout={()=>handleAfterCheckout()}/>
         <Routes>
           <Route exact path="/cart" element={ <ShoppingCart onRemoveClick={handleRemoveFromCart} cartProducts={cartProducts}/> }/>
-          <Route exact path="/shop" element={ <Shop cartProducts={cartProducts} productIds={productIds} onProductClick={handleProductNavigation} onShopAdd={handleAddToCart} onShopRemove={handleRemoveFromCart}/> }/>
-          <Route exact path="/product_detail" element={ <ProductDetail onAddToCart={handleAddToCart} onRemoveFromCart={handleRemoveFromCart} onCartItemCreated={handleCreatedCartItem} user={user} productIds={productIds} /> }/>
+          <Route exact path="/shop" element={ <Shop cartProducts={cartProducts} productIds={productIds} onShopRemove={handleRemoveFromCart}/> }/>
+          <Route exact path="/product_detail" element={ <ProductDetail onRemoveFromCart={handleRemoveFromCart} onCartItemCreated={handleCreatedCartItem} productIds={productIds} /> }/>
           <Route exact path="/profile" element={ <Profile />}/>
         </Routes>
       </div>
