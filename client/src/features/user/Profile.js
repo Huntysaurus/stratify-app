@@ -3,8 +3,11 @@ import Review from "../review/Review";
 import Order from "../order/Order";
 import styles from './profile.module.css';
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-function Profile({ user, onEditUser }) {
+function Profile({ onEditUser }) {
+    
+    const user = useSelector(state => state.user)
     const [reviews, setReviews] = useState([])
     const [userForm, setUserForm] = useState(null)
     const [passwordForm, setPasswordForm] = useState(null)
