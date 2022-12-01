@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
         product = Product.where('lower(category) LIKE ?', "%" + searched + "%" )
         if product
             render json: product, include: :reviews, status: :ok
-        else
+        elsif product === nil
             products = Product.all
             render json: products, include: :reviews, status: :ok
         end

@@ -4,12 +4,11 @@ import Order from "../order/Order";
 import styles from './profile.module.css';
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchReviews } from "../review/reviewsSlice";
+import { fetchUserReviews } from "../review/reviewsSlice";
 import { fetchOrders } from "../order/ordersSlice";
 import { deleteUser, updatePassword, updateUsername } from "../user/usersSlice";
 
 function Profile() {
-    const navigate = useNavigate()
     const dispatch = useDispatch()
 
     const user = useSelector(state => state.user)
@@ -22,18 +21,16 @@ function Profile() {
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
     const [username, setUsername] = useState("")
 
-    console.log(user)
+    useEffect(()=>{
+        dispatch(fetchUserReviews(user))
+        dispatch(fetchOrders(user))
+      }, [])
 
     function onPasswordChangeClick(){
         setPasswordForm(true)
     }
 
-    useEffect(()=>{
-      dispatch(fetchReviews(user))
-      dispatch(fetchOrders(user))
-    }, [])
-
-    function handlePasswordChange(e) {
+    function handleChangePassword(e) {
         e.preventDefault()
         dispatch(updatePassword(user, {password, passwordConfirmation}))
     }
@@ -63,7 +60,7 @@ function Profile() {
                         {
                         passwordForm ?
                         <div className={styles.prof_change_form}>
-                            <form onSubmit={handlePasswordChange}>
+                            <form onSubmit={handleChangePassword}>
                             <button className={styles.button} onClick={()=>setPasswordForm(null)}>cancel</button>
                             <label>
                                 {'enter new password'}

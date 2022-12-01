@@ -36,38 +36,16 @@ function App() {
       productIds = [...productIds, product.id]
   )
 
-  function handleCreatedCartItem(cartItem) {
-    console.log(cartItem)
-    setCartProducts([...cartProducts, cartItem.product ])
-  }
-
-  function handleRemoveFromCart(product) {
-    //   console.log(product)
-    //   const newProducts = cartProducts.filter(item => item.id !== product.id)
-    //   console.log(newProducts)
-    //   setCartProducts(newProducts)
-    //   fetch(`/cart_items/${product.id}`, {
-    //     method: "DELETE",
-    // })
-  }
-
-  function handleAfterCheckout() {
-    // setCartProducts([])
-    // alert('Thanks for your purchase. An order has been created!')
-    // window.location.reload()
-  }
-
   return (
     <div className={styles.homeContainer}>
       {currentUser ?
       <div>
         <h1 className={styles.corner_logo} onClick={()=>navigate('/shop')}>stratify</h1>
         <Navbar/>
-        <ShoppingCart onRemoveClick={handleRemoveFromCart} cartProducts={cartProducts} afterCheckout={()=>handleAfterCheckout()}/>
+        <ShoppingCart />
         <Routes>
-          <Route exact path="/cart" element={ <ShoppingCart onRemoveClick={handleRemoveFromCart} cartProducts={cartProducts}/> }/>
-          <Route exact path="/shop" element={ <Shop cartProducts={cartProducts} productIds={productIds} onShopRemove={handleRemoveFromCart}/> }/>
-          <Route exact path="/product_detail" element={ <ProductDetail onRemoveFromCart={handleRemoveFromCart} onCartItemCreated={handleCreatedCartItem} productIds={productIds} /> }/>
+          <Route exact path="/shop" element={ <Shop productIds={productIds} /> }/>
+          <Route exact path="/product_detail" element={ <ProductDetail productIds={productIds} /> }/>
           <Route exact path="/profile" element={ <Profile />}/>
         </Routes>
       </div>

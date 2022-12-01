@@ -1,62 +1,35 @@
-import React, { useDebugValue, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../cart/cartSlice";
+import { createReview, fetchProductReviews } from "../review/reviewsSlice";
 import styles from './productDetail.module.css';
 
-function ProductDetail({ user, productIds, onAddToCart, onRemoveFromCart }) {
+function ProductDetail({ productIds, onRemoveFromCart }) {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
     const [form, setForm] = useState(null)
     const [description, setDescription] = useState("")
-    const [reviews, setReviews] = useState([])
-
     const productDetail = useSelector(state => state.productDetail)
     const currentUser = useSelector(state => state.user)
+    const reviews = useSelector(state => state.reviews.entities)
 
     useEffect(() => {
-        fetch(`/product/${productDetail?.id}/reviews`)
-        .then(r => r.json())
-        .then(reviews => setReviews(reviews))
-    }, [])
+        dispatch(fetchProductReviews(productDetail))
+    }, [reviews])
 
-    console.log(productDetail)
-
-    function handleSubmit(e) {
+    function handleSubmitReview(e) {
         e.preventDefault()
+        dispatch(createReview(currentUser, productDetail, description))
         setDescription("")
-        fetch("/reviews", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                description: description,
-                stars: 1,
-                user_id: user.id,
-                product_id: productDetail.id
-            })
-        }).then((r) => {
-            if (r.ok) {
-                r.json().then(review => onReviewSubmit(review))
-            } else {
-                r.json().then((err) => console.log(err))
-            }
-        })
     }
 
     function handleAddToCart() {
         dispatch(addToCart(currentUser, productDetail))
     }
 
-    function onReviewSubmit(review) {
-        const newReviews = [...reviews, review]
-        setReviews(newReviews)
-        alert("Review posted!")
-    }
-
-    function handleCancel(){
+    function handleCancelReview(){
         setForm(null)
         setDescription("")
     }
@@ -103,9 +76,9 @@ function ProductDetail({ user, productIds, onAddToCart, onRemoveFromCart }) {
 
             { form ?
                 <div className={styles.detail_review_holder}>
-                    <button className={styles.button} onClick={()=>handleCancel()}>cancel</button>
+                    <button className={styles.button} onClick={()=>handleCancelReview()}>cancel</button>
                     <h1 className={styles.product_review_h} >review</h1>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmitReview}>
                         <textarea
                             type="text"
                             value={description}
@@ -119,7 +92,7 @@ function ProductDetail({ user, productIds, onAddToCart, onRemoveFromCart }) {
                 <button className={styles.button_review_detail} onClick={()=>setForm(true)}>write a review</button>
             }
             <div className={styles.detail_reviews_list}>
-                {reviews.length > 0 ?
+                {reviews?.length > 0 ?
 
                 reviews.map(review => {
                     return ( 

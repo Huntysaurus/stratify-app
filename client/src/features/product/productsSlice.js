@@ -17,12 +17,23 @@ export function fetchProducts() {
 
 }
 
-// export const productNavigate = (product) => {
-//     return {
-//         type: "products/navigate",
-//         payload: product,
-//     }
-// }
+export function searchProducts(searchItem) {
+    return function (dispatch) {
+        dispatch({ type: "products/productsLoading"});
+        fetch(`/search/${searchItem}`)
+        .then((r)=> {
+            if (r.ok) {
+                r.json().then((result) => 
+                    dispatch({
+                        type:"products/productsLoaded",
+                        payload: result
+                    }))
+            } else {
+                r.json().then(dispatch(fetchProducts()))
+            }
+        })
+    }
+}
 
 const initialState = [];
 
@@ -40,9 +51,6 @@ export default function productsReducer(state = initialState, action) {
                 ...state,
                 status: "loading"
             }
-
-        case "products/navigate":
-            return [action.payload];
 
         default:
             return state

@@ -6,11 +6,10 @@ import { fetchCart } from "./cartSlice";
 import { useNavigate } from "react-router-dom";
 import { createOrder } from "../order/ordersSlice";
 
-function ShoppingCart({ afterCheckout }) {
+function ShoppingCart() {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
     const cartProducts = useSelector(state => state.cart.products)
     const currentUser = useSelector(state => state.user)
 
@@ -51,12 +50,6 @@ function ShoppingCart({ afterCheckout }) {
                 }
             }
         }
-
-        // function handleAfterCheckout() {
-        //     setCartProducts([])
-        //     alert('Thanks for your purchase. An order has been created!')
-        //     window.location.reload()
-        //   }
 
     const total = addTotal(prices).toFixed(2)
 

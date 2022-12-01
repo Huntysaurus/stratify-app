@@ -1,17 +1,16 @@
 import React from "react";
+import styles from './product.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../cart/cartSlice";
-import styles from './product.module.css';
 import { setProductDetail } from "./productDetailSlice";
 
 function Product({ productIds, product, onShopRemove}) {
+    
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
     const currentUser = useSelector(state => state.user)
 
-    // add loading functionality
     function handleAddToCart(product) {
         dispatch(addToCart(currentUser, product))
     }

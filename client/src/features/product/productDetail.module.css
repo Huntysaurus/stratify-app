@@ -147,12 +147,12 @@
 
 .user_reviews {
     display: inline-block;
-    line-height: 10px;
+    line-height: 25px;
     margin: auto;
     font-size: 23px;
     color:#3b4b5a;
     background-color:#c0c0c0;
-    padding: 10px 10px;
+    padding: 10px;
 }
 
 .no_history_text {

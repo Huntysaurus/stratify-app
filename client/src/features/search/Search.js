@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { searchProducts } from "../product/productsSlice";
 import styles from './search.module.css';
 
-function Seach({ onSearched }) {
+function Seach() {
+    const dispatch = useDispatch()
     const [search, setSearch] = useState("")
 
     function handleSubmit(e){
         e.preventDefault()
-        fetch(`/search/${search}`)
-        .then(r => r.json())
-        .then(item => onSearched(item))
+        dispatch(searchProducts(search))
     }
 
     return (

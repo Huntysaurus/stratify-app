@@ -2,12 +2,8 @@ import React, { useState } from "react";
 import Login from "../user/Login";
 import Signup from "../user/SignUp";
 import styles from './home.module.css';
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 function Home() {
-    const navigate = useNavigate()
-    const user = useSelector(state => state.user)
 
     const [formSwitch, setFormSwitch] = useState(false)
 

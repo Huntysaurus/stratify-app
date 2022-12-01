@@ -6,6 +6,8 @@ import styles from './signup.module.css';
 
 
 function Signup() {
+    
+    const dispatch = useDispatch()
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
@@ -14,8 +16,6 @@ function Signup() {
     const errors = useSelector(state => state.errors)
 
     const newUser = {name, email, username, password, confirmPassword}
-
-    const dispatch = useDispatch()
 
     useEffect(()=> {
         dispatch(clearErrors())

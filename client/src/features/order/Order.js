@@ -2,8 +2,8 @@ import React from "react";
 import styles from './order.module.css';
 
 function Order({ order }) {
+    
     const orderProducts = order.products
-    console.log(orderProducts)
 
     return (
         <div className={styles.order_card}>
