@@ -1,3 +1,6 @@
+import { setErrors } from '../errorsSlice' 
+import { fetchProducts } from '../product/productsSlice'
+
 export function fetchCart(user) {
     return function (dispatch) {
         fetch(`/carts/${user.id}`)
@@ -13,6 +16,7 @@ export function fetchCart(user) {
 
 export function addToCart(user, product) {
     return function (dispatch) {
+        dispatch({type:"cart/itemsLoading"})
         fetch(`/cart_items`, {
             method: "POST",
             headers: {
@@ -29,23 +33,29 @@ export function addToCart(user, product) {
                         type: "cart/addItem",
                         payload: cartItem
                     })})
+                    dispatch(fetchCart(user))
+                    dispatch(fetchProducts())
                 
             } else {
-                r.json().then((err) => console.log(err))
+                r.json().then((err) => {
+                dispatch(setErrors(err))})
             }
           })
     }
 }
 
-export function removeFromCart(product) {
+export function removeFromCart(user, product) {
     return function (dispatch) {
-        debugger
+        dispatch({type:"cart/itemsLoading"})
         dispatch({
             type: "cart/removeItem",
             payload: product.id
         })
         fetch(`/cart_items/${product.id}`, {
             method: "DELETE",
+        }).then(()=> {
+            dispatch(fetchCart(user))
+            dispatch(fetchProducts())
         })
     }
 }
@@ -56,15 +66,25 @@ export default function cartReducer(state = initialState, action) {
     switch (action.type) {
 
         case "cart/addItem":
-            console.log(state)
-            return state.cart_items = [...state.cart_items, action.payload]
+            return {
+                ...state,
+                status: "idle",
+                cart_items: [...state.cart_items, action.payload]
+            }
         
         case "cart/removeItem":
             const newItems = state.cart_items.filter((item) => item.id !== action.payload.id);
-            return state.cart_items = newItems;
+            return {
+                ...state,
+                status: "idle",
+                cart_items: newItems
+            }
 
         case "cart/itemsLoading":
-            console.log('loading cart items')
+            return {
+                ...state,
+                status: "loading"
+            }
 
         case "cart/fetchCartItems":
             return state = action.payload

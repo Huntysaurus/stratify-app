@@ -8,7 +8,7 @@ export const setErrors = (errors) => {
 export const clearErrors = () => {
     return {
         type: "errors/clearErrors",
-        payload: null
+        payload: []
     }
 }
 

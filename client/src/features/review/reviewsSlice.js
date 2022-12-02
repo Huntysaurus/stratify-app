@@ -54,8 +54,8 @@ export function createReview(currentUser, productDetail, description) {
                         type: "reviews/create",
                         payload: review
                     })
-                    alert("Review posted!")
                 })
+                dispatch(fetchProductReviews(productDetail))
             } else {
                 r.json().then((err) => console.log(err))
             }

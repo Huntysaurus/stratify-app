@@ -8,7 +8,7 @@ function Order({ order }) {
     return (
         <div className={styles.order_card}>
             {orderProducts?.map(product => {
-                return <div className={styles.order_details}>
+                return <div key={product.id} className={styles.order_details}>
                     <h3 style={{color:"#232323"}}>{product.name}</h3>
                     <p>{product.category}</p>
                     <p>cost: ${product.price}</p>

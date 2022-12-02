@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        render json: @current_user, status: :created, include: [:review, :product, :cart, :cart_item ]
+        render json: @current_user, status: :ok, include: [:review, :product, :cart, :cart_item ]
     end
 
     def update

@@ -13,13 +13,15 @@ function ShoppingCart() {
     const cartProducts = useSelector(state => state.cart.products)
     const currentUser = useSelector(state => state.user)
 
+    console.log("hello")
+
     useEffect(()=> {
         navigate("/profile")
     }, [])
 
     useEffect(() => {
         dispatch(fetchCart(currentUser))
-    },[cartProducts])
+    },[])
     
     const [cartVisible, setCartVisible] = useState(false)
 

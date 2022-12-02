@@ -1,6 +1,6 @@
 .product_card_remove {
     width: 95%;
-    height: 95%;
+    height: 18em;
     margin: auto;
     font-size: 15px;
     text-align: center;
@@ -51,7 +51,7 @@
 
 .product_card {
     width: 95%;
-    height: 95%;
+    height: 18em;
     margin: auto;
     font-size: 15px;
     text-align: center;

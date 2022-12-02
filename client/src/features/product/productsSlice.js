@@ -39,11 +39,13 @@ const initialState = [];
 
 export default function productsReducer(state = initialState, action) {
     switch (action.type) {
+
         case "products/productsLoaded":
+            const newProducts = action.payload?.filter(product => product.cart_items.length === 0)
             return {
                 ...state,
                 status: "idle",
-                entities: action.payload,
+                entities: newProducts,
             }
 
         case "products/productsLoading":

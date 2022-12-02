@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../product/productsSlice"
 import Product from "../product/Product";
@@ -8,10 +8,8 @@ import styles from './shop.module.css';
 function Shop({ productIds }) {
 
     const dispatch = useDispatch()
-    const productItems = useSelector((state) => state.products.entities)
-
-    const currentUser = useSelector(state => state.user)
-    console.log(currentUser)
+    const products = useSelector((state) => state.products.entities)
+    const errorMessage = useSelector(state => state.errors)
     
     useEffect(()=> {
         dispatch(fetchProducts())
@@ -19,9 +17,10 @@ function Shop({ productIds }) {
 
     return (
         <div className={styles.shop_background}>
+            <p className={styles.error_message}>{errorMessage.errors}</p>
             <Search />
             <div className={styles.products_holder} >
-                {productItems?.map(product => {
+                {products?.map(product => {
                     return <Product productIds={productIds} key={product.id} product={product} />
                 })}
             </div>

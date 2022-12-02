@@ -14,14 +14,12 @@ function App() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   
-  const [cartProducts, setCartProducts] = useState([])
   const access = useSelector(state => state.access)
   const currentUser = useSelector(state => state.user)
-  const productDetail = useSelector(state => state.productDetail)
 
   useEffect(()=> {
     dispatch(userSession())
-  }, [dispatch])
+  }, [])
 
   useEffect(()=> {
       if (access) {
@@ -29,12 +27,6 @@ function App() {
       }
           return navigate("/")
   },[access])
-
-  let productIds = []
-
-  cartProducts?.forEach(product => 
-      productIds = [...productIds, product.id]
-  )
 
   return (
     <div className={styles.homeContainer}>
@@ -44,8 +36,8 @@ function App() {
         <Navbar/>
         <ShoppingCart />
         <Routes>
-          <Route exact path="/shop" element={ <Shop productIds={productIds} /> }/>
-          <Route exact path="/product_detail" element={ <ProductDetail productIds={productIds} /> }/>
+          <Route exact path="/shop" element={ <Shop /> }/>
+          <Route exact path="/product_detail" element={ <ProductDetail /> }/>
           <Route exact path="/profile" element={ <Profile />}/>
         </Routes>
       </div>

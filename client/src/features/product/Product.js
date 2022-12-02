@@ -2,22 +2,33 @@ import React from "react";
 import styles from './product.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addToCart } from "../cart/cartSlice";
+import { addToCart, removeFromCart } from "../cart/cartSlice";
 import { setProductDetail } from "./productDetailSlice";
 
-function Product({ productIds, product, onShopRemove}) {
+function Product({ product }) {
     
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const currentUser = useSelector(state => state.user)
+    const cartProducts = useSelector(state => state.cart.products)
+
+    let productIds = []
+
+    cartProducts?.forEach(product => 
+        productIds = [...productIds, product.id]
+    )
 
     function handleAddToCart(product) {
+        productIds.push(product.id)
         dispatch(addToCart(currentUser, product))
+    }
+
+    function handleRemoveFromCart(productDetail) {
+        dispatch(removeFromCart(currentUser, productDetail))
     }
 
     function handleProductNavigation(product) {
         dispatch(setProductDetail(product))
-        console.log(product)
         navigate("/product_detail")
       }
 
@@ -37,7 +48,7 @@ function Product({ productIds, product, onShopRemove}) {
                     />
                     <p onClick={()=>handleProductNavigation(product)} className={styles.in_cart}>IN CART</p>
                     <p style={{marginBottom: "30px"}}>${product.price}</p>
-                    <button className={styles.product_remove} onClick={()=>onShopRemove(product)}>-</button>
+                    <button className={styles.product_remove} onClick={()=>handleRemoveFromCart(product)}>-</button>
                 </div>
 
                 :

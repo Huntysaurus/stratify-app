@@ -12,3 +12,14 @@
     overflow:auto;
     background-color: rgb(220, 220, 220);
 }
+
+.error_message {
+    position:absolute;
+    left: 65%;
+    top: -1.5%;
+    font-size: 25px;
+    color: rgb(255, 72, 0);
+    font-weight: 700;
+    padding: 5px;
+    margin-bottom: -5px;
+}

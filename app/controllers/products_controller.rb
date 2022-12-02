@@ -3,17 +3,17 @@ class ProductsController < ApplicationController
 
     def index
         products = Product.all
-        render json: products, include: [:cart_items, :reviews], status: :ok
+        render json: products, include: [:cart_items, :reviews, :cart_id], status: :ok
     end
 
     def search
         searched = params[:searched].downcase
         product = Product.where('lower(category) LIKE ?', "%" + searched + "%" )
         if product
-            render json: product, include: :reviews, status: :ok
+            render json: product, include: [:cart_items, :reviews, :cart_id], status: :ok
         elsif product === nil
             products = Product.all
-            render json: products, include: :reviews, status: :ok
+            render json: products, include: [:cart_items, :reviews, :cart_id], status: :ok
         end
     end
 

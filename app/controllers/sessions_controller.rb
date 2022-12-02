@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
         user = User.find_by!(username: params[:userObj][:username])
         if user&.authenticate(params[:userObj][:password])
             session[:user_id] = user.id
-            render json: user, status: :created, include: [:cart, :cart_items, :products]
+            render json: user, status: :ok, include: [:review, :product, :cart, :cart_item ]
         else
             render json: { error: user.errors.full_messages }, status: :not_found
         end

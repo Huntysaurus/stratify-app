@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addToCart } from "../cart/cartSlice";
+import { addToCart, removeFromCart } from "../cart/cartSlice";
 import { createReview, fetchProductReviews } from "../review/reviewsSlice";
 import styles from './productDetail.module.css';
 
-function ProductDetail({ productIds, onRemoveFromCart }) {
+function ProductDetail() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
@@ -14,19 +14,32 @@ function ProductDetail({ productIds, onRemoveFromCart }) {
     const productDetail = useSelector(state => state.productDetail)
     const currentUser = useSelector(state => state.user)
     const reviews = useSelector(state => state.reviews.entities)
+    const cartProducts = useSelector(state => state.cart.products)
+
+    let productIds = []
+
+    cartProducts?.forEach(product => 
+        productIds = [...productIds, product.id]
+    )
 
     useEffect(() => {
         dispatch(fetchProductReviews(productDetail))
-    }, [reviews])
+    }, [])
 
     function handleSubmitReview(e) {
         e.preventDefault()
         dispatch(createReview(currentUser, productDetail, description))
         setDescription("")
+        alert("Review posted!")
+        setForm(null)
     }
 
     function handleAddToCart() {
         dispatch(addToCart(currentUser, productDetail))
+    }
+
+    function handleRemoveFromCart(productDetail) {
+        dispatch(removeFromCart(currentUser, productDetail))
     }
 
     function handleCancelReview(){
@@ -37,7 +50,7 @@ function ProductDetail({ productIds, onRemoveFromCart }) {
     return (
         <div className={styles.product_detail_background}>
             {
-                productIds.includes(productDetail) ?
+                productIds.includes(productDetail.id) ?
 
                 <div className={styles.product_detail_remove}>
                     <h3 className={styles.product_detail_h}>{productDetail.name}</h3>
@@ -52,7 +65,7 @@ function ProductDetail({ productIds, onRemoveFromCart }) {
                     <p>{productDetail.category}</p>
                     <p className={styles.product_price}>${productDetail.price}</p>
                     <p>{productDetail.description}</p>
-                    <button className={styles.button_remove_cart_detail} onClick={()=>onRemoveFromCart(productDetail)}>remove from cart</button>
+                    <button className={styles.button_remove_cart_detail} onClick={()=>handleRemoveFromCart(productDetail)}>remove from cart</button>
                 </div>
 
             :
