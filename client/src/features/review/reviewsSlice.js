@@ -56,8 +56,10 @@ export function createReview(currentUser, productDetail, description) {
                     })
                 })
                 dispatch(fetchProductReviews(productDetail))
+                alert("Review posted!")
             } else {
                 r.json().then((err) => console.log(err))
+                alert("Review must be between 5 - 100 characters.")
             }
         })
     }
@@ -76,6 +78,7 @@ export default function reviewsReducer(state = initialState, action) {
             }
 
         case "reviews/reviewsLoading":
+            state.entities = []
             return {
                 ...state,
                 status: "loading"

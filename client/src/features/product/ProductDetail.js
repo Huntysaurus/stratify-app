@@ -30,7 +30,6 @@ function ProductDetail() {
         e.preventDefault()
         dispatch(createReview(currentUser, productDetail, description))
         setDescription("")
-        alert("Review posted!")
         setForm(null)
     }
 
