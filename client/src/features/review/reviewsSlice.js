@@ -65,6 +65,46 @@ export function createReview(currentUser, productDetail, description) {
     }
 }
 
+export function deleteProductReview(review, productDetail) {
+    return function (dispatch) {
+        const response = window.confirm('Are you sure you want delete your review?')
+        if (response) {
+            dispatch({
+                type:"reviews/delete",
+                payload: review.id
+            })
+            fetch(`reviews/${review.id}`, {
+                method: "DELETE"
+            }).then(()=> {
+                dispatch(fetchProductReviews(productDetail))
+                alert("review deleted.")
+            })     
+        } else {
+            return
+        }
+    }
+}
+
+export function deleteUserReview(review, productDetail) {
+    return function (dispatch) {
+        const response = window.confirm('Are you sure you want delete your review?')
+        if (response) {
+            dispatch({
+                type:"reviews/delete",
+                payload: review.id
+            })
+            fetch(`reviews/${review.id}`, {
+                method: "DELETE"
+            }).then(()=> {
+                dispatch(fetchUserReviews(productDetail))
+                alert("review deleted.")
+            })     
+        } else {
+            return
+        }
+    }
+}
+
 const initialState = [];
 
 export default function reviewsReducer(state = initialState, action) {
@@ -86,6 +126,14 @@ export default function reviewsReducer(state = initialState, action) {
 
         case "reviews/create":
             return state.entities = [...state.entities, action.payload]
+
+        case "review/delete":
+            const newItems = state.entities.filter((item) => item.id !== action.payload.id);
+            return {
+                ...state,
+                status: "idle",
+                entities: newItems
+            }
 
         default:
             return state

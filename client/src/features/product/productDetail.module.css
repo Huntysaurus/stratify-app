@@ -130,6 +130,19 @@
     top:8%
 }
 
+.button_remove_review {
+    border-radius: 3px;
+    letter-spacing: .5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 2px;
+    margin-top: 15px;
+    border: 0ch;
+    background-color: rgb(92, 164, 176);
+    color: aliceblue;
+    cursor: pointer;
+}
+
 .detail_reviews_list {
     position: absolute;
     height:53%;

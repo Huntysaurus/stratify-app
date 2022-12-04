@@ -107,7 +107,7 @@ export function updateUsername(user, username) {
                     window.location.reload()
             } else {
                 r.json().then((err) => console.log(err))
-                alert('an unexpected error has occured')
+                alert('Username must be between 6 and 15 characters.')
             }
         })
     }

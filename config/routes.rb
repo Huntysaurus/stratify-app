@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "/orders/:id", to: 'orders#index'
 
   post "/reviews", to: 'reviews#create'
+  delete "/reviews/:id", to: 'reviews#destroy'
   
   resources :users do
     resources :reviews

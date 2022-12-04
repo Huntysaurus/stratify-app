@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCart, removeFromCart } from "../cart/cartSlice";
-import { createReview, fetchProductReviews } from "../review/reviewsSlice";
+import { createReview, deleteProductReview, deleteReview, fetchProductReviews } from "../review/reviewsSlice";
 import styles from './productDetail.module.css';
 
 function ProductDetail() {
@@ -31,6 +31,10 @@ function ProductDetail() {
         dispatch(createReview(currentUser, productDetail, description))
         setDescription("")
         setForm(null)
+    }
+
+    function handleDeleteReview(review) {
+        dispatch(deleteProductReview(review, productDetail))
     }
 
     function handleAddToCart() {
@@ -111,6 +115,13 @@ function ProductDetail() {
                         <div className={styles.user_reviews} key={review.id}>
                             <p style={{color: "blue"}}>@{review.user.username}</p>
                             <p>{review.description}</p>
+                            {
+                                currentUser.id === review.user_id ?
+
+                                <button className={styles.button_remove_review} onClick={()=>handleDeleteReview(review)}>remove review</button>
+                                :
+                                null
+                            }
                         </div>
                     )
                 })
