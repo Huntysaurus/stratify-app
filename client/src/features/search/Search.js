@@ -14,7 +14,6 @@ function Seach() {
     }
 
     function handleFilter(id){
-        console.log(id)
         dispatch(filterProducts(id))
     }
 
@@ -29,11 +28,11 @@ function Seach() {
                 onChange={(e)=>setSearch(e.target.value)}
             />
             </form>
-            <select className={styles.menu} onChange={(e)=>handleFilter(e.target.value)}>
+            <select className={styles.vendor_filter} onChange={(e)=>handleFilter(e.target.value)}>
                     <option value={""}>
                         filter by vendor
                     </option>
-                    <option>
+                    <option value={""}>
                         all
                     </option>
                     {vendors.map(vendor => {
