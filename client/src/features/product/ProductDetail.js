@@ -22,6 +22,8 @@ function ProductDetail() {
         productIds = [...productIds, product.id]
     )
 
+    console.log(productDetail)
+
     useEffect(() => {
         dispatch(fetchProductReviews(productDetail))
     }, [])

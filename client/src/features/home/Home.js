@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Login from "../user/Login";
 import Signup from "../user/SignUp";
 import styles from './home.module.css';
@@ -10,7 +10,7 @@ function Home() {
     return (
         <>
             <h1 className={styles.header_logged_out}>stratify</h1>
-            <p className={styles.text_under_header}>shopping made simple!</p>
+            <p className={styles.text_under_header}>Strategic Shopping Made Simple!</p>
                 { formSwitch ?
                     <div className={styles.form_holder} >
                         <Signup />

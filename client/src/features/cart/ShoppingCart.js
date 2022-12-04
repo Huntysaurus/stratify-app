@@ -13,8 +13,6 @@ function ShoppingCart() {
     const cartProducts = useSelector(state => state.cart.products)
     const currentUser = useSelector(state => state.user)
 
-    console.log("hello")
-
     useEffect(()=> {
         navigate("/profile")
     }, [])

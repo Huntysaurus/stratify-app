@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   resources :cart_items, only: [:create, :destroy]
 
+  resources :vendors, only: [:index]
+
   # Routing logic: fallback requests for React Router.
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

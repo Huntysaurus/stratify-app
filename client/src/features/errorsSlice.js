@@ -21,6 +21,7 @@ export default function errorsReducer(state = initialState, action) {
             return state = action.payload
 
         case "errors/clearErrors":
+            console.log(state)
             return state = []
 
         default:

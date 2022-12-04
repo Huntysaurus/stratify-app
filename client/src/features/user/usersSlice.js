@@ -64,7 +64,7 @@ export function loginUser(userObj) {
                         payload: user
                     })})
             } else {
-                r.json().then((err) => dispatch(setErrors(err)))
+                r.json().then((err) => console.log(err.errors))
                 alert('The username and/or password you have entered is incorrect. Please try again.')
             }
         })
