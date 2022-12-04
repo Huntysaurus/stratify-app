@@ -9,6 +9,7 @@ import Profile from "./features/user/Profile";
 import ShoppingCart from "./features/cart/ShoppingCart";
 import Navbar from "./features/navbar/Navbar"
 import { userSession } from "./features/user/usersSlice";
+import { fetchVendors } from "./features/search/vendorsSlice";
  
 function App() {
   const navigate = useNavigate()
@@ -19,6 +20,7 @@ function App() {
 
   useEffect(()=> {
     dispatch(userSession())
+    dispatch(fetchVendors())
   }, [])
 
   useEffect(()=> {

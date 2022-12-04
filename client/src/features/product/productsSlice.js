@@ -20,7 +20,25 @@ export function fetchProducts() {
 export function searchProducts(searchItem) {
     return function (dispatch) {
         dispatch({ type: "products/productsLoading"});
-        fetch(`/search/${searchItem}`)
+        fetch(`/filter/${searchItem}`)
+        .then((r)=> {
+            if (r.ok) {
+                r.json().then((result) => 
+                    dispatch({
+                        type:"products/productsLoaded",
+                        payload: result
+                    }))
+            } else {
+                r.json().then(dispatch(fetchProducts()))
+            }
+        })
+    }
+}
+
+export function filterProducts(vendorId) {
+    return function (dispatch) {
+        dispatch({ type: "products/productsLoading"});
+        fetch(`/filter/${vendorId}`)
         .then((r)=> {
             if (r.ok) {
                 r.json().then((result) => 

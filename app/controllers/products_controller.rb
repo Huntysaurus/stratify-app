@@ -17,6 +17,16 @@ class ProductsController < ApplicationController
         end
     end
 
+    def filter
+        products = Product.where(vendor_id: params[:id])
+        if products
+            render json: products, include: [:cart_items, :reviews, :cart_id, :vendor], status: :ok
+        elsif product === nil
+            products = Product.all
+            render json: products, include: [:cart_items, :reviews, :cart_id, :vendor], status: :ok
+        end
+    end
+
     def empty
         products = Product.all
         render json: products, status: :ok
