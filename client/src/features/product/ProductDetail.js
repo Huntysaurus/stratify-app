@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCart, removeFromCart } from "../cart/cartSlice";
-import { createReview, deleteProductReview, deleteReview, fetchProductReviews } from "../review/reviewsSlice";
+import { createReview, deleteProductReview, fetchProductReviews } from "../review/reviewsSlice";
 import styles from './productDetail.module.css';
 
 function ProductDetail() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const [rating, setRating] = useState(0)
+    const [hover, setHover] = useState(0)
+    const stars = [...Array(5)]
 
     const [form, setForm] = useState(null)
     const [description, setDescription] = useState("")
@@ -22,17 +25,16 @@ function ProductDetail() {
         productIds = [...productIds, product.id]
     )
 
-    console.log(productDetail)
-
     useEffect(() => {
         dispatch(fetchProductReviews(productDetail))
     }, [])
 
     function handleSubmitReview(e) {
         e.preventDefault()
-        dispatch(createReview(currentUser, productDetail, description))
+        dispatch(createReview(currentUser, productDetail, description, rating))
         setDescription("")
         setForm(null)
+        setRating(0)
     }
 
     function handleDeleteReview(review) {
@@ -94,7 +96,7 @@ function ProductDetail() {
 
             { form ?
                 <div className={styles.detail_review_holder}>
-                    <button className={styles.button} onClick={()=>handleCancelReview()}>cancel</button>
+                    <button className={styles.button_alt} onClick={()=>handleCancelReview()}>cancel</button>
                     <h1 className={styles.product_review_h} >review</h1>
                     <form onSubmit={handleSubmitReview}>
                         <textarea
@@ -103,8 +105,25 @@ function ProductDetail() {
                             onChange={(e)=>setDescription(e.target.value)}
                         />
                         <br/>
-                        <button className={styles.button} type="submit" >post review</button>
+                        <button className={styles.button_post_review} type="submit" >post review</button>
                     </form>
+                    <div className={styles.star_rating}>
+                        <p className={styles.rating_text}>rating</p>
+                        {stars.map((star, index) => {
+                            index += 1;
+                            return (
+                              <button
+                                key={index}
+                                className={index <= (hover || rating) ? styles.on : styles.off}
+                                onClick={() => setRating(index)}
+                                onMouseEnter={() => setHover(index)}
+                                onMouseLeave={() => setHover(rating)}
+                              >
+                                <span className={styles.star}>&#9733;</span>
+                              </button>
+                            );
+                        })}
+                    </div>
                 </div>
             :
                 <button className={styles.button_review_detail} onClick={()=>setForm(true)}>write a review</button>
@@ -113,8 +132,12 @@ function ProductDetail() {
                 {reviews?.length > 0 ?
 
                 reviews.map(review => {
-                    return ( 
+                    const rating = [...Array(review.stars)]
+                    return (
                         <div className={styles.user_reviews} key={review.id}>
+                            {rating.map(() => {
+                                return <span className={styles.star}>&#9733;</span>
+                            })}
                             <p style={{color: "blue"}}>@{review.user.username}</p>
                             <p>{review.description}</p>
                             {

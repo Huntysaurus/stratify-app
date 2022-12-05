@@ -20,7 +20,8 @@ export default function vendorsReducer(state = initialState, action) {
         case "vendors/vendorsLoading":
             return {
                 ...state,
-                status: "loading"
+                status: "loading",
+                entities: []
             }
 
 

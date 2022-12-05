@@ -34,7 +34,7 @@ export function fetchProductReviews(product) {
     }
 }
 
-export function createReview(currentUser, productDetail, description) {
+export function createReview(currentUser, productDetail, description, rating) {
     return function (dispatch) {
         fetch("/reviews", {
             method: "POST",
@@ -43,13 +43,14 @@ export function createReview(currentUser, productDetail, description) {
             },
             body: JSON.stringify({
                 description: description,
-                stars: 1,
+                stars: rating,
                 user_id: currentUser.id,
                 product_id: productDetail.id
             })
         }).then((r) => {
             if (r.ok) {
                 r.json().then(review => {
+                    console.log(review)
                     dispatch({
                         type: "reviews/create",
                         payload: review

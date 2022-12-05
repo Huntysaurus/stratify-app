@@ -3,6 +3,13 @@
     height: 120ch;
 }
 
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
 .product_detail_remove {
     margin-left: 10%;
     width: 50%;
@@ -89,12 +96,27 @@
     top:8%
 }
 
-.button {
+.button_alt {
     border-radius: 15px;
     padding: 6px;
     letter-spacing: .5px;
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    border: 0ch;
+    background-color: rgb(92, 164, 176);
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.button_post_review {
+    border-radius: 15px;
+    padding: 6px;
+    letter-spacing: .5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 35%;
     margin-bottom: 20px;
     margin-top: 15px;
     border: 0ch;
@@ -128,6 +150,30 @@
     width:25%;
     left: 63.5%;
     top:8%
+}
+
+.star_rating {
+    position: absolute;
+    top: 68%;
+    left: 25%;
+}
+
+.rating_text {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.star {
+    font-size: 25px;
+}
+
+.on {
+    color: rgb(0, 0, 255);
+}
+
+.off {
+    color: rgb(114, 114, 114);
 }
 
 .button_remove_review {

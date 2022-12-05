@@ -1,4 +1,5 @@
 import { setErrors } from "../errorsSlice"
+import { fetchVendors } from "../search/vendorsSlice"
 import { allowAccess, denyAccess } from "./accessSlice"
 
 export function createUser(userObj) {
@@ -20,6 +21,7 @@ export function createUser(userObj) {
             if (r.ok) {
                 r.json().then((user) => {
                     dispatch(allowAccess())
+                    dispatch(fetchVendors())
                     dispatch({
                         type: "user/userCreate",
                         payload: user
@@ -59,6 +61,7 @@ export function loginUser(userObj) {
             if (r.ok) {
                 r.json().then((user) => {
                     dispatch(allowAccess())
+                    dispatch(fetchVendors())
                     dispatch({
                         type: "user/userLogin",
                         payload: user
