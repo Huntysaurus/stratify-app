@@ -24,7 +24,6 @@ export default function vendorsReducer(state = initialState, action) {
                 entities: []
             }
 
-
         case "vendors/vendorsLoaded":
             return {
                 ...state,

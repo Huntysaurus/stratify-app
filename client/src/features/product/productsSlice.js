@@ -20,14 +20,14 @@ export function fetchProducts() {
 export function searchProducts(searchItem) {
     return function (dispatch) {
         dispatch({ type: "products/productsLoading"});
-        fetch(`/filter/${searchItem}`)
+        fetch(`/search/${searchItem}`)
         .then((r)=> {
             if (r.ok) {
-                r.json().then((result) => 
+                r.json().then((result) => {
                     dispatch({
                         type:"products/productsLoaded",
                         payload: result
-                    }))
+                    })})
             } else {
                 r.json().then(dispatch(fetchProducts()))
             }

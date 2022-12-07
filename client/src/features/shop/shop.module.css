@@ -7,8 +7,19 @@
     display: grid;
     row-gap: 30px;
     grid-template-columns: 25% 25% 25% 25%;
-    height:53rem;
+    height:54.5rem;
     width:70%;
+    overflow:auto;
+    background-color: rgb(220, 220, 220);
+}
+
+.quality_products_holder {
+    position: absolute;
+    row-gap: 30px;
+    grid-template-columns: 20%;
+    top:7.4%;
+    height:54.5rem;
+    width:15%;
     overflow:auto;
     background-color: rgb(220, 220, 220);
 }

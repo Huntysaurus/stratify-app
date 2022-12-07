@@ -26,9 +26,9 @@
         text-align: center;
         font-size: 100%;
         font-weight: 600;
-        color: #84919c;
-        background-color: #3b4b5a;
+        color: #ffffff;
+        background-color: #75a2bc;
         border: none;
-        box-shadow: 3px 5px 15px;
+        box-shadow: 3px 5px 15px #466070;
         cursor: pointer;
 }

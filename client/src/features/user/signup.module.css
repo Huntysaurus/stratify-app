@@ -1,6 +1,6 @@
 .form {
     margin: auto;
-    width: 45%;
+    width: 30%;
     text-align: center;
     background-color: #d9edff;
 }
@@ -8,7 +8,7 @@
 .sub_header {
     color:rgb(92, 164, 176);
     font-style: italic;
-    margin-top: 5px;
+    margin-top: 30%;
     margin-left: 10px;
 }
 
@@ -42,4 +42,12 @@
     color: #ff5e00;
     font-size: large;
     font-weight: 600;
+}
+
+.subtext {
+    text-align: center;
+    margin: auto;
+    padding-bottom: 8px;
+    width: 80%;
+    cursor: pointer;
 }

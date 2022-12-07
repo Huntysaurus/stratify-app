@@ -1,19 +1,14 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../product/productsSlice"
+import React from "react";
+import { useSelector } from "react-redux";
 import Product from "../product/Product";
 import Search from "../search/Search";
 import styles from './shop.module.css';
 
 function Shop({ productIds }) {
 
-    const dispatch = useDispatch()
     const products = useSelector((state) => state.products.entities)
     const errorMessage = useSelector(state => state.errors)
-    
-    useEffect(()=> {
-        dispatch(fetchProducts())
-    }, [])
+    const reviews = useSelector(state => state.reviews.entities)
 
     return (
         <div className={styles.shop_background}>

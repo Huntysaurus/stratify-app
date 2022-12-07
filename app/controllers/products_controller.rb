@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
 
     def search
         searched = params[:searched].downcase
-        product = Product.where('lower(category) LIKE ?', "%" + searched + "%" )
+        product = Product.where('lower(name) LIKE ?', "%" + searched + "%" )
         if product
             render json: product, include: [:cart_items, :reviews, :cart_id, :vendor], status: :ok
         elsif product === nil

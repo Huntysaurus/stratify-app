@@ -3,16 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "./usersSlice";
 import { clearErrors } from "../errorsSlice"; 
 import styles from './signup.module.css';
+import { useNavigate } from "react-router-dom";
 
 
 function Signup() {
     
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
+    
     const errors = useSelector(state => state.errors)
 
     const newUser = {name, email, username, password, confirmPassword}
@@ -85,6 +89,9 @@ function Signup() {
                 <br/>
                 <button className={styles.button} type="submit">sign up</button>
                 </form>
+                <div className={styles.subtext}>
+                    <p onClick={()=>navigate("/")}>Already have an account? Click here to return to Login screen.</p>
+                </div>
             </div>
             <div className={styles.error_messages}>
                 {errors?.map(error => {

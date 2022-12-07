@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Review from "../review/Review";
 import Order from "../order/Order";
 import styles from './profile.module.css';
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserReviews } from "../review/reviewsSlice";
 import { fetchOrders } from "../order/ordersSlice";
@@ -24,7 +23,7 @@ function Profile() {
     useEffect(()=>{
         dispatch(fetchUserReviews(user))
         dispatch(fetchOrders(user))
-      }, [])
+      }, [dispatch])
 
     function onPasswordChangeClick(){
         setPasswordForm(true)

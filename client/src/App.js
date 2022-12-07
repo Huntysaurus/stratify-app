@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import { useNavigate, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import styles from '../src/appStyles.module.css';
@@ -8,8 +8,10 @@ import Shop from "./features/shop/Shop";
 import Profile from "./features/user/Profile";
 import ShoppingCart from "./features/cart/ShoppingCart";
 import Navbar from "./features/navbar/Navbar"
+import Signup from "./features/user/SignUp";
 import { userSession } from "./features/user/usersSlice";
 import { fetchVendors } from "./features/search/vendorsSlice";
+import { fetchProducts } from "./features/product/productsSlice";
  
 function App() {
   const navigate = useNavigate()
@@ -21,7 +23,8 @@ function App() {
   useEffect(()=> {
     dispatch(userSession())
     dispatch(fetchVendors())
-  }, [])
+    dispatch(fetchProducts())
+  }, [dispatch])
 
   useEffect(()=> {
       if (access) {
@@ -46,6 +49,7 @@ function App() {
         :
         <Routes>
           <Route exact path="/" element={ <Home /> }/>
+          <Route exact path="/signup" element={ <Signup />} />
         </Routes>
       }
     </div>

@@ -8,12 +8,14 @@ import styles from './productDetail.module.css';
 function ProductDetail() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+
+    const stars = [...Array(5)]
     const [rating, setRating] = useState(0)
     const [hover, setHover] = useState(0)
-    const stars = [...Array(5)]
 
     const [form, setForm] = useState(null)
     const [description, setDescription] = useState("")
+    
     const productDetail = useSelector(state => state.productDetail)
     const currentUser = useSelector(state => state.user)
     const reviews = useSelector(state => state.reviews.entities)
@@ -35,6 +37,7 @@ function ProductDetail() {
         setDescription("")
         setForm(null)
         setRating(0)
+        setHover(0)
     }
 
     function handleDeleteReview(review) {
@@ -136,7 +139,7 @@ function ProductDetail() {
                     return (
                         <div className={styles.user_reviews} key={review.id}>
                             {rating.map(() => {
-                                return <span className={styles.star}>&#9733;</span>
+                                return <span key={rating.index} className={styles.star}>&#9733;</span>
                             })}
                             <p style={{color: "blue"}}>@{review.user.username}</p>
                             <p>{review.description}</p>

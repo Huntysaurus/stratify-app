@@ -1,5 +1,5 @@
 class OrderSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :total
+  attributes :id, :user_id, :total, :created_at
 
   belongs_to :user
   has_many :order_items, dependent: :destroy
