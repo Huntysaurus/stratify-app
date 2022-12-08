@@ -99,7 +99,7 @@ On the Product Detail page:
 
 Clicking the checkout button on inside the cart will first prompt a confirmation. Clicking yes will generate an order and navigate back to the profile page where you can review your freshly created order with a total and breakdown of products.
 
-![signup image](../stratify-app/images/cart%20icon.png)
+![signup image](https://github.com/Huntysaurus/stratify-app/blob/main/images/cart%20icon.png)
 
 * You won't be able to checkout without any products in the cart.
 
