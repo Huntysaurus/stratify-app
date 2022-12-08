@@ -122,11 +122,11 @@ Current Models
 
 Potential updates for Stratify include the following:
 
-* A Credit Card model which belongs_to a user. Users will be able to checkout with a credit card stored in their profile. Users can create, update and remove credit cards on their profile page.
+* A credit_card model which belongs_to a user. Users will be able to checkout with a credit card stored in their profile. Users can create, update and remove credit cards on their profile page.
 ---
 * The shop page will have a high-rated products list appear to left of the main shop list component where users will also have the ability to purchase products as well.
 
-    * The shop page will also have a suggested products list to the right appear to the right of the main shop list component which will offer products based on the current user's shopping habits.
+    * The shop page will also have a suggested products list to the right of the main shop list component which will offer products based on the current user's shopping habits.
 ---
 * The shop page will offer more filters, such as by rating, popularity, category and more.
 ---
