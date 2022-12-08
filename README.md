@@ -49,17 +49,17 @@ rails db:seed:replant
 
 The client launches with the Home page and the option to log in with a username and password.
 
-![login image](../stratify-app/images/login%20screen.jpg)
+![login image](https://github.com/Huntysaurus/stratify-app/blob/main/images/login%20screen.jpg)
 
 To create a user, you must click the text below to navigate to the Sign Up page.
 
-![signup image](../stratify-app/images/sign%20up.jpg)
+![signup image](https://github.com/Huntysaurus/stratify-app/blob/main/images/sign%20up.jpg)
 
 Fill in the information to sign up and create a user.
 
 * There are several validations in place you must follow in order to create a user, otherwise error messages regarding the validations will appear to the right of the Sign Up form.
 
-![signup image](../stratify-app/images/profile%20page.png)
+![signup image](https://github.com/Huntysaurus/stratify-app/blob/main/images/profile%20page.png)
 
 After signing up, you are immediately navigated to the profile page where your user information is displayed. On the profile page, you have the option to:
 
@@ -74,7 +74,7 @@ The shopping cart icon will remain in the upper right hand corner of DOM when lo
 
 Use the menu in the upper left corner of the DOM to navigate throughout the application.
 
-![signup image](../stratify-app/images/shop%20page.png)
+![signup image](https://github.com/Huntysaurus/stratify-app/blob/main/images/shop%20page.png)
 
 On the shop page, all vendor products that are not in other users' carts will appear on the DOM with the ability to 'add to cart' by clicking the blue plus icon. Once added, products will disappear from the product page. The cart keeps a running count of products added, as well as a running total.
 
@@ -88,7 +88,7 @@ Click the cart icon to open the cart and view all current products added along w
 
 You can click on the product-image itself in the shop page to navigate to the Product Detail page.
 
-![signup image](../stratify-app/images/product%20detail.png)
+![signup image](https://github.com/Huntysaurus/stratify-app/blob/main/images/product%20detail.png)
 
 On the Product Detail page:
  
