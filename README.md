@@ -1,5 +1,5 @@
 # Stratify
-an eCommerce platform designed for multi-vendor use with strategic shopping in mind.
+test commit on github. an eCommerce platform designed for multi-vendor use with strategic shopping in mind.
 
 ## Introduction
 ---
