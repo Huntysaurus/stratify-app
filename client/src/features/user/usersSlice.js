@@ -147,13 +147,13 @@ export function updatePassword(user, userObj) {
 
 export function deleteUser(user) {
     return function (dispatch) {
-        dispatch({type:"user/userDelete"})
         const response = window.confirm('Are you sure you want to delete your account? All order history and reviews will be deleted as well.')
         if (response) {
             fetch(`users/${user.id}`, {
                 method: "DELETE"
             })
             alert("Your account has been deleted.")
+            dispatch({type:"user/userDelete"})
             window.location.reload()
         } else {
             return
