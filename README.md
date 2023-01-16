@@ -136,6 +136,7 @@ Potential updates for Stratify include the following:
 * users can have more than one of the same product in their cart at the same time. The products model will also contain an inventory count column which gets updated after products are purchased.
 
 # Contributing
+There is still much in store for this project and, over time, I will make add new features or changes. That being said, I'm open to seeing what others would like to do with this project. Always open to constructive criticism and making new coding connections as well!
 
 * Fork to your local environment
 * Create changes:
