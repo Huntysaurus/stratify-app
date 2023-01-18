@@ -7,7 +7,7 @@ an eCommerce platform designed for multi-vendor use with strategic shopping in m
 Stratify is a full-stack web application that uses a React-Redux client framework in tandem with a Ruby on Rails server-side framework and takes advantage of PostgreSQL as its relational database. The primary focus of Stratify is to display how user experience with a shopping platform has an effect on the relationship between the front-end client and back-end models.
 
 ---
-interact with the deployed version on render https://stratify-app.onrender.com/
+View and interact with the deployed version on render https://stratify-app.onrender.com/
 
 ## Technologies
 
