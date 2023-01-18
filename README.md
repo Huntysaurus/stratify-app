@@ -7,6 +7,8 @@ an eCommerce platform designed for multi-vendor use with strategic shopping in m
 Stratify is a full-stack web application that uses a React-Redux client framework in tandem with a Ruby on Rails server-side framework and takes advantage of PostgreSQL as its relational database. The primary focus of Stratify is to display how user experience with a shopping platform has an effect on the relationship between the front-end client and back-end models.
 
 ---
+interact with the deployed version on render https://stratify-app.onrender.com/
+
 ## Technologies
 
 * Node.js 16.5.1
@@ -136,6 +138,7 @@ Potential updates for Stratify include the following:
 * users can have more than one of the same product in their cart at the same time. The products model will also contain an inventory count column which gets updated after products are purchased.
 
 # Contributing
+
 There is still much in store for this project and, over time, I will make add new features or changes. That being said, I'm open to seeing what others would like to do with this project. Always open to constructive criticism and making new coding connections as well!
 
 * Fork to your local environment
