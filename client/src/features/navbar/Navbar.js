@@ -24,7 +24,8 @@ function Navbar() {
     }
 
     return(
-            <div className={styles.navbar}>
+        <>
+            {/* <div className={styles.navbar}>
                 <select className={styles.menu} onChange={(e)=>handleNavigation(e.target.value)}>
                     <option value={""}>
                         menu
@@ -39,7 +40,11 @@ function Navbar() {
                         logout
                     </option>
                 </select>
-            </div>
+            </div> */}
+            <nav className="navbar">
+                <ul className="navbar-nav"></ul>
+            </nav>
+        </>
     )
 }
 
