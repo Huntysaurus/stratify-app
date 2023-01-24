@@ -16,6 +16,7 @@ function Navbar() {
     }
 
     function handleNavigation(e) {
+        setIsOpen(false)
         if (e === "/logout") {
             handleLogout();
         } else if (e === "") {
