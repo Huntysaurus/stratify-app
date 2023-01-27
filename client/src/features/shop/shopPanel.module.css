@@ -2,10 +2,56 @@
     position: absolute;
     top: 7.4%;
     display: grid;
-    row-gap: 30px;
+    row-gap: 2%;
     grid-template-columns: 25% ;
     height:54.5rem;
     width:15%;
     overflow:auto;
     background-color: rgb(220, 220, 220);
+}
+
+.p_review_holder {
+    width: 400%;
+    background-color: rgb(172, 197, 205);
+    border-radius: 30px;
+}
+
+.rating {
+    font-size: 150%;
+    font-weight: 800;
+    margin: auto;
+    margin-top: 0%;
+    width: 30%;
+    color: rgb(255, 255, 255);
+}
+
+.image {
+    display: block;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4%;
+    box-shadow: 0px 2px 10px rgb(79, 100, 107);
+}
+.product_name {
+    margin:auto;
+    margin-top: 5%;
+    text-align: center;
+    width: 90%;
+    font-size: 100%;
+    color: rgb(50, 64, 69);
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.description {
+    margin: auto;
+    margin-bottom: 10%;
+    padding: 3%;
+    text-align: center;
+    width: 90%;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    background-color: rgb(50, 64, 69);
+    border-radius: 20px;
 }
