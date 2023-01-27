@@ -1,0 +1,11 @@
+.panel_holder {
+    position: absolute;
+    top: 7.4%;
+    display: grid;
+    row-gap: 30px;
+    grid-template-columns: 25% ;
+    height:54.5rem;
+    width:15%;
+    overflow:auto;
+    background-color: rgb(220, 220, 220);
+}

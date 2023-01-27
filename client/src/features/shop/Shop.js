@@ -3,12 +3,12 @@ import { useSelector } from "react-redux";
 import Product from "../product/Product";
 import Search from "../search/Search";
 import styles from './shop.module.css';
+import ShopPanel from "./ShopPanel";
 
 function Shop({ productIds }) {
 
     const products = useSelector((state) => state.products.entities)
     const errorMessage = useSelector(state => state.errors)
-    const reviews = useSelector(state => state.reviews.entities)
 
     return (
         <>
@@ -21,9 +21,7 @@ function Shop({ productIds }) {
                     })}
                 </div>
             </div>
-            <div>
-                
-            </div>
+            <ShopPanel />
         </>
     )
 }
