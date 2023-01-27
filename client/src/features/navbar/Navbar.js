@@ -54,22 +54,6 @@ function Navbar() {
             )
             :
             <button className={styles.menu_icon} onClick={()=> setIsOpen(!isOpen)}>menu</button>
-            // <div className={styles.navbar}>
-            //     <select className={styles.menu} onChange={(e)=>handleNavigation(e.target.value)}>
-            //         <option value={""}>
-            //             menu
-            //         </option>
-            //         <option value={"/shop"}>
-            //             shop
-            //         </option>
-            //         <option value={"/profile"} >
-            //             profile
-            //         </option>
-            //         <option value={"/logout"}>
-            //             logout
-            //         </option>
-            //     </select>
-            // </div>
     )
 }
 
