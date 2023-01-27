@@ -11,15 +11,20 @@ function Shop({ productIds }) {
     const reviews = useSelector(state => state.reviews.entities)
 
     return (
-        <div className={styles.shop_background}>
-            <p className={styles.error_message}>{errorMessage.errors}</p>
-            <Search />
-            <div className={styles.products_holder} >
-                {products?.map(product => {
-                    return <Product productIds={productIds} key={product.id} product={product} />
-                })}
+        <>
+            <div className={styles.shop_background}>
+                <p className={styles.error_message}>{errorMessage.errors}</p>
+                <Search />
+                <div className={styles.products_holder} >
+                    {products?.map(product => {
+                        return <Product productIds={productIds} key={product.id} product={product} />
+                    })}
+                </div>
             </div>
-        </div>
+            <div>
+                
+            </div>
+        </>
     )
 }
 
