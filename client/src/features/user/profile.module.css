@@ -1,5 +1,6 @@
 .profile_page {
     background-color: rgb(240, 240, 240);
+    position: relative;
 }
 
 .profile_holder {
@@ -58,7 +59,7 @@
 .prof_change_form {
     position:absolute;
     left: -54%;
-    top:-140%;
+    top:-160%;
     margin: auto;
     width: 200%;
     height: 380%;
@@ -114,8 +115,9 @@
 }
 
 .reviews_heading {
-    margin-left: 67%;
-    margin-top: -20%;
+    position: absolute;
+    top: 2%;
+    left: 67%;
     font-size: 2em;
     color:rgb(92, 164, 176);
     font-style: italic;

@@ -14,15 +14,14 @@
 }
 
 .vendor_filter {
-        position: absolute;
-        top: 9.8%;
+        position: relative;
         left: 30.5%;
         transform: translate(-50%, -240%);
         padding:.5em .5em;
         margin-left:20px;
-        margin-top: 5px;
+        margin-top: 1%;
         margin-bottom: 5px;
-        width:10%;
+        width:9%;
         text-align: center;
         font-size: 100%;
         font-weight: 600;

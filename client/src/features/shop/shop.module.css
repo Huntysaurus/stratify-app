@@ -1,8 +1,11 @@
 .shop_background {
-    background-color: rgb(240, 240, 240);
+    background-color: #9fdcff;
 }
 
 .products_holder {
+    position: absolute;
+    top:7.5%;
+    left: 15%;
     margin: auto;
     display: grid;
     row-gap: 30px;
