@@ -1,14 +1,20 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Product from "../product/Product";
+import { fetchAllReviews } from "../review/reviewsSlice";
 import Search from "../search/Search";
 import styles from './shop.module.css';
 import ShopPanel from "./ShopPanel";
 
 function Shop({ productIds }) {
 
+    const dispatch = useDispatch()
     const products = useSelector((state) => state.products.entities)
     const errorMessage = useSelector(state => state.errors)
+
+    useEffect(()=> {
+        dispatch(fetchAllReviews())
+    }, [])
 
     return (
         <>

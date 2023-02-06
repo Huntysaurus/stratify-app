@@ -7,6 +7,8 @@ class ReviewsController < ApplicationController
         elsif params[:user_id]
             user = @current_user
             reviews = user.reviews
+        else
+            reviews = Review.all
         end
         render json: reviews, include: [:user, :product], status: :ok
     end

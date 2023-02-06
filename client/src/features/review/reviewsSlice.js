@@ -1,3 +1,21 @@
+export function fetchAllReviews() {
+    return function (dispatch) {
+        dispatch({ type: "reviews/reviewsLoading"});
+        fetch('/reviews')
+        .then((r)=> {
+            if (r.ok) {
+                r.json().then((reviews) => {
+                    dispatch({
+                        type:"reviews/reviewsLoaded",
+                        payload: reviews
+                    })})
+            } else {
+                r.json().then(err => console.log(err.errors))
+            }
+        })
+    }
+}
+
 export function fetchUserReviews(user) {
     return function (dispatch) {
         dispatch({ type: "reviews/reviewsLoading"});

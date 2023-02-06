@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get "/users/:user_id/reviews", to: 'reviews#index'
   get "/product/:product_id/reviews", to: 'reviews#index'
+  get "/reviews", to: 'reviews#index'
 
   get "/users/:user_id/orders", to: 'orders#index'
   get "/orders/:id", to: 'orders#index'
