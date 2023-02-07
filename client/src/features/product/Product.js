@@ -30,7 +30,7 @@ function Product({ product }) {
     function handleProductNavigation(product) {
         dispatch(setProductDetail(product))
         navigate("/product_detail")
-      }
+    }
 
     return (
         <>
