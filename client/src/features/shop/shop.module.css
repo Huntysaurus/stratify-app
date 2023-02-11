@@ -1,4 +1,6 @@
 .shop_background {
+    position: relative;
+    top: 110%;
     background-color: #9fdcff;
 }
 
@@ -6,11 +8,11 @@
     position: absolute;
     top:7.5%;
     left: 15%;
+    height: 54.5rem;
     margin: auto;
     display: grid;
     row-gap: 30px;
     grid-template-columns: 25% 25% 25% 25%;
-    height:54.5rem;
     width:70%;
     overflow:auto;
     background-color: rgb(220, 220, 220);

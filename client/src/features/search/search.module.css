@@ -14,8 +14,8 @@
 }
 
 .vendor_filter {
-        position: relative;
-        left: 30.5%;
+        position: absolute;
+        left: 25%;
         transform: translate(-50%, -240%);
         padding:.5em .5em;
         margin-left:20px;

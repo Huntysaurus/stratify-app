@@ -1,3 +1,9 @@
+.app_holder {
+    position: relative;
+    top: 0%;
+    height: 6.8%;
+}
+
 .corner_logo {
     color:rgb(92, 164, 176);
     font-style: italic;
@@ -9,7 +15,7 @@
 
 .homeContainer {
     position: absolute;
-    top: 0px;
+    height: 100%;
     bottom: 0px;
     background-color:rgb(176, 231, 255);
     width: 100%;

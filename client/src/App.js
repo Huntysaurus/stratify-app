@@ -36,7 +36,7 @@ function App() {
   return (
     <div className={styles.homeContainer}>
       {currentUser ?
-      <div>
+      <div className={styles.app_holder}>
         <h1 className={styles.corner_logo} onClick={()=>navigate('/shop')}>stratify</h1>
         <Navbar/>
         <ShoppingCart />

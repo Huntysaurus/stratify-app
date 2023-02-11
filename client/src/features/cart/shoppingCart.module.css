@@ -1,5 +1,5 @@
 .cart_drop_menu {
-    position: absolute;
+    position: fixed;
     z-index: 99 !important;
     background-color:#c0c0c0;
     height: 33%;
@@ -11,13 +11,14 @@
     row-gap: 20px;
     grid-template-columns: 100%;
     overflow:auto;
+    box-shadow: -5px 5px 10px rgb(133, 133, 133);
 }
 
 .button_cart_close {
     position: fixed;
     background-color: #232323;
     color:#ffe100 ;
-    font-size: 1.2rem;
+    font-size: 150%;
     display: block;
     margin: auto;
     left: 82.8%;
@@ -25,7 +26,7 @@
     top: 1%;
     height: 4%;
     border: solid 3px #ffffff;
-    border-radius: 30px;
+    border-radius: 1em;
     z-index: 99 !important;
     cursor: pointer;
 }
@@ -36,48 +37,48 @@
     top: 36.5%;
     left: 80.8%;
     background-color: #ffe100;
-    width: 291.5px;
-    padding-bottom: 5px;
+    width: 15%;
+    padding-bottom: .5%;
     padding-top: 2px;
     padding-left: 3px;
     border: solid #232323;
 }
 
 .checkout {
+    position: fixed;
     top: 37.5%;
     left: 91.5%;
     z-index: 99;
-    position: fixed;
     background-color: #232323;
     color: #ffe100;
     border: solid #ffffff;
-    font-size: 20px;
+    font-size: 150%;
     padding: 12px;
     border-radius: 30px;
     cursor: pointer;
 }
 
 .cart_icon {
+    position: fixed;
     background-color: #232323;
-    position:absolute;
     left: 87%;
     top:.3%;
     width:3%;
     border: solid 3px rgb(255, 255, 255);
-    border-radius: 30px;
+    border-radius: 50%;
     cursor: pointer;
 }
 
 .cart_count {
-    position: absolute;
+    position: fixed;
     text-align: center;
     left: 85.9%;
     top:.1%;
     width:1.5%;
     color: #c6c6c6;
-    font-size: 20px;
+    font-size: 130%;
     font-weight: 700;
     background-color: #3b4b5a;
-    border-radius: 100%;
+    border-radius: 50%;
     border: solid #d9edff ;
 }

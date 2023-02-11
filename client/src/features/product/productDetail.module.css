@@ -1,4 +1,5 @@
 .product_detail_background {
+    position: relative;
     background-color: rgb(240, 240, 240);
     height: 120ch;
 }
@@ -88,12 +89,12 @@ button {
 }
 
 .detail_review_holder {
-    position: absolute;
+    position: relative;
     z-index: 89;
     text-align: center;
     width:30%;
-    left: 61%;
-    top:8%
+    left: 62%;
+    top:-82%
 }
 
 .button_alt {
@@ -111,12 +112,13 @@ button {
 }
 
 .button_post_review {
+    position: absolute;
     border-radius: 15px;
     padding: 6px;
     letter-spacing: .5px;
     padding-left: 15px;
     padding-right: 15px;
-    margin-left: 35%;
+    margin-left: 7%;
     margin-bottom: 20px;
     margin-top: 15px;
     border: 0ch;
@@ -153,9 +155,11 @@ button {
 }
 
 .star_rating {
-    position: absolute;
-    top: 68%;
-    left: 25%;
+    position: relative;
+    left: 7%;
+    margin-top: -1em;
+    width: 50%;
+    right: 11%;
 }
 
 .rating_text {
@@ -191,10 +195,10 @@ button {
 
 .detail_reviews_list {
     position: absolute;
-    height:53%;
+    height:51.5%;
     width:30%;
     left: 61%;
-    top:38%;
+    top:30%;
     margin: auto;
     display: grid;
     row-gap: 20px;
@@ -212,6 +216,7 @@ button {
     color:#3b4b5a;
     background-color:#c0c0c0;
     padding: 10px;
+    border-radius: 20px;
 }
 
 .no_history_text {

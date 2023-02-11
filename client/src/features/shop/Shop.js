@@ -17,7 +17,7 @@ function Shop({ productIds }) {
     }, [])
 
     return (
-        <>
+        <div>
             <div className={styles.shop_background}>
                 <p className={styles.error_message}>{errorMessage.errors}</p>
                 <Search />
@@ -28,7 +28,7 @@ function Shop({ productIds }) {
                 </div>
             </div>
             <ShopPanel />
-        </>
+        </div>
     )
 }
 

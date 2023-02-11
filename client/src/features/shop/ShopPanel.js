@@ -17,7 +17,7 @@ function ShopPanel() {
 
     return (
         <div className={styles.panel_holder}>
-            {reviews.map(review => {
+            {reviews?.map(review => {
                 return (
                 <div className={styles.p_review_holder}>
                     <p className={styles.product_name} >{review.product.name}</p>

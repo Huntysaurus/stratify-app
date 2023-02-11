@@ -1,10 +1,10 @@
 .panel_holder {
     position: absolute;
-    top: 7.4%;
+    top: 100%;
     display: grid;
     row-gap: 2%;
     grid-template-columns: 25% ;
-    height:54.5rem;
+    height:54.5em;
     width:15%;
     overflow:auto;
     background-color: rgb(220, 220, 220);
@@ -22,7 +22,7 @@
     margin: auto;
     margin-top: 0%;
     width: 30%;
-    color: rgb(255, 255, 255);
+    color: rgb(255, 238, 0);
 }
 
 .image {

@@ -4,14 +4,14 @@
 }
 
 .profile_holder {
-    background-color: #3b4b5a;
+    background-color: rgb(202, 202, 202);
     width: 70%;   
     margin: auto;
     height:110ch;
 }
 
 .profile_header {
-    color:rgb(92, 164, 176);
+    color:rgb(255, 255, 255);
     font-style: italic;
     margin-top: 3px;
     margin-left: 12%;
@@ -36,17 +36,20 @@
 }
 
 .profile_info_backing {
-    background-color: #bdcfdf;
+    background-color: rgb(184, 184, 184);
     margin-right: 60%;
     margin-top: -40px;
     margin-left: 4.5%;
     height: 85px;
+    border-radius: 20px;
 }
 
 .profile_info {
-    margin-left: 10px;
+    margin-left: 7%;
     font-size: 18px;
     font-weight: 600;
+    color: yellow;
+    margin-top: 2%;
 }
 
 .profile_forms_holder {
@@ -83,10 +86,10 @@
 }
 
 .orders_heading {
-    margin-left:4.5%;
-    margin-top:0%;
+    margin-left:12%;
+    margin-top:3%;
     font-size: 2em;
-    color:rgb(92, 164, 176);
+    color:rgb(255, 255, 255);
     font-style: italic;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
@@ -119,7 +122,7 @@
     top: 2%;
     left: 67%;
     font-size: 2em;
-    color:rgb(92, 164, 176);
+    color:rgb(255, 255, 255);
     font-style: italic;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
