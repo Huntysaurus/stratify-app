@@ -14,13 +14,26 @@
     border: none;
     box-shadow: 3px 5px 15px;
     z-index: 10;
+    opacity: 95%;
+}
+
+.navbar:hover {
+    transition-duration: .3s;
+    background-color: #101820;
+    opacity: 100%;
 }
 
 .list_option {
+    position: relative;
     margin-bottom: 25%;
     list-style: none;
     cursor: pointer;
     width:7%;
+}
+
+.list_option:hover {
+    transition-duration: .3s;
+    color: yellow;
 }
 
 .menu_icon {
@@ -39,4 +52,10 @@
     background-color: #466070;
     border: none;
     box-shadow: 3px 5px 15px #466070;
+    border-radius: 5px;
+}
+
+.menu_icon:hover {
+    transition-duration: .3s;
+    background-color: #101820;
 }

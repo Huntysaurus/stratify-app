@@ -1,3 +1,8 @@
+img:hover {
+    transition-duration: .2s;
+    outline: solid 5px yellow;
+}
+
 .product_detail_background {
     position: relative;
     background-color: rgb(240, 240, 240);
@@ -9,6 +14,11 @@ button {
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+button:hover {
+    background-color: yellow;
+    color: rgb(92, 164, 176);
 }
 
 .product_detail_remove {
@@ -62,6 +72,11 @@ button {
     font-weight: 600;
     background-color:rgb(220, 220, 220);
     box-shadow: 0px 2px 10px rgb(168, 168, 168)
+}
+
+.product_detail:hover {
+    transition-duration: .5s;
+    background-color: rgb(240, 240, 240);
 }
 
 .product_detail_h {
@@ -206,6 +221,11 @@ button {
     overflow:auto;
     background-color:rgb(220, 220, 220);
     box-shadow: 0px 2px 10px rgb(168, 168, 168)
+}
+
+.detail_reviews_list:hover {
+    transition-duration: .5s;
+    background-color: rgb(240, 240, 240);
 }
 
 .user_reviews {

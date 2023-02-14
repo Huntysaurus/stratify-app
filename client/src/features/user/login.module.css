@@ -1,8 +1,10 @@
 .form {
+    position: relative;
     margin: auto;
-    width: 45%;
+    width: 50%;
     text-align: center;
     background-color: #d9edff;
+    border-radius: 15px;
 }
 
 .sub_header {
@@ -24,4 +26,9 @@
     background-color: rgb(92, 164, 176);
     color: aliceblue;
     cursor: pointer;
+}
+
+.button:hover {
+    background-color: yellow;
+    color: rgb(92, 164, 176);
 }
