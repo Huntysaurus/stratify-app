@@ -13,7 +13,7 @@
     background-color: #3b4b5a;
     border: none;
     box-shadow: 3px 5px 15px;
-    z-index: 10;
+    z-index: 99 !important;
     opacity: 95%;
 }
 
