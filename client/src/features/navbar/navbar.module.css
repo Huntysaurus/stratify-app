@@ -43,7 +43,6 @@
 .navbar:hover {
     transition-duration: .3s;
     background-color: #101820;
-    opacity: 100%;
 }
 
 .list_option {
