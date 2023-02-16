@@ -28,29 +28,29 @@ function Navbar() {
 
     return (
             isOpen ? (
-                <>
+                <div className={styles.menu_holder}>
                     <button className={styles.menu_icon} onClick={()=> setIsOpen(!isOpen)}>menu</button>
 
                     <div className={styles.navbar}>
-                    <ul>
-                        <li className={styles.list_option}
-                            value="/shop"
-                            onClick={(e)=>handleNavigation("/shop")}>
-                            shop
-                        </li>
-                        <li className={styles.list_option}
-                            value="/profile"
-                            onClick={(e)=>handleNavigation("/profile")}>
-                            profile
-                        </li>
-                        <li className={styles.list_option}
-                            value="/logout"
-                            onClick={(e)=>handleNavigation("/logout")}>
-                            logout
-                        </li>
-                    </ul>
+                        <ul>
+                            <li className={styles.list_option}
+                                value="/shop"
+                                onClick={(e)=>handleNavigation("/shop")}>
+                                shop
+                            </li>
+                            <li className={styles.list_option}
+                                value="/profile"
+                                onClick={(e)=>handleNavigation("/profile")}>
+                                profile
+                            </li>
+                            <li className={styles.list_option}
+                                value="/logout"
+                                onClick={(e)=>handleNavigation("/logout")}>
+                                logout
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                </>
             )
             :
             <button className={styles.menu_icon} onClick={()=> setIsOpen(!isOpen)}>menu</button>

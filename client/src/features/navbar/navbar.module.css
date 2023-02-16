@@ -1,3 +1,27 @@
+.menu_holder {
+    background-color: #84919c;
+    position: static;
+}
+
+.menu_icon {
+    position: absolute;
+    left:8%;
+    top: 1%;
+    padding:.5em .5em;
+    margin-left:20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width:7%;
+    text-align: center;
+    font-size: 100%;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #648092;
+    border: none;
+    box-shadow: 3px 5px 15px #466070;
+    border-radius: 5px;
+}
+
 .navbar {
     position: absolute;
     transform: translate(118%, -19%);
@@ -14,7 +38,6 @@
     border: none;
     box-shadow: 3px 5px 15px;
     z-index: 99 !important;
-    opacity: 95%;
 }
 
 .navbar:hover {
@@ -25,6 +48,7 @@
 
 .list_option {
     position: relative;
+    margin: center;
     margin-bottom: 25%;
     list-style: none;
     cursor: pointer;
@@ -34,25 +58,6 @@
 .list_option:hover {
     transition-duration: .3s;
     color: yellow;
-}
-
-.menu_icon {
-    position: absolute;
-    left:8%;
-    top: 1%;
-    padding:.5em .5em;
-    margin-left:20px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width:7%;
-    text-align: center;
-    font-size: 100%;
-    font-weight: 600;
-    color: #ffffff;
-    background-color: #466070;
-    border: none;
-    box-shadow: 3px 5px 15px #466070;
-    border-radius: 5px;
 }
 
 .menu_icon:hover {
