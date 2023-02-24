@@ -3,6 +3,7 @@
     width: 30%;
     text-align: center;
     background-color: #d9edff;
+    border-radius: 20px;
 }
 
 .sub_header {
@@ -17,7 +18,8 @@
     width: 400px;
     padding: 3px;
     margin: auto;
-    border: solid rgb(59, 99, 106);
+    border-radius: 20px;
+    box-shadow: 5px 5px 3px rgb(136, 175, 192);
 }
 
 .button {
