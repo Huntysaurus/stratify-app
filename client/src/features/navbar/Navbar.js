@@ -38,11 +38,13 @@ function Navbar() {
                                 onClick={(e)=>handleNavigation("/shop")}>
                                 shop
                             </li>
+                            <br></br>
                             <li className={styles.list_option}
                                 value="/profile"
                                 onClick={(e)=>handleNavigation("/profile")}>
                                 profile
                             </li>
+                            <br></br>
                             <li className={styles.list_option}
                                 value="/logout"
                                 onClick={(e)=>handleNavigation("/logout")}>
