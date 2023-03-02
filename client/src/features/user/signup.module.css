@@ -1,6 +1,7 @@
 .form {
     margin: auto;
     width: 30%;
+    min-width: 50vh;
     text-align: center;
     background-color: #d9edff;
     border-radius: 20px;
