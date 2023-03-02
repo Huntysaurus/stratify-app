@@ -1,3 +1,30 @@
+.cart_icon {
+    position: fixed;
+    background-color: #232323;
+    left: 87%;
+    top:.3%;
+    width:3%;
+    border: solid 3px rgb(255, 255, 255);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 99 !important;
+}
+
+.cart_count {
+    position: absolute;
+    text-align: center;
+    left: 85.9%;
+    top:.1%;
+    color: #c6c6c6;
+    font-size: 2vh;
+    width:1.5%;
+    font-weight: 700;
+    background-color: #3b4b5a;
+    border-radius: 50em;
+    border: solid #d9edff ;
+    z-index: 99 !important;
+}
+
 .cart_drop_menu {
     position: fixed;
     z-index: 99 !important;
@@ -56,29 +83,4 @@
     padding: 12px;
     border-radius: 30px;
     cursor: pointer;
-}
-
-.cart_icon {
-    position: fixed;
-    background-color: #232323;
-    left: 87%;
-    top:.3%;
-    width:3%;
-    border: solid 3px rgb(255, 255, 255);
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.cart_count {
-    position: fixed;
-    text-align: center;
-    left: 85.9%;
-    top:.1%;
-    width:1.5%;
-    color: #c6c6c6;
-    font-size: 130%;
-    font-weight: 700;
-    background-color: #3b4b5a;
-    border-radius: 50%;
-    border: solid #d9edff ;
 }
