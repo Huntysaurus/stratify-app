@@ -5,7 +5,7 @@
 
 .profile_holder {
     background-color: rgb(202, 202, 202);
-    width: 70%;
+    width: 170vh;
     min-width: 100vh;
     margin: auto;
     height:110ch;
@@ -73,6 +73,8 @@
     width: 200%;
     height: 380%;
     text-align: center;
+    border-radius: 20px;
+    box-shadow: 1px 5px 5px #9c9c9c;
     background-color: #d9edff;
     z-index: 99 !important;
 }
