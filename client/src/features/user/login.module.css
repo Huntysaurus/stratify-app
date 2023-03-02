@@ -2,6 +2,7 @@
     position: relative;
     margin: auto;
     width: 50%;
+    min-width: 30vh;
     text-align: center;
     background-color: #d9edff;
     border-radius: 15px;
