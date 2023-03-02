@@ -6,20 +6,17 @@
 
 .search_bar {
     position: relative;
-    top: 1vh;
-    height: 3vh;
-    font-size: large;
-    margin-bottom: 1%;
+    top: -3em;
+    height: 2em;
+    font-size: 100%;
+    font-weight: 700;
 }
 
 .vendor_filter {
-        position: absolute;
+        position: relative;
+        top: -7em;
         left: 25%;
-        transform: translate(-50%, -240%);
         padding:.5em .5em;
-        margin-left:20px;
-        margin-top: 1%;
-        margin-bottom: 5px;
         width:9%;
         text-align: center;
         font-size: 100%;
