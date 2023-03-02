@@ -48,7 +48,6 @@ function Product({ product }) {
                     />
                     <p onClick={()=>handleProductNavigation(product)} className={styles.in_cart}>IN CART</p>
                     <p style={{marginBottom: "30px"}}>${product.price}</p>
-                    <button className={styles.product_remove} onClick={()=>handleRemoveFromCart(product)}>-</button>
                 </div>
 
                 :
@@ -64,7 +63,7 @@ function Product({ product }) {
                     />
                     <p>{product.category}</p>
                     <p style={{marginBottom: "30px"}}>${product.price}</p>
-                    <button className={styles.product_add} onClick={()=>handleAddToCart(product)}>+</button>
+                    <button className={styles.product_add} onClick={()=>handleAddToCart(product)}>add</button>
                 </div>
             }
         </>

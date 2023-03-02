@@ -4,7 +4,7 @@
     display: grid;
     row-gap: 2%;
     grid-template-columns: 25% ;
-    height:54.5em;
+    height:100vh;
     width:15%;
     overflow:auto;
     background-color: rgb(220, 220, 220);
