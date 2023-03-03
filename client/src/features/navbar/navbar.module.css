@@ -5,13 +5,11 @@
 
 .menu_icon {
     position: absolute;
-    left:8%;
-    top: 1%;
+    left:10%;
+    top: 20%;
     padding:.5em .5em;
     margin-left:20px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width:7%;
+    width:7.5vw;
     text-align: center;
     font-size: 100%;
     font-weight: 600;
@@ -20,19 +18,28 @@
     border: none;
     box-shadow: 3px 5px 15px #466070;
     border-radius: 5px;
-}
+}   
+
+    .menu_icon:hover {
+        transition-duration: .3s;
+        background-color: #101820;
+    }
 
 .navbar {
     position: absolute;
-    transform: translate(118%, -19%);
-    padding:.5em .5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 10.1%;
+    top: 65%;
+    padding-right: 1.5em;
     margin-left:20px;
     margin-top: 5px;
     margin-bottom: 5px;
-    width:6%;
-    text-align: center;
+    width:6vw;
     font-size: 100%;
     font-weight: 600;
+    overflow: hidden;
     color: #84919c;
     background-color: #3b4b5a;
     border: none;
@@ -57,9 +64,4 @@
 .list_option:hover {
     transition-duration: .3s;
     color: yellow;
-}
-
-.menu_icon:hover {
-    transition-duration: .3s;
-    background-color: #101820;
 }
