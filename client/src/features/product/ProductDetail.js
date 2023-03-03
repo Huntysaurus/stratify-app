@@ -69,7 +69,7 @@ function ProductDetail() {
                         src={productDetail.image}
                         alt={productDetail.name}
                         onClick={()=>navigate("/shop")}
-                        style={{cursor:"pointer"}}
+                        className={styles.detail_image}
                         title="back to shop"
                         />
                     <p>{productDetail.category}</p>
@@ -86,7 +86,7 @@ function ProductDetail() {
                         src={productDetail?.image}
                         alt={productDetail?.name}
                         onClick={()=>navigate("/shop")}
-                        style={{cursor:"pointer"}}
+                        className={styles.detail_image}
                         title="back to shop"
                         />
                     <p>{productDetail?.category}</p>
