@@ -1,13 +1,16 @@
 .panel_holder {
     position: absolute;
-    top: 120%;
+    top: 4em;
     display: grid;
     row-gap: 2%;
     grid-template-columns: 25% ;
     height:100vh;
     width:15vw;
     overflow:auto;
-    background-color: rgb(220, 220, 220);
+}
+
+.panel_holder::-webkit-scrollbar {
+    display: none;
 }
 
 .p_review_holder {

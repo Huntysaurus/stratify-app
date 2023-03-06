@@ -1,20 +1,23 @@
 .shop_background {
     position: relative;
-    top: 110%;
-    background-color: #9fdcff;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
 }
 
 .products_holder {
     position: relative;
-    top:-5em;
-    height: 100vh;
+    top:-6em;
+    height: 90vh;
     width:70vw;
     margin: auto;
     display: grid;
     row-gap: 30px;
     grid-template-columns: 25% 25% 25% 25%;
     overflow:auto;
-    background-color: rgb(220, 220, 220);
+}
+
+.products_holder::-webkit-scrollbar {
+    display: none;
 }
 
 .error_message {
