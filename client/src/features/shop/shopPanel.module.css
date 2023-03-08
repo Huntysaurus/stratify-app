@@ -4,7 +4,7 @@
     display: grid;
     row-gap: 2%;
     grid-template-columns: 25% ;
-    height:100vh;
+    height:93vh;
     width:15vw;
     overflow:auto;
 }
