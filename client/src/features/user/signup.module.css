@@ -3,8 +3,9 @@
     width: 30%;
     min-width: 50vh;
     text-align: center;
-    background-color: #d9edff;
+    background-color: #e3f2ff;
     border-radius: 20px;
+    box-shadow: 10px 10px 5px rgb(141, 201, 227);
 }
 
 .sub_header {
@@ -14,32 +15,39 @@
     margin-left: 10px;
 }
 
-.password_backdrop {
-    background-color: rgb(160, 208, 228);
-    width: 400px;
-    padding: 3px;
+.username_holder {
     margin: auto;
+    margin-left: 3.5%;
+}
+
+.password_backdrop {
+    position: relative;
+    margin: auto;
+    background-color: rgb(160, 208, 228);
+    width: 80%;
     border-radius: 20px;
     box-shadow: 5px 5px 3px rgb(136, 175, 192);
+    padding-top: 3%;
 }
 
 .button {
-    border-radius: 15px;
-    padding: 6px;
+    border-radius: 1em;
+    padding: 1%;
     letter-spacing: .5px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-bottom: 20px;
-    margin-top: 15px;
+    padding-left: 30%;
+    padding-right: 30%;
+    margin-bottom: 3%;
+    margin-top: 4%;
     border: 0ch;
-    background-color: rgb(92, 164, 176);
+    background-color: rgb(60, 75, 77);
+    font-size: 1.2em;
     color: aliceblue;
     cursor: pointer;
 }
 
 .error_messages {
     position: absolute;
-    top: 53%;
+    top: 44%;
     left: 76%;
     transform: translate(-50%, -50%);
     color: #ff5e00;

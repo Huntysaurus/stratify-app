@@ -52,6 +52,7 @@ input {
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
+    border-radius: 1em;
 }
 
 input:focus {

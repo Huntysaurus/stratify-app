@@ -44,27 +44,26 @@ function Signup() {
                     onChange={(e)=>setName(e.target.value)}
                     />
                 </label>
-                <br/>
                 <label>
                     enter email
                     <input
                     placeholder="optional"
-                    type="text"
+                    type="email"
                     value={email}
                     onChange={(e)=>setEmail(e.target.value)}
                     />
                 </label>
-                <br/>
-                <label>
-                    create username
-                    <input
-                    placeholder="6 to 15 characters long"
-                    type="text"
-                    value={username}
-                    onChange={(e)=>setUsername(e.target.value)}
-                    />
-                </label>
-                <br/>
+                <div className={styles.username_holder}>
+                    <label>
+                        create username
+                        <input
+                        placeholder="6 to 15 characters long"
+                        type="text"
+                        value={username}
+                        onChange={(e)=>setUsername(e.target.value)}
+                        />
+                    </label>
+                </div>
                 <div className={styles.password_backdrop}>
                     <label>
                         create password
@@ -75,7 +74,6 @@ function Signup() {
                         onChange={(e)=>setPassword(e.target.value)}
                         />
                     </label>
-                    <br/>
                     <label>
                         confirm password
                         <input
