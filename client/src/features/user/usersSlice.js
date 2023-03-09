@@ -26,6 +26,7 @@ export function createUser(userObj) {
                         type: "user/userCreate",
                         payload: user
                     })
+                    window.location.reload()
                 })
             } else {
                 r.json().then((err) => dispatch(setErrors(err.errors)))
