@@ -3,6 +3,8 @@
     width: 90%;
     color: #ffffff;
     background-color:#576068;
+    border-radius: 1em;
+    box-shadow: 5px 5px 5px grey;
 }
 
 .order_details {
