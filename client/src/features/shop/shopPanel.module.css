@@ -38,6 +38,11 @@
     box-shadow: 0px 2px 10px rgb(79, 100, 107);
     cursor: pointer;
 }
+
+.image:hover {
+    outline: solid yellow;
+}
+
 .product_name {
     margin:auto;
     margin-top: 5%;
