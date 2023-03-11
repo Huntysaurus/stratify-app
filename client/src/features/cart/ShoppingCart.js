@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import CartItem from "./CartItem";
 import styles from './shoppingCart.module.css';
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCart } from "./cartSlice";
+import { clearCartItems, fetchCart } from "./cartSlice";
 import { useNavigate } from "react-router-dom";
 import { createOrder } from "../order/ordersSlice";
 
@@ -44,6 +44,7 @@ function ShoppingCart() {
         } else {
             const response = window.confirm('Are you sure you want to checkout?')
             if (response) {
+                dispatch(clearCartItems())
                 dispatch(createOrder(currentUser, total))
                 } else {
                     return

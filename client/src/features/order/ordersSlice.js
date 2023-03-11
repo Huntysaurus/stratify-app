@@ -32,12 +32,11 @@ export function createOrder(currentUser, total) {
             if (r.ok) {
                 r.json().then((order) => {
                     dispatch({
-                        type: "orders/create",
+                        type: "orders/ordersLoaded",
                         payload: order
                     })
                 })
                 alert('Thanks for your purchase. An order has been created!')
-                window.location.reload()
             } else {
                 r.json().then((err) => console.log(err.errors))
             }
