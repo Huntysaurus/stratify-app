@@ -5,7 +5,7 @@
     background-color: rgb(255, 255, 255);
     font-size: 1rem;
     box-shadow: 0px 2px 10px rgb(168, 168, 168);
-    border: solid #bbdfff;
+    border: solid rgb(255, 255, 255);
     transition: .5s;
     max-height: 90vh;
 }
@@ -27,11 +27,17 @@
     background-color: rgb(116, 116, 116);
     font-size: 18px;
     box-shadow: 0px 2px 10px rgb(168, 168, 168);
-    transition-duration: 90ms;
+    transition-duration: 1s;
 }
 
 .product_card_remove:hover {
     opacity: 0;
+    background-color: #232323;
+}
+
+.product_add:hover {
+    background-color:#284c6b;
+    color: yellow;
 }
 
 .product_c_image {
@@ -41,7 +47,13 @@
     margin-top: -10px;
     margin-bottom: -20px;
     cursor: pointer;
+    border: solid 5px white;
     border-radius: 5px;
+    transition: 250ms;
+}
+
+.product_c_image:hover {
+    border: solid 5px yellow;
 }
 
 .product_c_image_remove {
@@ -76,9 +88,4 @@
     color: #d9edff;
     cursor: pointer;
     box-shadow: 0px 3px 7px rgb(139, 139, 139);
-}
-
-.product_add:hover {
-    background-color:#284c6b;
-    color: yellow;
 }
