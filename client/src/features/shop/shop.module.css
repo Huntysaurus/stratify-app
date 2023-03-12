@@ -11,9 +11,21 @@
     width:70vw;
     margin: auto;
     display: grid;
-    row-gap: 30px;
-    grid-template-columns: 25% 25% 25% 25%;
+    row-gap: 1.5vw;
+    grid-template-columns: repeat(4, 1fr);
     overflow:auto;
+}
+
+@media screen and (max-width: 768px) {
+    .products_holder {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .products_holder {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .products_holder::-webkit-scrollbar {
