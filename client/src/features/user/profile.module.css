@@ -174,7 +174,7 @@
 @media screen and (max-width: 1200px) {
     .reviews_holder {
         top: 45%;
-        height: 50%;
+        height: 50vh;
         left: 52%;
         width: 46vw;
     }
@@ -183,7 +183,7 @@
         position: absolute;
         top: 45%;
         left: 1%;
-        height:50%;
+        height:50vh;
         width:50vw;
     }
 
@@ -198,7 +198,7 @@
     .orders_heading {
         position: relative;
         top: -4em;
-        left: -4.5em;
+        left: -5em;
         font-size: 1.8em;
     }
 

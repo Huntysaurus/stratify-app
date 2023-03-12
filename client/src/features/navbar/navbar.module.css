@@ -67,3 +67,25 @@
     transition-duration: .3s;
     color: yellow;
 }
+
+@media screen and (max-width: 1200px) {
+
+    .menu_icon {
+        position: absolute;
+        left:-5vw;
+        top: -8%;
+        height: 8vh;
+        padding:.5em .5em;
+        width:20%;
+    }
+
+    .navbar{
+        position: absolute;
+        height: 100vh;
+        width: 120vw;
+        left: -30%;
+        top: -15%;
+        font-size: 3em;
+        z-index: 100 !important;
+    }
+}

@@ -89,3 +89,10 @@ textarea:focus {
     color: aliceblue;
     cursor: pointer;
 }
+
+@media screen and (max-width: 1200px) {
+
+    .corner_logo {
+        margin-left: 65%;
+    }
+}
