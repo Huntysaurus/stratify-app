@@ -20,10 +20,12 @@ button:hover {
     position: relative;
     cursor: pointer;
     width: 68%;
+    transition: 200ms;
 }
 
 .detail_image:hover {
     outline: solid yellow;
+    border-radius: 5em;
 }
 
 .product_detail_remove {
