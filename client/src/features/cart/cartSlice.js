@@ -60,12 +60,6 @@ export function removeFromCart(user, product) {
     }
 }
 
-export function clearCartItems(user) {
-    return function (dispatch) {
-        dispatch({type:"cart/clear"})
-    }
-}
-
 const initialState = [];
 
 export default function cartReducer(state = initialState, action) {
@@ -94,10 +88,6 @@ export default function cartReducer(state = initialState, action) {
 
         case "cart/fetchCartItems":
             return state = action.payload
-        
-        case "cart/clear":
-            debugger
-            return state = []
 
         default:
             return state;

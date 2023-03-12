@@ -13,6 +13,9 @@ function ShoppingCart() {
     const cartProducts = useSelector(state => state.cart.products)
     const currentUser = useSelector(state => state.user)
 
+    console.log(cartProducts)
+    console.log(currentUser)
+
     useEffect(()=> {
         navigate("/profile")
     }, [])
@@ -44,8 +47,8 @@ function ShoppingCart() {
         } else {
             const response = window.confirm('Are you sure you want to checkout?')
             if (response) {
-                dispatch(clearCartItems())
                 dispatch(createOrder(currentUser, total))
+                dispatch(fetchCart(currentUser))
                 } else {
                     return
                 }
