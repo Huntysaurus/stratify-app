@@ -170,3 +170,83 @@
 .reviews_holder:hover {
     outline: solid yellow;
 }
+
+@media screen and (max-width: 1200px) {
+    .reviews_holder {
+        top: 45%;
+        height: 50%;
+        left: 52%;
+        width: 46vw;
+    }
+
+    .orders_holder {
+        position: absolute;
+        top: 45%;
+        left: 1%;
+        height:50%;
+        width:50vw;
+    }
+
+    .reviews_heading {
+        position: relative;
+        top: -6.1em;
+        left: 50vw;
+        font-size: 1.8em;
+        z-index: 99 !important;
+    }
+
+    .orders_heading {
+        position: relative;
+        top: -4em;
+        left: -4.5em;
+        font-size: 1.8em;
+    }
+
+    .profile_info {
+        position: relative;
+        margin-left: 2%;
+        margin-right: 60%;
+        font-size: 18px;
+        font-weight: 600;
+        color: yellow;
+    }
+
+    .profile_info_backing {
+        position: relative;
+        top: -10%;
+        width:100vw;
+        height: 16%;
+        right: 4.5%;
+    }
+
+    .button {
+        position: relative;
+        top: -1em;
+        width: 42vw;
+        margin-top: 0px;
+    }
+
+    .prof_delete_acc {
+        position: relative;
+        left:50vw;
+        top:5.5%;
+        width: 40vw;
+        z-index: 99 !important;
+    }
+
+    .prof_change_form {
+        position:relative;
+        height: 100vh;
+        width: 100vw;
+        top:-12.5em;
+        left: -30%;
+        
+    }
+
+    .profile_header {
+        position: relative;
+        color:rgb(255, 255, 255);
+        font-style: italic;
+        margin-left: 18vw;
+    }
+}
