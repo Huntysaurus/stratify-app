@@ -85,3 +85,48 @@
     border-radius: 30px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 1200px) {
+
+    .cart_icon {
+        width:10%;
+    }
+
+    .cart_drop_menu {
+        position: fixed;
+        z-index: 99 !important;
+        height: 90vh;
+        width:100vw;
+        left: 0%;
+        top:0%;
+        z-index: 100 !important;
+    }
+
+    .button_cart_close {
+        position: fixed;
+        background-color: #232323;
+        color:#ffe100 ;
+        font-size: 150%;
+        width:100vw;
+        height: 7vh;
+        left: 0;
+        top: 0;
+    }
+
+    .checkout {
+        position: fixed;
+        top: 90vh;
+        left: 65%;
+        height: 10vh;
+        border-radius: 0;
+    }
+
+    .total {
+        position: fixed;
+        bottom: 0;
+        height: 8.4vh;
+        top: 86%;
+        left: 1%;
+        width: 63vw;
+    }
+}
