@@ -6,21 +6,22 @@
 
 .search_bar {
     position: relative;
-    top: -3em;
-    height: 2em;
-    font-size: 100%;
+    top: -5.5vh;
+    height: 3vh;
+    font-size: 130%;
     font-weight: 700;
     width: 20%;
 }
 
 .vendor_filter {
         position: relative;
-        top: -7em;
+        top: -12vh;
+        height: 4vh;
         left: 25%;
         padding:.5em .5em;
         width:9%;
         text-align: center;
-        font-size: 100%;
+        font-size: 115%;
         font-weight: 600;
         color: #ffffff;
         background-color: #75a2bc;

@@ -14,7 +14,7 @@ function Review({ review }) {
     return (
         <div className={styles.review_card}>
             {rating.map(() => {
-                return <span key={rating.index} className={styles.star}>&#9733;</span>
+                return <span key={rating.star} className={styles.star}>&#9733;</span>
             })}
             <div className={styles.review_text}>
                 <h2>{review.product.name}</h2>

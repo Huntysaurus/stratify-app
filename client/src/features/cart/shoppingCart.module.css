@@ -3,7 +3,7 @@
     background-color: #232323;
     left: 87%;
     top:.3%;
-    width:3%;
+    width:3vw;
     border: solid 3px rgb(255, 255, 255);
     border-radius: 50%;
     cursor: pointer;
@@ -16,8 +16,9 @@
     left: 85.9%;
     top:.1%;
     color: #c6c6c6;
-    font-size: 2vh;
-    width:1.5%;
+    font-size: 100%;
+    padding-left: .5%;
+    padding-right: .5%;
     font-weight: 700;
     background-color: #3b4b5a;
     border-radius: 50em;

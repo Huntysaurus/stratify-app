@@ -36,7 +36,7 @@ function Seach() {
                         all
                     </option>
                     {vendors?.map(vendor => {
-                        return <option value={vendor.id}>{vendor.name}</option>
+                        return <option key={vendor.id} value={vendor.id}>{vendor.name}</option>
                     })}
                 </select>
         </>

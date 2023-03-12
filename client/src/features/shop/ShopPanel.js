@@ -19,7 +19,7 @@ function ShopPanel() {
         <div className={styles.panel_holder}>
             {reviews?.map(review => {
                 return (
-                <div className={styles.p_review_holder}>
+                <div key={review.id} className={styles.p_review_holder}>
                     <p className={styles.product_name} >{review.product.name}</p>
                     <img className={styles.image} src={review.product.image} onClick={()=>handleProductNavigation(review.product)}/>
                     <p className={styles.rating}> {review.stars} stars</p>

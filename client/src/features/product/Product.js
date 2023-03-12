@@ -53,7 +53,7 @@ function Product({ product }) {
                 :
                 
                 <div className={styles.product_card}>
-                    <p><b>{product.name}</b></p>
+                    <p className={styles.product_text} ><b>{product.name}</b></p>
                     <img
                         onClick={()=>handleProductNavigation(product)}
                         className={styles.product_c_image}
@@ -61,8 +61,8 @@ function Product({ product }) {
                         alt={product.name}
                         title='details'
                     />
-                    <p>{product.category}</p>
-                    <p style={{marginBottom: "30px"}}>${product.price}</p>
+                    <p className={styles.product_text}>{product.category}</p>
+                    <p className={styles.product_text}>${product.price}</p>
                     <button className={styles.product_add} onClick={()=>handleAddToCart(product)}>add</button>
                 </div>
             }

@@ -21,12 +21,18 @@
 }
 
 .rating {
-    font-size: 150%;
+    font-size: 1.2vw;
     font-weight: 800;
     margin: auto;
-    margin-top: 0%;
+    margin-top: 1%;
+    padding-bottom: 4px;
+    margin-bottom: 1%;
     width: 30%;
-    color: rgb(104, 131, 140);
+    color: rgb(201, 233, 255);
+    background-color: rgb(38, 164, 255);
+    border-radius: 45%;
+    border: solid rgb(226, 248, 255);
+    text-align: center;
 }
 
 .image {
@@ -48,7 +54,8 @@
     margin-top: 5%;
     text-align: center;
     width: 90%;
-    font-size: 100%;
+    font-size: 1vw;
+    font-weight: 700;
     color: rgb(50, 64, 69);
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
@@ -62,6 +69,7 @@
     width: 90%;
     color: rgb(255, 255, 255);
     font-weight: 500;
+    font-size: .9vw;
     background-color: rgb(50, 64, 69);
     border-radius: 20px;
 }
