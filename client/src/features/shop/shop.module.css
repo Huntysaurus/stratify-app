@@ -16,15 +16,15 @@
     overflow:auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1300px) {
     .products_holder {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 800px) {
     .products_holder {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
