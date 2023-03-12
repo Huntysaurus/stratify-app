@@ -19,12 +19,21 @@
 @media screen and (max-width: 1300px) {
     .products_holder {
         grid-template-columns: repeat(3, 1fr);
+        height: 100vh;
     }
 }
 
 @media screen and (max-width: 800px) {
     .products_holder {
         grid-template-columns: repeat(2, 1fr);
+        height: 100vh;
+        top: -11%;
+    }
+
+    .shop_background {
+        position: relative;
+        height: 100vh;
+        background-color: rgb(255, 255, 255);
     }
 }
 
