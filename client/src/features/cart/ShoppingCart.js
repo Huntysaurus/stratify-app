@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import CartItem from "./CartItem";
 import styles from './shoppingCart.module.css';
 import { useDispatch, useSelector } from "react-redux";
-import { clearCartItems, fetchCart } from "./cartSlice";
+import { fetchCart } from "./cartSlice";
 import { useNavigate } from "react-router-dom";
 import { createOrder } from "../order/ordersSlice";
 
