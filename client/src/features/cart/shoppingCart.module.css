@@ -115,9 +115,10 @@
 
     .checkout {
         position: fixed;
-        top: 90vh;
-        left: 65%;
+        top: 89.5%;
+        left: 61%;
         height: 10vh;
+        width: 40vw;
         border-radius: 0;
     }
 
@@ -125,8 +126,8 @@
         position: fixed;
         bottom: 0;
         height: 8.4vh;
-        top: 86%;
-        left: 1%;
-        width: 63vw;
+        top: 87%;
+        left: 0;
+        width: 60vw;
     }
 }

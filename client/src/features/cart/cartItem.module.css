@@ -6,6 +6,12 @@
     background-color: #c6c6c6;
     font-size: 16px;
     font-weight: 600;
+    transition: .3s;
+}
+
+.cart_item:hover {
+    background-color: #ffffff;
+    border-radius: 2em;
 }
 
 .button {
