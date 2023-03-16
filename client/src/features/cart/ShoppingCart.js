@@ -41,19 +41,23 @@ function ShoppingCart() {
         )
     }
 
-    function onCheckoutClick() {
+    async function onCheckoutClick() {
         if (cartProducts.length === 0) {
-            alert('no items in cart')
+          alert('no items in cart')
         } else {
-            const response = window.confirm('Are you sure you want to checkout?')
-            if (response) {
-                dispatch(createOrder(currentUser, total))
-                dispatch(fetchCart(currentUser))
-                } else {
-                    return
-                }
+          const response = window.confirm('Are you sure you want to checkout?')
+          if (response) {
+            try {
+              await dispatch(createOrder(currentUser, total))
+              await dispatch(fetchCart(currentUser))
+            } catch (error) {
+              console.error(error)
             }
+          } else {
+            return
+          }
         }
+      }
 
     const total = addTotal(prices).toFixed(2)
 
