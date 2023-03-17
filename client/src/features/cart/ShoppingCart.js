@@ -41,18 +41,14 @@ function ShoppingCart() {
         )
     }
 
-    async function onCheckoutClick() {
+    function onCheckoutClick() {
         if (cartProducts.length === 0) {
           alert('no items in cart')
         } else {
           const response = window.confirm('Are you sure you want to checkout?')
           if (response) {
-            try {
-              await dispatch(createOrder(currentUser, total))
-              await dispatch(fetchCart(currentUser))
-            } catch (error) {
-              console.error(error)
-            }
+            dispatch(createOrder(currentUser, total))
+            dispatch(fetchCart(currentUser))
           } else {
             return
           }
