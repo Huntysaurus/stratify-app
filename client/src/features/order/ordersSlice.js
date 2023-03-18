@@ -35,6 +35,7 @@ export function createOrder(currentUser, total) {
                         type: "orders/ordersLoaded",
                         payload: order
                     })
+                    window.location.reload()
                 })
                 alert('Thanks for your purchase. An order has been created!')
             } else {
