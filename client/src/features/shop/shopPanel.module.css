@@ -80,3 +80,40 @@
     background-color: rgb(50, 64, 69);
     border-radius: 20px;
 }
+
+@media screen and (max-width: 800px) {
+
+    .panel_holder {
+        width:20vw;
+    }
+
+    .p_review_holder {
+        border-radius: 0;
+    }
+
+    .image {
+        width: 100%;
+    }
+
+    .product_name {
+        width: 100%;
+        font-size: 1em;
+        color: rgb(255, 255, 255);
+        background-color: rgb(128, 128, 128);
+        border-radius: 0;
+    }
+
+    .rating {
+        font-size: 1.2em;
+        width: 100%;
+        border-radius: 0;
+        border: none;
+    }
+
+    .description {
+        width: 100%;
+        font-size: .9em;
+        border-radius: 0;
+    }
+
+}
