@@ -95,3 +95,28 @@
     cursor: pointer;
     box-shadow: 0px 3px 7px rgb(139, 139, 139);
 }
+
+@media screen and (max-width: 800px) {
+
+    .product_card {
+        width: 90%;
+        height: 110%;
+        margin-bottom: 5vh;
+    }
+
+    .product_c_image {
+        width: 95%;
+        object-fit: cover;
+        margin-top: -5%;
+        margin-bottom: -18%;
+    }
+
+    .product_text {
+        font-size: 1em;
+    }
+
+    .product_add {
+        width: 50%;
+        font-size: 1em;
+    }
+}

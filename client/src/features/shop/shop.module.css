@@ -28,6 +28,8 @@
         grid-template-columns: repeat(2, 1fr);
         height: 100vh;
         top: -11%;
+        width: 80vw;
+        left: 10vw;
     }
 
     .shop_background {
