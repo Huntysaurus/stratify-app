@@ -53,7 +53,7 @@
 
 .image:hover {
     outline: solid yellow;
-    border-radius: 5em;
+    border-radius: 2em;
 }
 
 .product_name {

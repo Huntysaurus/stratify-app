@@ -14,7 +14,7 @@
     transition-duration: 250ms;
     background-color: #fffeba;
     overflow: hidden;
-    border-radius: 3em;
+    /* border-radius: 3em; */
     border: solid #fffb00;
 }
 
@@ -59,7 +59,7 @@
 
 .product_c_image:hover {
     border: solid 5px yellow;
-    border-radius: 5em;
+    border-radius: 2em;
 }
 
 .product_c_image_remove {
