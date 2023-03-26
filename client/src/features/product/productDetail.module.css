@@ -120,6 +120,7 @@ button:hover {
     width:30vw;
     left: 61%;
     top:-84%;
+    height: 31%;
     background-color: #dbdbdb;
     box-shadow: 0px 2px 10px rgb(168, 168, 168)
 }
@@ -267,12 +268,12 @@ button:hover {
 @media screen and (max-width: 1600px) {
 
     .detail_review_holder {
-        position: relative;
+        position: absolute;
         z-index: 110 !important;
         text-align: center;
-        width:100vw;
+        width:100%;
         left: 0;
-        top:-84vh;
+        top:0%;
         height: 101vh;
     }
 
@@ -358,12 +359,12 @@ button:hover {
     }
 
     .detail_review_holder {
-        position: relative;
+        position: absolute;
         z-index: 110 !important;
         text-align: center;
         width:100vw;
         left: 0;
-        top:-110vh;
+        top:-7.5%;
         height: 101vh;
     }
 
