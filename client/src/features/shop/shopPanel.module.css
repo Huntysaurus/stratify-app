@@ -22,7 +22,8 @@
 }
 
 .p_review_holder:hover {
-    background-color: rgb(103, 191, 255);
+    background-color: rgb(202, 202, 202);
+    box-shadow: 0px 1px 1px rgb(147, 147, 147);
 }
 
 .rating {

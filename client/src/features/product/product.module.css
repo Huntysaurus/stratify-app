@@ -12,7 +12,7 @@
 
 .product_card:hover {
     transition-duration: 250ms;
-    box-shadow: 1px 1px 3px rgb(168, 168, 168);
+    box-shadow: 1px 1px 3px rgb(191, 191, 191);
     overflow: hidden;
 }
 
