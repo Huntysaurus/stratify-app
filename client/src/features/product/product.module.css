@@ -4,7 +4,7 @@
     text-align: center;
     background-color: rgb(255, 255, 255);
     font-size: 1rem;
-    box-shadow: 0px 2px 10px rgb(168, 168, 168);
+    box-shadow: 2px 5px 12px rgb(168, 168, 168);
     border: solid rgb(255, 255, 255);
     transition: .5s;
     max-height: 45vh;
@@ -12,10 +12,8 @@
 
 .product_card:hover {
     transition-duration: 250ms;
-    background-color: #fffeba;
+    box-shadow: 1px 1px 3px rgb(168, 168, 168);
     overflow: hidden;
-    /* border-radius: 3em; */
-    border: solid #fffb00;
 }
 
 .product_card_remove {
