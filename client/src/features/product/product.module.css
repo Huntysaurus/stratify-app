@@ -5,14 +5,14 @@
     background-color: rgb(255, 255, 255);
     font-size: 1rem;
     box-shadow: 2px 5px 12px rgb(168, 168, 168);
-    border: solid rgb(255, 255, 255);
     transition: .5s;
     max-height: 45vh;
 }
 
 .product_card:hover {
     transition-duration: 250ms;
-    box-shadow: 1px 1px 3px rgb(191, 191, 191);
+    background-color: #f3f3f3;
+    box-shadow: 1px 1px 3px rgb(181, 181, 181);
     overflow: hidden;
 }
 
