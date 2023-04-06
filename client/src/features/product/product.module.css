@@ -2,17 +2,17 @@
     width: 95%;
     margin: auto;
     text-align: center;
-    background-color: rgb(255, 255, 255);
+    background-color: #f3f3f3;
     font-size: 1rem;
-    box-shadow: 2px 5px 12px rgb(168, 168, 168);
+    box-shadow: 1px 1px 5px rgb(168, 168, 168);
     transition: .5s;
     max-height: 45vh;
 }
 
 .product_card:hover {
     transition-duration: 250ms;
-    background-color: #f3f3f3;
-    box-shadow: 1px 1px 3px rgb(181, 181, 181);
+    background-color: #ffffff;
+    box-shadow: -1px 8px 12px rgb(168, 168, 168);
     overflow: hidden;
 }
 
