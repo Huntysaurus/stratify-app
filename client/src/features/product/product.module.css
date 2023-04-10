@@ -57,7 +57,7 @@
 
 .product_c_image:hover {
     border: solid 5px yellow;
-    border-radius: 2em;
+    border-radius: 1em;
 }
 
 .product_c_image_remove {
