@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Product from "../product/Product";
 import { fetchAllReviews } from "../review/reviewsSlice";
 import Search from "../search/Search";
+import PriceFilter from "../filter/PriceFilter";
 import styles from './shop.module.css';
 import ShopPanel from "./ShopPanel";
 
@@ -21,6 +22,7 @@ function Shop({ productIds }) {
             <div className={styles.shop_background}>
                 <p className={styles.error_message}>{errorMessage.errors}</p>
                 <Search />
+                <PriceFilter />
                 <div className={styles.products_holder} >
                     {products?.map(product => {
                         return <Product productIds={productIds} key={product.id} product={product} />
