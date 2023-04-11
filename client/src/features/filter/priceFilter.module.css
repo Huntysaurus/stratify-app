@@ -3,7 +3,10 @@
     margin-top: 0;
 }
 
-.select_holder{
-    margin-left: 30%;
-    margin-top: -10%;
+.select_holder {
+    position: relative;
+    top: -8em;
+    width: 10vw;
+    margin-left: 60%;
+    background-color: red;
 }

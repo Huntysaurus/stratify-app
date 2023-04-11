@@ -4,7 +4,7 @@ import styles from "./priceFilter.module.css"
 function PriceFilter() {
     return (
         <>
-            <select>
+            <select className={styles.select_holder}>
                 <option>
                     price filter
                 </option>
