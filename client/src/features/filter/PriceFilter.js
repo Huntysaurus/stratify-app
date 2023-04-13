@@ -6,7 +6,7 @@ function PriceFilter() {
         <>
             <select className={styles.select_holder}>
                 <option>
-                    price filter
+                    price filter(test)
                 </option>
             </select>
         </>
