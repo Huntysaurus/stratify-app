@@ -9,6 +9,10 @@
     cursor: pointer;
     z-index: 99 !important;
 }
+.cart_icon:hover {
+    opacity: 75%;
+    transition: .3s;
+}
 
 .cart_count {
     position: absolute;
