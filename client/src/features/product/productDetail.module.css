@@ -184,7 +184,13 @@ button:hover {
     position: absolute;
     width:25%;
     left: 63.5%;
-    top:8%
+    top:8%;
+    height: 4%;
+    transition: .2s;
+}
+
+.button_review_detail:hover{
+    height: 6%;
 }
 
 .star_rating {
